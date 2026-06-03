@@ -47,13 +47,29 @@ svg { flex-shrink: 0; }
 .logo { font-family: var(--font-heading); font-size: 28px; font-weight: 700; color: var(--secondary); letter-spacing: -0.5px; }
 .desktop-nav { display: none; }
 .desktop-nav ul { display: flex; gap: 32px; }
-.desktop-nav a { font-size: 14px; font-weight: 500; color: var(--neutral-700); transition: color 0.2s; }
+.desktop-nav a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--neutral-700);
+  transition: color 0.2s;
+  position: relative;
+}
 .desktop-nav a:hover,
 .desktop-nav a.active { color: var(--primary); }
+.desktop-nav a.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 100%;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 999px;
+}
 
 .header-actions { display: none; }
-.btn-phone { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--secondary); border: 2px solid var(--secondary); border-radius: var(--radius-sm); padding: 10px 20px; transition: all 0.2s; }
-.btn-phone:hover { background: var(--secondary); color: var(--white); }
+.btn-phone { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--secondary); transition: color 0.2s; }
+.btn-phone:hover { color: var(--primary); }
 .btn-phone svg { width: 16px; height: 16px; }
 
 .menu-toggle { display: flex; align-items: center; justify-content: center; background: none; border: none; cursor: pointer; padding: 8px; color: var(--neutral-700); }
@@ -237,7 +253,8 @@ svg { flex-shrink: 0; }
 /* ===== FOOTER ===== */
 .site-footer { background: var(--secondary); color: var(--white); }
 .footer-grid { display: grid; gap: 40px; padding: 64px 24px; }
-@media (min-width: 768px) { .footer-grid { grid-template-columns: 1.5fr 1fr 1fr; } }
+@media (min-width: 768px) { .footer-grid { grid-template-columns: 1fr auto; } }
+@media (min-width: 768px) { .footer-col:last-child { justify-self: end; } }
 .footer-logo { font-family: var(--font-heading); font-size: 28px; font-weight: 700; margin-bottom: 16px; }
 .footer-brand p { font-size: 14px; color: rgba(255,255,255,0.65); max-width: 320px; line-height: 1.7; }
 .footer-social { display: flex; gap: 12px; margin-top: 24px; }

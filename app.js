@@ -81,20 +81,9 @@ const HOW_IT_WORKS = [
   { step: 4, title: 'Job Done Right', desc: 'We complete the work, clean up after ourselves, and follow up to make sure you\'re happy.' },
 ];
 
-const FOOTER_COMPANY = [
-  { label: 'About Us', href: 'about.html' },
-  { label: 'Careers', href: '#' },
-  { label: 'Blog & Tips', href: '#' },
-  { label: 'Reviews', href: '#' },
-  { label: 'Booking', href: '#' },
-  { label: 'Contact', href: 'contact.html' },
-];
-
 const FOOTER_CONTACT = [
-  { icon: 'phone', html: '<strong>07788 577456</strong><br>Main & Emergency Line', href: 'tel:4407788577456' },
-  { icon: 'send', html: '<strong>hello@plumber.com</strong>', href: 'mailto:hello@plumber.com' },
-  { icon: 'geoAlt', html: 'Serving 12 states across the USA' },
-  { icon: 'clock', html: '24 / 7 / 365 \u2014 Always Available' },
+  { icon: 'phone', html: '<strong>07788 577456</strong>', href: 'tel:4407788577456' },
+  { icon: 'send', html: '<strong>jordan@westwaytiling.com</strong>', href: 'mailto:jordan@westwaytiling.com' },
 ];
 
 const SOCIAL_ICONS = [
@@ -152,12 +141,6 @@ function renderFooter() {
           <div class="footer-social">
             ${SOCIAL_ICONS.map(s => `<a href="${s.href}" aria-label="${s.icon}">${ICONS[s.icon]}</a>`).join('')}
           </div>
-        </div>
-        <div class="footer-col">
-          <h4>Company</h4>
-          <ul>
-            ${FOOTER_COMPANY.map(l => `<li><a href="${l.href}">${l.label}</a></li>`).join('')}
-          </ul>
         </div>
         <div class="footer-col">
           <h4>Contact</h4>
