@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — Plumber</title>
+<meta name="description" content="Learn about Plumber — licensed, insured, and always on time. Serving 12 states with expert Plumbing, HVAC & Electrical services.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="header"></div>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>About Plumber</h1>
+    <p>Licensed, insured, and committed to honest work since day one.</p>
+  </div>
+</section>
+
+<section class="section section-white">
+  <div class="container about-grid">
+    <div class="about-image">
+      <div style="background:#667; width:100%; height:100%; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.3); font-size:18px;">Our Team</div>
+    </div>
+    <div class="about-text">
+      <h2>Treating Every Home Like It's Our Own</h2>
+      <p>Plumber was founded with a simple mission: provide honest, high-quality home services without the upselling and hidden fees that plague the industry. Every technician we hire shares that commitment.</p>
+      <p>We invest heavily in training, tools, and technology so our team can diagnose and fix problems faster and more accurately. From routine maintenance to emergency repairs, we bring the same level of care and professionalism to every job.</p>
+      <p>Today, we're proud to serve over 15,000 homeowners across 12 states with a 4.9-star rating — but our standards haven't changed. We still answer the phone at 3 AM. We still show up on time. We still clean up after ourselves.</p>
+      <div class="about-stats">
+        <div class="about-stat">
+          <h3>15,000+</h3>
+          <p>Homes Served</p>
+        </div>
+        <div class="about-stat">
+          <h3>200+</h3>
+          <p>Certified Techs</p>
+        </div>
+        <div class="about-stat">
+          <h3>12</h3>
+          <p>States Licensed</p>
+        </div>
+        <div class="about-stat">
+          <h3>4.9</h3>
+          <p>Google Rating</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-warm">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Values</h2>
+    </div>
+    <div class="hiw-grid" style="grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));">
+      <div class="hiw-step">
+        <div class="hiw-number" style="background:var(--secondary);">1</div>
+        <h3>Integrity First</h3>
+        <p>We never recommend work you don't need. Our techs are trained to diagnose honestly and present clear options.</p>
+      </div>
+      <div class="hiw-step">
+        <div class="hiw-number" style="background:var(--secondary);">2</div>
+        <h3>Quality Craftsmanship</h3>
+        <p>Every installation, repair, and inspection meets our strict quality standards — or we make it right.</p>
+      </div>
+      <div class="hiw-step">
+        <div class="hiw-number" style="background:var(--secondary);">3</div>
+        <h3>Customer Respect</h3>
+        <p>We treat your home with care. Shoes off, tarps down, mess cleaned. You shouldn't have to clean up after us.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer"></div>
+
+<script src="app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  renderHeader('about');
+  renderFooter();
+});
+</script>
+</body>
+</html>

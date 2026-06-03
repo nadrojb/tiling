@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plumber — Plumbing and HVAC Services</title>
+<meta name="description" content="Expert Plumbing, HVAC & Electrical services — available 24/7. Licensed technicians, upfront pricing, no surprises.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/x-icon" href="#">
+</head>
+<body>
+
+<div id="header"></div>
+
+<section class="hero">
+  <div class="hero-bg">
+    <div class="standards-img" style="height:100%; border-radius:0; aspect-ratio:unset;">
+      <div style="background:#334; width:100%; height:100%; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.2); font-size:24px;">Hero Background</div>
+    </div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <div class="hero-badge">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="currentColor" d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/></svg>
+          Based in Trowbridge. Serving Wiltshire, Bath & Bristol
+        </div>
+        <h1>Expert Tiling, Done Right. Every Time.</h1>
+        <p class="hero-subtitle">Professional wall and floor tiling for kitchens, bathrooms, and living spaces. Free quotes, quality craftsmanship, and a finish that lasts.</p>
+        <div class="hero-rating">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="currentColor" d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327l4.898.696c.441.062.612.636.282.95l-3.522 3.356l.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/></svg>
+          4.9 Google Rating
+        </div>
+      </div>
+      <div class="hero-form" id="heroForm">
+        <h2>Get a Free Quote</h2>
+        <p>Tell us about your project and we'll get back to you within 30 minutes.</p>
+        <form onsubmit="event.preventDefault(); alert('Thank you! We will be in touch shortly.');">
+          <div>
+            <label for="heroName">Full Name</label>
+            <input type="text" id="heroName" placeholder="Your Full Name" required>
+          </div>
+          <div>
+            <label for="heroPhone">Phone Number</label>
+            <input type="tel" id="heroPhone" placeholder="07700 000000" required>
+          </div>
+          <div>
+            <label for="heroMessage">Tell us about your project</label>
+            <textarea id="heroMessage" placeholder="e.g. I need a new bathroom floor tiled, approximately 6sqm..." rows="4"></textarea>
+          </div>
+          <button type="submit" class="btn-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="currentColor" d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26l.001.002l4.995 3.178l3.178 4.995l.002.002l.26.41a.5.5 0 0 0 .886-.083zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215l7.494-7.494l1.178-.471z"/></svg>
+            Request Quote
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="marquee" class="marquee-section"></div>
+
+<section class="section section-white" id="servicesSection">
+  <div class="container">
+    <div class="section-title">
+      <h2>Some of the services we offer</h2>
+    </div>
+    <div class="service-grid" id="serviceGrid"></div>
+  </div>
+</section>
+
+<!--
+<section class="section section-warm" id="standardsSection">
+  <div class="container standards-grid">
+    <div class="standards-images">
+      <div class="standards-img img-main"><div style="background:#667; width:100%; height:100%; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.3);">AC Service</div></div>
+      <div class="standards-img"><div style="background:#556; width:100%; height:100%; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.3);">Plumbing</div></div>
+      <div class="standards-img"><div style="background:#445; width:100%; height:100%; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.3);">Installation</div></div>
+    </div>
+    <div class="standards-content">
+      <h2>The Standard <em>Others Aim For</em></h2>
+      <p>We built Plumber on one promise: treat every home like it's our own. No upselling, no hidden fees — just honest work done right the first time.</p>
+      <div class="standards-features">
+        <div class="standards-feature">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M8 0c-.69 0-1.843.265-2.928.56c-1.11.3-2.229.655-2.887.87a1.54 1.54 0 0 0-1.044 1.262c-.596 4.477.787 7.795 2.465 9.99a11.8 11.8 0 0 0 2.517 2.453c.386.273.744.482 1.048.625c.28.132.581.24.829.24s.548-.108.829-.24a7 7 0 0 0 1.048-.625a11.8 11.8 0 0 0 2.517-2.453c1.678-2.195 3.061-5.513 2.465-9.99a1.54 1.54 0 0 0-1.044-1.263a63 63 0 0 0-2.887-.87C9.843.266 8.69 0 8 0m2.146 5.146a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793z"/></svg>
+          <div>
+            <h4>Licensed, Insured & Background-Checked</h4>
+            <p>Every technician is fully vetted, certified, and insured — you're in safe hands.</p>
+          </div>
+        </div>
+        <div class="standards-feature">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06a.733.733 0 0 1 1.047 0l3.052 3.093l5.4-6.425z"/></svg>
+          <div>
+            <h4>Upfront, Transparent Pricing</h4>
+            <p>You'll know the exact cost before any work begins. We never surprise you with add-ons.</p>
+          </div>
+        </div>
+        <div class="standards-feature">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/></svg>
+          <div>
+            <h4>On-Time Guarantee</h4>
+            <p>We arrive within your scheduled window — or your diagnostic fee is waived.</p>
+          </div>
+        </div>
+      </div>
+      <div class="brands">
+        <p>Certifications & Memberships</p>
+        <div class="brands-row">
+          <div class="brand-item">Brand 1</div>
+          <div class="brand-item">Brand 2</div>
+          <div class="brand-item">Brand 3</div>
+          <div class="brand-item">Brand 4</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+-->
+
+<section class="section section-white" id="testimonialsSection">
+  <div class="container">
+    <div class="section-title">
+      <h2>What Our Customers Say</h2>
+      <p>4.9 from 8,400+ reviews</p>
+    </div>
+    <div class="testimonials-grid" id="testimonials"></div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="cta-bg">
+    <div style="background:#445; width:100%; height:100%; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.2); font-size:24px;">CTA Background</div>
+  </div>
+  <div class="cta-overlay"></div>
+  <div class="cta-content">
+    <div class="container">
+      <h2>Book a quote today.</h2>
+      <div class="cta-actions">
+        <button class="btn-primary" onclick="document.getElementById('heroForm').scrollIntoView({behavior:'smooth'})">Contact Us</button>
+        <a href="tel:4407788577456" class="cta-phone">07788 577456</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer"></div>
+
+<script src="app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  renderHeader('index');
+  renderFooter();
+  renderMarquee();
+  renderServices();
+  renderTestimonials();
+});
+</script>
+</body>
+</html>
