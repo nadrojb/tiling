@@ -76,7 +76,7 @@ const SERVICE_AREAS = ['Trowbridge', 'Bath', 'Bristol', 'Wiltshire', 'Bradford-o
 
 const HOW_IT_WORKS = [
   { step: 1, title: 'Give Me a Call', desc: 'Get in touch and tell me a bit about your project — what room, what size, and any ideas you\'ve got in mind.' },
-  { step: 2, title: 'Free Quote & Chat', desc: 'I\'ll pop round to take a look, talk through the options, and give you a clear price with no pressure.' },
+  { step: 2, title: 'Fast Quote & Chat', desc: 'I\'ll pop round to take a look, talk through the options, and give you a clear price with no pressure.' },
   { step: 3, title: 'I Get to Work', desc: 'Once you\'re happy, I\'ll get it booked in. I turn up on time, keep things tidy, and work to get it right.' },
   { step: 4, title: 'You Love the Result', desc: 'I clean up after myself, walk you through the finished job, and make sure you\'re happy before I leave.' },
 ];
@@ -135,7 +135,7 @@ function renderFooter() {
       <div class="container footer-grid">
         <div class="footer-brand">
           <div class="footer-logo">Plumber</div>
-          <p>Friendly, reliable wall and floor tiling for Wiltshire, Bath & Bristol. Free quotes, quality work, no cutting corners.</p>
+          <p>Friendly, reliable wall and floor tiling for Wiltshire, Bath & Bristol. Fast quotes, quality work, no cutting corners.</p>
           <div class="footer-social">
             ${SOCIAL_ICONS.map(s => `<a href="${s.href}" aria-label="${s.icon}">${ICONS[s.icon]}</a>`).join('')}
           </div>
