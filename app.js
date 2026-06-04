@@ -196,7 +196,7 @@ function renderServices() {
   const el = document.getElementById('serviceGrid');
   if (!el) return;
   el.innerHTML = SERVICES.map((s, i) => `
-    <div class="svc-card" style="animation-delay:${i * 0.1}s">
+    <div class="svc-card delay-${i + 1}" data-animate>
       <div class="svc-card-top">
         <div class="svc-icon">${ICONS[s.icon]}</div>
       </div>
@@ -209,8 +209,8 @@ function renderServices() {
 function renderTestimonials() {
   const el = document.getElementById('testimonials');
   if (!el) return;
-  el.innerHTML = TESTIMONIALS.map(t => `
-    <div class="testimonial-card">
+  el.innerHTML = TESTIMONIALS.map((t, i) => `
+    <div class="testimonial-card delay-${i + 1}" data-animate>
       <div class="testimonial-stars">${ICONS.star}${ICONS.star}${ICONS.star}${ICONS.star}${ICONS.star}</div>
       <p class="testimonial-text">"${t.text}"</p>
       <div class="testimonial-author">
@@ -241,3 +241,19 @@ function renderHowItWorks() {
     </div>
   `).join('');
 }
+
+// ===== SCROLL ANIMATIONS =====
+function initScrollAnimations() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+}
+
+document.addEventListener('DOMContentLoaded', initScrollAnimations);
