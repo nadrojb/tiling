@@ -195,7 +195,8 @@ function initMarquee() {
 function renderServices() {
   const el = document.getElementById('serviceGrid');
   if (!el) return;
-  el.innerHTML = SERVICES.map((s, i) => `
+  const shuffled = [...SERVICES].sort(() => Math.random() - 0.5);
+  el.innerHTML = shuffled.map((s, i) => `
     <div class="svc-card delay-${i + 1}" data-animate>
       <div class="svc-card-top">
         <div class="svc-icon">${ICONS[s.icon]}</div>
