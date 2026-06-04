@@ -89,8 +89,6 @@ const FOOTER_CONTACT = [
 const SOCIAL_ICONS = [
   { icon: 'facebook', href: '#' },
   { icon: 'instagram', href: '#' },
-  { icon: 'x', href: '#' },
-  { icon: 'youtube', href: '#' },
 ];
 
 // ===== RENDER FUNCTIONS =====
