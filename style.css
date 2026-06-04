@@ -241,7 +241,8 @@ svg { flex-shrink: 0; }
 /* ===== TESTIMONIALS ===== */
 .testimonials-grid { display: grid; gap: 24px; grid-template-columns: 1fr; }
 @media (min-width: 768px) { .testimonials-grid { grid-template-columns: repeat(3, 1fr); } }
-.testimonial-card { background: var(--white); border: 1px solid var(--neutral-200); border-radius: var(--radius); padding: 32px; display: flex; flex-direction: column; gap: 16px; }
+.testimonial-card { background: var(--neutral-50); border: 1px solid var(--neutral-200); border-radius: var(--radius); padding: 32px; display: flex; flex-direction: column; gap: 16px; transition: all 0.2s; }
+.testimonial-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
 .testimonial-stars { display: flex; gap: 2px; }
 .testimonial-stars svg { width: 16px; height: 16px; color: #eab308; }
 .testimonial-text { font-size: 15px; color: var(--neutral-600); line-height: 1.7; flex: 1; }
