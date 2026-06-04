@@ -42,7 +42,7 @@ const ICONS = {
 const NAV_LINKS = [
   { label: 'Home', href: 'index.html' },
   { label: 'About', href: 'about.html' },
-  { label: 'Services', href: 'services.html' },
+  { label: 'Gallery', href: 'gallery.html' },
   { label: 'Contact', href: 'contact.html' },
 ];
 
@@ -79,6 +79,21 @@ const HOW_IT_WORKS = [
   { step: 2, title: 'Fast Quote & Chat', desc: 'I\'ll pop round to take a look, talk through the options, and give you a clear price with no pressure.' },
   { step: 3, title: 'I Get to Work', desc: 'Once you\'re happy, I\'ll get it booked in. I turn up on time, keep things tidy, and work to get it right.' },
   { step: 4, title: 'You Love the Result', desc: 'I clean up after myself, walk you through the finished job, and make sure you\'re happy before I leave.' },
+];
+
+const GALLERY_IMAGES = [
+  { src: 'https://picsum.photos/seed/tile1/800/600', thumb: 'https://picsum.photos/seed/tile1/400/300', caption: 'Kitchen floor tiling' },
+  { src: 'https://picsum.photos/seed/tile2/800/600', thumb: 'https://picsum.photos/seed/tile2/400/300', caption: 'Bathroom wall and floor' },
+  { src: 'https://picsum.photos/seed/tile3/800/600', thumb: 'https://picsum.photos/seed/tile3/400/300', caption: 'Kitchen splashback' },
+  { src: 'https://picsum.photos/seed/tile4/800/600', thumb: 'https://picsum.photos/seed/tile4/400/300', caption: 'Shower enclosure tiling' },
+  { src: 'https://picsum.photos/seed/tile5/800/600', thumb: 'https://picsum.photos/seed/tile5/400/300', caption: 'Bathroom renovation' },
+  { src: 'https://picsum.photos/seed/tile6/800/600', thumb: 'https://picsum.photos/seed/tile6/400/300', caption: 'Wet room floor tiling' },
+  { src: 'https://picsum.photos/seed/tile7/800/600', thumb: 'https://picsum.photos/seed/tile7/400/300', caption: 'Kitchen backsplash' },
+  { src: 'https://picsum.photos/seed/tile8/800/600', thumb: 'https://picsum.photos/seed/tile8/400/300', caption: 'Porcelain floor tiles' },
+  { src: 'https://picsum.photos/seed/tile9/800/600', thumb: 'https://picsum.photos/seed/tile9/400/300', caption: 'Bathroom wall tiles' },
+  { src: 'https://picsum.photos/seed/tile10/800/600', thumb: 'https://picsum.photos/seed/tile10/400/300', caption: 'Kitchen floor pattern' },
+  { src: 'https://picsum.photos/seed/tile11/800/600', thumb: 'https://picsum.photos/seed/tile11/400/300', caption: 'Herringbone bathroom floor' },
+  { src: 'https://picsum.photos/seed/tile12/800/600', thumb: 'https://picsum.photos/seed/tile12/400/300', caption: 'Splashback feature wall' },
 ];
 
 const FOOTER_CONTACT = [
@@ -205,6 +220,40 @@ function renderServices() {
       <p>${s.desc}</p>
     </div>
   `).join('');
+}
+
+function renderGallery() {
+  const el = document.getElementById('galleryGrid');
+  if (!el) return;
+  el.innerHTML = GALLERY_IMAGES.map((img, i) => `
+    <div class="gallery-item delay-${(i % 5) + 1}" data-animate onclick="showLightbox('${img.src}','${img.caption.replace(/'/g, "\\'")}')">
+      <img src="${img.thumb}" alt="${img.caption}" loading="lazy">
+      <div class="gallery-overlay">${img.caption}</div>
+    </div>
+  `).join('');
+}
+
+function showLightbox(src, caption) {
+  const existing = document.getElementById('lightbox');
+  if (existing) existing.remove();
+
+  const lb = document.createElement('div');
+  lb.id = 'lightbox';
+  lb.className = 'lightbox';
+  lb.innerHTML = `
+    <span class="lightbox-close">&times;</span>
+    <div class="lightbox-content">
+      <img src="${src}" alt="${caption || ''}">
+      ${caption ? '<p class="lightbox-caption">' + caption + '</p>' : ''}
+    </div>
+  `;
+  lb.addEventListener('click', e => { if (e.target === lb) lb.remove(); });
+  lb.querySelector('.lightbox-close').addEventListener('click', () => lb.remove());
+  document.addEventListener('keydown', function onKey(e) {
+    if (e.key === 'Escape') { lb.remove(); document.removeEventListener('keydown', onKey); }
+  });
+  document.body.appendChild(lb);
+  setTimeout(() => lb.classList.add('open'), 10);
 }
 
 function renderTestimonials() {
