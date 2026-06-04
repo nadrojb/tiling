@@ -167,11 +167,7 @@ function renderFooter() {
       </div>
       <div class="footer-bottom">
         <div class="container">
-          <p>&copy; 2026 Plumber LLC. All rights reserved.</p>
-          <div class="footer-bottom-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-          </div>
+          <p>&copy; 2026 Westway Tiling. All rights reserved.</p>
         </div>
       </div>
     </footer>
