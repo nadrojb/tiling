@@ -61,24 +61,24 @@ const MARQUEE_ITEMS = [
 ];
 
 const SERVICES = [
-  { icon: 'grid', title: 'Kitchen Wall & Floor', desc: 'Floor and wall tiling for kitchens — durable, water-resistant finishes for high-traffic areas.', price: '' },
-  { icon: 'droplet', title: 'Bathroom Wall & Floor', desc: 'Full bathroom tiling including floors, walls, shower enclosures, and wet rooms — waterproofed and sealed.', price: '' },
-  { icon: 'wrench', title: 'Tile Removal & Prep', desc: 'Old tile removal, surface preparation, and substrate repairs — ready for a perfect new installation.', price: '' },
+  { icon: 'grid', title: 'Kitchen Floor & Wall Tiling', desc: 'Durable, good-looking tiling for kitchen floors and walls — built to handle daily life and look great doing it.', price: '' },
+  { icon: 'droplet', title: 'Bathroom Tiling', desc: 'Full bathroom tiling including walls, floors, showers and wet rooms. Waterproofed, sealed, and finished to a high standard.', price: '' },
+  { icon: 'wrench', title: 'Tile Removal & Prep Work', desc: 'Got old tiles that need to go? I can remove them, prep the surface, and get it ready for a fresh new finish.', price: '' },
 ];
 
 const TESTIMONIALS = [
-  { text: 'Water heater failed on Thanksgiving morning at 6 AM. I called expecting to leave a voicemail \u2014 someone picked up immediately. A tech arrived within the hour, diagnosed the unit, and had us back with hot water well before dinner. I\'ve never experienced service like this from any home services company. Ever.', name: 'Sarah M.', location: 'Houston, TX', category: 'Emergency', avatar: '' },
-  { text: 'Panel upgrade done in one day. Passed city inspection on the first visit. The tech even labeled every breaker clearly \u2014 something the original electrician never did. Fair price for a big job.', name: 'Marcus H.', location: 'Atlanta, GA', category: 'Electrical', avatar: '' },
-  { text: 'Annual HVAC plan caught a refrigerant leak before summer. Saved me from a $3,000 compressor failure. The plan paid for itself three times over in one visit. Technicians are always on time.', name: 'Priya N.', location: 'Phoenix, AZ', category: 'HVAC', avatar: '' },
+  { text: 'Jordan did a fantastic job tiling our kitchen floor. Really friendly, turned up when he said he would, and the finish is spot on. Wouldn\'t hesitate to recommend.', name: 'Sarah M.', location: 'Trowbridge', category: 'Kitchen', avatar: '' },
+  { text: 'Had Jordan tile our bathroom after a recommendation from a neighbour. Great attention to detail and left the place spotless. Really chuffed with the result.', name: 'Marcus H.', location: 'Bath', category: 'Bathroom', avatar: '' },
+  { text: 'First time I\'ve used Jordan and won\'t be the last. Fair price, great communication, and the splashback looks brilliant. Proper job.', name: 'Priya N.', location: 'Bradford-on-Avon', category: 'Splashback', avatar: '' },
 ];
 
-const SERVICE_AREAS = ['Texas', 'California', 'Florida', 'Colorado', 'Tennessee', 'Georgia', 'Arizona', 'Nevada', 'Ohio', 'North Carolina', 'Virginia', 'Illinois'];
+const SERVICE_AREAS = ['Trowbridge', 'Bath', 'Bristol', 'Wiltshire', 'Bradford-on-Avon', 'Warminster', 'Frome', 'Westbury', 'Melksham', 'Chippenham', 'Devizes', 'Salisbury'];
 
 const HOW_IT_WORKS = [
-  { step: 1, title: 'Call or Book Online', desc: 'Tell us your issue and preferred schedule via phone or our easy online form.' },
-  { step: 2, title: 'Tech Is Dispatched', desc: 'A certified local technician is assigned and on their way \u2014 you\'ll get a real-time ETA.' },
-  { step: 3, title: 'Diagnosis & Quote', desc: 'Your tech diagnoses the issue and presents a clear, upfront quote \u2014 no pressure.' },
-  { step: 4, title: 'Job Done Right', desc: 'We complete the work, clean up after ourselves, and follow up to make sure you\'re happy.' },
+  { step: 1, title: 'Give Me a Call', desc: 'Get in touch and tell me a bit about your project — what room, what size, and any ideas you\'ve got in mind.' },
+  { step: 2, title: 'Free Quote & Chat', desc: 'I\'ll pop round to take a look, talk through the options, and give you a clear price with no pressure.' },
+  { step: 3, title: 'I Get to Work', desc: 'Once you\'re happy, I\'ll get it booked in. I turn up on time, keep things tidy, and work to get it right.' },
+  { step: 4, title: 'You Love the Result', desc: 'I clean up after myself, walk you through the finished job, and make sure you\'re happy before I leave.' },
 ];
 
 const FOOTER_CONTACT = [
@@ -135,7 +135,7 @@ function renderFooter() {
       <div class="container footer-grid">
         <div class="footer-brand">
           <div class="footer-logo">Plumber</div>
-          <p>Professional Plumbing, HVAC & Electrical services across the USA. Licensed, insured, and always on time.</p>
+          <p>Friendly, reliable wall and floor tiling for Wiltshire, Bath & Bristol. Free quotes, quality work, no cutting corners.</p>
           <div class="footer-social">
             ${SOCIAL_ICONS.map(s => `<a href="${s.href}" aria-label="${s.icon}">${ICONS[s.icon]}</a>`).join('')}
           </div>
