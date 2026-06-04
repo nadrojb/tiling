@@ -251,9 +251,7 @@ function initScrollAnimations() {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
   document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
 }
-
-document.addEventListener('DOMContentLoaded', initScrollAnimations);
