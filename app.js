@@ -252,7 +252,10 @@ function initScrollAnimations() {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.1 });
 
   document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+  setTimeout(() => {
+    document.querySelectorAll('[data-animate]:not(.visible)').forEach(el => observer.observe(el));
+  }, 300);
 }
