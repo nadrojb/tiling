@@ -234,8 +234,8 @@ function renderServiceAreas() {
 function renderHowItWorks() {
   const el = document.getElementById('howItWorks');
   if (!el) return;
-  el.innerHTML = HOW_IT_WORKS.map(h => `
-    <div class="hiw-step">
+  el.innerHTML = HOW_IT_WORKS.map((h, i) => `
+    <div class="hiw-step delay-${i + 1}" data-animate>
       <div class="hiw-number">${h.step}</div>
       <h3>${h.title}</h3>
       <p>${h.desc}</p>
@@ -245,6 +245,7 @@ function renderHowItWorks() {
 
 // ===== SCROLL ANIMATIONS =====
 function initScrollAnimations() {
+  const els = document.querySelectorAll('[data-animate]');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -254,8 +255,12 @@ function initScrollAnimations() {
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
-  setTimeout(() => {
-    document.querySelectorAll('[data-animate]:not(.visible)').forEach(el => observer.observe(el));
-  }, 300);
+  els.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      el.classList.add('visible');
+    } else {
+      observer.observe(el);
+    }
+  });
 }

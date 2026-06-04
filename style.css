@@ -169,7 +169,7 @@ svg { flex-shrink: 0; }
 @media (min-width: 640px) { .service-grid { grid-template-columns: 1fr 1fr; } }
 @media (min-width: 1024px) { .service-grid { grid-template-columns: 1fr 1fr 1fr; } }
 
-.svc-card { background: var(--neutral-50); border: 1px solid var(--neutral-200); border-radius: var(--radius); padding: 24px; display: flex; flex-direction: column; gap: 12px; transition: all 0.2s; cursor: default; animation: fadeUp 0.4s ease both; }
+.svc-card { background: var(--neutral-50); border: 1px solid var(--neutral-200); border-radius: var(--radius); padding: 24px; display: flex; flex-direction: column; gap: 12px; transition: all 0.2s; cursor: default; }
 .svc-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
 .svc-card:hover .svc-icon { background: var(--primary); }
 .svc-card:hover .svc-icon svg { color: var(--white); }
@@ -184,11 +184,6 @@ svg { flex-shrink: 0; }
 .svc-link { font-size: 14px; font-weight: 600; color: var(--primary); display: inline-flex; align-items: center; gap: 4px; }
 .svc-link svg { width: 12px; height: 12px; transition: transform 0.2s; }
 .svc-card:hover .svc-link svg { transform: translateX(4px); }
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
-}
 
 /* ===== HOW IT WORKS ===== */
 .hiw-grid { display: grid; gap: 32px; grid-template-columns: 1fr; }
