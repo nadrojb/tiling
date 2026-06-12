@@ -47,17 +47,9 @@ const NAV_LINKS = [
 ];
 
 const MARQUEE_ITEMS = [
-  { icon: 'geoAlt', text: 'Wiltshire' },
-  { icon: 'geoAlt', text: 'Bath' },
-  { icon: 'geoAlt', text: 'Bristol' },
-  { icon: 'checkCircle', text: 'Floors' },
-  { icon: 'checkCircle', text: 'Walls' },
-  { icon: 'checkCircle', text: 'Kitchens' },
-  { icon: 'checkCircle', text: 'Bathrooms' },
-  { icon: 'checkCircle', text: 'Splashbacks' },
-  { icon: 'checkCircle', text: 'Ceramic' },
-  { icon: 'checkCircle', text: 'Porcelain' },
-  { icon: 'checkCircle', text: 'Stone' },
+  'Bathroom Tiling', 'Kitchen Tiling', 'Floor Tiling', 'Splashbacks',
+  'Porcelain', 'Ceramic', 'Natural Stone', 'Marble', 'Mosaic',
+  'Feature Walls', 'Surface Preparation'
 ];
 
 const SERVICES = [
@@ -70,6 +62,11 @@ const TESTIMONIALS = [
   { text: 'Jordan did a fantastic job tiling our kitchen floor. Really friendly, turned up when he said he would, and the finish is spot on. Wouldn\'t hesitate to recommend.', name: 'Sarah M.', location: 'Trowbridge', category: 'Kitchen', avatar: '' },
   { text: 'Had Jordan tile our bathroom after a recommendation from a neighbour. Great attention to detail and left the place spotless. Really chuffed with the result.', name: 'Marcus H.', location: 'Bath', category: 'Bathroom', avatar: '' },
   { text: 'First time I\'ve used Jordan and won\'t be the last. Fair price, great communication, and the splashback looks brilliant. Proper job.', name: 'Priya N.', location: 'Bradford-on-Avon', category: 'Splashback', avatar: '' },
+  { text: 'Jordan tiled our entire ground floor — hallway, kitchen and living room. The herringbone pattern in the hall came out brilliantly. Great work ethic.', name: 'David R.', location: 'Frome', category: 'Flooring', avatar: '' },
+  { text: 'Really pleased with the bathroom tiling. Jordan was punctual, tidy, and talked me through the options before starting. Would definitely use again.', name: 'Emma T.', location: 'Warminster', category: 'Bathroom', avatar: '' },
+  { text: 'Had a kitchen splashback done and it\'s transformed the room. Jordan\'s attention to detail is excellent — you can tell he cares about the finish.', name: 'Chris P.', location: 'Melksham', category: 'Splashback', avatar: '' },
+  { text: 'Jordan did a great job on our en-suite. The shower niche and tiling are spot on. Fair pricing and no mess left behind. Can\'t ask for more.', name: 'Laura B.', location: 'Chippenham', category: 'Bathroom', avatar: '' },
+  { text: 'Professional from start to finish. Jordan came to quote, talked me through the options, and the floor tiling looks brilliant. Highly recommend.', name: 'Tom W.', location: 'Devizes', category: 'Flooring', avatar: '' },
 ];
 
 const SERVICE_AREAS = ['Trowbridge', 'Bath', 'Bristol', 'Wiltshire', 'Bradford-on-Avon', 'Warminster', 'Frome', 'Westbury', 'Melksham', 'Chippenham', 'Devizes', 'Salisbury'];
@@ -150,7 +147,7 @@ function renderFooter() {
       <div class="container footer-grid">
         <div class="footer-brand">
           <div class="footer-logo">Northstar Tiling</div>
-          <p>Friendly, reliable wall and floor tiling for Wiltshire, Bath & Bristol. Fast quotes, quality work, no cutting corners.</p>
+          <p>Residential and commercial wall and floor tiling across Wiltshire, Bath and Bristol, delivered with craftsmanship, professionalism and attention to detail.</p>
           <div class="footer-social">
             ${SOCIAL_ICONS.map(s => `<a href="${s.href}" aria-label="${s.icon}">${ICONS[s.icon]}</a>`).join('')}
           </div>
@@ -159,7 +156,7 @@ function renderFooter() {
           <h4>Contact</h4>
           <ul class="footer-contact">
             ${FOOTER_CONTACT.map(l => {
-              const inner = l.href ? `<a href="${l.href}">${l.html}</a>` : `<span>${l.html}</span>`;
+              const inner = l.href ? `<a href="${l.href}">${ICONS[l.icon]} ${l.html}</a>` : `<span>${ICONS[l.icon]} ${l.html}</span>`;
               return `<li>${inner}</li>`;
             }).join('')}
           </ul>
@@ -179,9 +176,9 @@ function renderMarquee() {
   if (!el) return;
   const itemsHtml = MARQUEE_ITEMS.map(m => `
     <span class="marquee-item">
-      <span class="marquee-icon">${ICONS[m.icon]}</span>
-      ${m.text}
+      ${m}
     </span>
+    <span class="marquee-sep">&bull;</span>
   `).join('');
   el.innerHTML = `<div class="marquee-track">${itemsHtml}</div>`;
   initMarquee();
@@ -255,8 +252,8 @@ function showLightbox(src, caption) {
 function renderTestimonials() {
   const el = document.getElementById('testimonials');
   if (!el) return;
-  el.innerHTML = TESTIMONIALS.map((t, i) => `
-    <div class="testimonial-card delay-${i + 1}" data-animate>
+  const cards = TESTIMONIALS.map((t, i) => `
+    <div class="testimonial-card" data-animate>
       <div class="testimonial-stars">${ICONS.star}${ICONS.star}${ICONS.star}${ICONS.star}${ICONS.star}</div>
       <p class="testimonial-text">"${t.text}"</p>
       <div class="testimonial-author">
@@ -268,6 +265,32 @@ function renderTestimonials() {
       </div>
     </div>
   `).join('');
+  el.innerHTML = cards;
+  initTestimonialArrows();
+}
+
+function initTestimonialArrows() {
+  const scrollEl = document.getElementById('testimonials');
+  const leftBtn = document.getElementById('testimonialLeft');
+  const rightBtn = document.getElementById('testimonialRight');
+  if (!scrollEl || !leftBtn || !rightBtn) return;
+  const card = scrollEl.querySelector('.testimonial-card');
+  if (!card) return;
+  const scrollStep = card.offsetWidth + 24;
+  rightBtn.addEventListener('click', () => {
+    if (scrollEl.scrollLeft + scrollEl.clientWidth >= scrollEl.scrollWidth - 10) {
+      scrollEl.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+      scrollEl.scrollBy({ left: scrollStep, behavior: 'smooth' });
+    }
+  });
+  leftBtn.addEventListener('click', () => {
+    if (scrollEl.scrollLeft <= 10) {
+      scrollEl.scrollTo({ left: scrollEl.scrollWidth, behavior: 'smooth' });
+    } else {
+      scrollEl.scrollBy({ left: -scrollStep, behavior: 'smooth' });
+    }
+  });
 }
 
 function renderServiceAreas() {
