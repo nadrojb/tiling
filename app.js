@@ -82,23 +82,23 @@ const HOW_IT_WORKS = [
 ];
 
 const GALLERY_IMAGES = [
-  { src: 'https://picsum.photos/seed/tile1/800/600', thumb: 'https://picsum.photos/seed/tile1/400/300', caption: 'Kitchen floor tiling' },
-  { src: 'https://picsum.photos/seed/tile2/800/600', thumb: 'https://picsum.photos/seed/tile2/400/300', caption: 'Bathroom wall and floor' },
-  { src: 'https://picsum.photos/seed/tile3/800/600', thumb: 'https://picsum.photos/seed/tile3/400/300', caption: 'Kitchen splashback' },
-  { src: 'https://picsum.photos/seed/tile4/800/600', thumb: 'https://picsum.photos/seed/tile4/400/300', caption: 'Shower enclosure tiling' },
-  { src: 'https://picsum.photos/seed/tile5/800/600', thumb: 'https://picsum.photos/seed/tile5/400/300', caption: 'Bathroom renovation' },
-  { src: 'https://picsum.photos/seed/tile6/800/600', thumb: 'https://picsum.photos/seed/tile6/400/300', caption: 'Wet room floor tiling' },
-  { src: 'https://picsum.photos/seed/tile7/800/600', thumb: 'https://picsum.photos/seed/tile7/400/300', caption: 'Kitchen backsplash' },
-  { src: 'https://picsum.photos/seed/tile8/800/600', thumb: 'https://picsum.photos/seed/tile8/400/300', caption: 'Porcelain floor tiles' },
-  { src: 'https://picsum.photos/seed/tile9/800/600', thumb: 'https://picsum.photos/seed/tile9/400/300', caption: 'Bathroom wall tiles' },
-  { src: 'https://picsum.photos/seed/tile10/800/600', thumb: 'https://picsum.photos/seed/tile10/400/300', caption: 'Kitchen floor pattern' },
-  { src: 'https://picsum.photos/seed/tile11/800/600', thumb: 'https://picsum.photos/seed/tile11/400/300', caption: 'Herringbone bathroom floor' },
-  { src: 'https://picsum.photos/seed/tile12/800/600', thumb: 'https://picsum.photos/seed/tile12/400/300', caption: 'Splashback feature wall' },
+  { src: 'https://picsum.photos/seed/tile1/800/600', thumb: 'https://picsum.photos/seed/tile1/400/300', caption: 'Kitchen floor tiling in Trowbridge' },
+  { src: 'https://picsum.photos/seed/tile2/800/600', thumb: 'https://picsum.photos/seed/tile2/400/300', caption: 'Bathroom wall and floor tiling, Wiltshire' },
+  { src: 'https://picsum.photos/seed/tile3/800/600', thumb: 'https://picsum.photos/seed/tile3/400/300', caption: 'Kitchen splashback in Bath' },
+  { src: 'https://picsum.photos/seed/tile4/800/600', thumb: 'https://picsum.photos/seed/tile4/400/300', caption: 'Shower enclosure tiling, Bristol' },
+  { src: 'https://picsum.photos/seed/tile5/800/600', thumb: 'https://picsum.photos/seed/tile5/400/300', caption: 'Bathroom renovation in Trowbridge' },
+  { src: 'https://picsum.photos/seed/tile6/800/600', thumb: 'https://picsum.photos/seed/tile6/400/300', caption: 'Wet room floor tiling, Wiltshire' },
+  { src: 'https://picsum.photos/seed/tile7/800/600', thumb: 'https://picsum.photos/seed/tile7/400/300', caption: 'Kitchen backsplash in Bath' },
+  { src: 'https://picsum.photos/seed/tile8/800/600', thumb: 'https://picsum.photos/seed/tile8/400/300', caption: 'Porcelain floor tiles, Bristol' },
+  { src: 'https://picsum.photos/seed/tile9/800/600', thumb: 'https://picsum.photos/seed/tile9/400/300', caption: 'Bathroom wall tiles in Trowbridge' },
+  { src: 'https://picsum.photos/seed/tile10/800/600', thumb: 'https://picsum.photos/seed/tile10/400/300', caption: 'Kitchen floor tiling, Wiltshire' },
+  { src: 'https://picsum.photos/seed/tile11/800/600', thumb: 'https://picsum.photos/seed/tile11/400/300', caption: 'Herringbone bathroom floor, Bath' },
+  { src: 'https://picsum.photos/seed/tile12/800/600', thumb: 'https://picsum.photos/seed/tile12/400/300', caption: 'Splashback feature wall, Bristol' },
 ];
 
 const FOOTER_CONTACT = [
   { icon: 'phone', html: '<strong>07788 577456</strong>', href: 'tel:4407788577456' },
-  { icon: 'send', html: '<strong>jordan@westwaytiling.com</strong>', href: 'mailto:jordan@westwaytiling.com' },
+  { icon: 'send', html: '<strong>jordan@northstartiling.co.uk</strong>', href: 'mailto:jordan@northstartiling.co.uk' },
 ];
 
 const SOCIAL_ICONS = [
@@ -113,7 +113,7 @@ function renderHeader(activePage) {
   el.innerHTML = `
     <header class="site-header" id="siteHeader">
       <div class="container header-inner">
-        <a href="index.html" class="logo">Plumber</a>
+        <a href="index.html" class="logo">Northstar Tiling</a>
         <nav class="desktop-nav" id="desktopNav">
           <ul>
             ${NAV_LINKS.map(l => `<li><a href="${l.href}"${l.href.replace('.html','') === activePage ? ' class="active"' : ''}>${l.label}</a></li>`).join('')}
@@ -149,7 +149,7 @@ function renderFooter() {
     <footer class="site-footer">
       <div class="container footer-grid">
         <div class="footer-brand">
-          <div class="footer-logo">Plumber</div>
+          <div class="footer-logo">Northstar Tiling</div>
           <p>Friendly, reliable wall and floor tiling for Wiltshire, Bath & Bristol. Fast quotes, quality work, no cutting corners.</p>
           <div class="footer-social">
             ${SOCIAL_ICONS.map(s => `<a href="${s.href}" aria-label="${s.icon}">${ICONS[s.icon]}</a>`).join('')}
@@ -167,7 +167,7 @@ function renderFooter() {
       </div>
       <div class="footer-bottom">
         <div class="container">
-          <p>&copy; 2026 Westway Tiling. All rights reserved.</p>
+          <p>&copy; 2026 Northstar Tiling. All rights reserved.</p>
         </div>
       </div>
     </footer>
