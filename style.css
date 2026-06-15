@@ -44,7 +44,7 @@ svg { flex-shrink: 0; }
 #header { position: sticky; top: 0; z-index: 100; }
 .site-header { background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--neutral-200); transition: box-shadow 0.3s; }
 .site-header.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
-.header-inner { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; }
 .logo { font-family: var(--font-heading); font-size: 28px; font-weight: 700; color: var(--secondary); letter-spacing: -0.5px; }
 .desktop-nav { display: none; }
 .desktop-nav ul { display: flex; gap: 32px; }
@@ -305,9 +305,15 @@ svg { flex-shrink: 0; }
 .footer-bottom-links a:hover { color: var(--white); }
 
 /* ===== PAGE HERO (inner pages) ===== */
-.page-hero { padding: 80px 0; text-align: center; }
+.page-hero { padding: 35.2px 0 64px; text-align: center; }
 .page-hero h1 { font-family: var(--font-heading); font-size: 40px; color: var(--secondary); margin-bottom: 8px; }
 .page-hero p { color: var(--neutral-600); font-size: 16px; max-width: 480px; margin: 0 auto; }
+.breadcrumb-wrap { padding: 8px 24px 0; }
+.breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+.breadcrumb a { color: var(--neutral-500); transition: color 0.2s; }
+.breadcrumb a:hover { color: var(--primary); }
+.breadcrumb-sep { color: var(--neutral-300); }
+.breadcrumb [aria-current="page"] { color: var(--neutral-400); }
 
 /* ===== ABOUT PAGE ===== */
 .about-grid { display: grid; gap: 48px; align-items: center; }
@@ -392,9 +398,10 @@ svg { flex-shrink: 0; }
   .cta-content { padding: 48px 0; }
   .cta h2 { font-size: 26px; }
   .cta-actions { flex-direction: column; align-items: center; }
-  .page-hero { padding: 48px 0; }
+  .page-hero { padding: 35.2px 0 48px; }
   .page-hero h1 { font-size: 28px; }
   .logo { margin-left: 0; padding-left: 16px; }
+  .breadcrumb { padding-left: 16px; }
   .menu-toggle { padding: 0 16px 0 0; }
   .section-warm .btn-primary { width: 100%; margin-top: 0.75rem !important; }
   .section-warm .btn-primary:first-of-type { margin-top: 1.5rem !important; }
