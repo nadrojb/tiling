@@ -395,7 +395,7 @@ svg { flex-shrink: 0; }
   .hero .hero-form { transform: scale(1); transform-origin: center; }
   .hero-form h2 { font-size: 22px; }
   .section { padding: 48px 0; }
-  .section-title { margin-bottom: 32px; }
+  .section-title { margin-bottom: 32px; text-align: left; }
   .section-title h2 { font-size: 28px; }
   .testimonials-scroll > .testimonial-card { flex: 0 0 calc(100vw - 120px); }
   .testimonial-arrow { display: none; }
@@ -409,6 +409,8 @@ svg { flex-shrink: 0; }
   .menu-toggle { padding: 0; }
   .section-warm .btn-primary { width: 100%; margin-top: 0.75rem !important; }
   .section-warm .btn-primary:first-of-type { margin-top: 1.5rem !important; }
+  .section-warm .section-title { text-align: left; }
+  .section-warm [style*="text-align:center"] { text-align: left !important; margin: 0; }
 }
 
 /* ===== SCROLL ANIMATIONS ===== */
