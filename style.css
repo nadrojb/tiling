@@ -253,7 +253,7 @@ svg { flex-shrink: 0; }
 
 /* ===== TESTIMONIALS ===== */
 .testimonials-wrapper { position: relative; display: flex; align-items: center; gap: 16px; }
-.testimonials-scroll { display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none; padding: 8px 4px; flex: 1; }
+.testimonials-scroll { display: flex; gap: 24px; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none; padding: 8px 4px; flex: 1; }
 .testimonials-scroll::-webkit-scrollbar { display: none; }
 .testimonials-scroll > .testimonial-card { flex: 0 0 350px; scroll-snap-align: center; }
 .testimonial-arrow { flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--neutral-200); background: var(--white); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; color: var(--neutral-600); }
@@ -400,9 +400,9 @@ svg { flex-shrink: 0; }
   .cta-actions { flex-direction: column; align-items: center; }
   .page-hero { padding: 35.2px 0 48px; }
   .page-hero h1 { font-size: 28px; }
-  .logo { margin-left: 0; padding-left: 16px; }
-  .breadcrumb { padding-left: 16px; }
-  .menu-toggle { padding: 0 16px 0 0; }
+  .logo { margin-left: 0; }
+  .breadcrumb { padding-left: 0; }
+  .menu-toggle { padding: 0; }
   .section-warm .btn-primary { width: 100%; margin-top: 0.75rem !important; }
   .section-warm .btn-primary:first-of-type { margin-top: 1.5rem !important; }
 }
