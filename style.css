@@ -334,11 +334,15 @@ svg { flex-shrink: 0; }
 .contact-grid { display: grid; gap: 48px; }
 @media (min-width: 768px) { .contact-grid { grid-template-columns: 1fr 1fr; } }
 .contact-info { display: flex; flex-direction: column; gap: 32px; }
-.contact-card { display: flex; gap: 16px; align-items: flex-start; cursor: pointer; }
-.contact-icon { width: 48px; height: 48px; border-radius: var(--radius-xs); background: var(--secondary-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.contact-icon svg { width: 20px; height: 20px; color: var(--primary); }
+.contact-card { display: flex; gap: 16px; align-items: flex-start; }
+.contact-card:nth-child(-n+2) { cursor: pointer; }
+.contact-card:nth-child(-n+2):hover .contact-icon { background: var(--primary); }
+.contact-card:nth-child(-n+2):hover .contact-icon svg { color: var(--white); }
+.contact-card:nth-child(-n+2):hover h4, .contact-card:nth-child(-n+2):hover p, .contact-card:nth-child(-n+2):hover a { color: var(--primary); }
+.contact-icon { width: 48px; height: 48px; border-radius: var(--radius-xs); background: var(--secondary-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.2s; }
+.contact-icon svg { width: 20px; height: 20px; color: var(--primary); transition: color 0.2s; }
 .contact-card h4 { font-size: 16px; font-weight: 600; color: var(--secondary); margin-bottom: 4px; }
-.contact-card p, .contact-card a { font-size: 14px; color: var(--neutral-600); }
+.contact-card p, .contact-card a { font-size: 14px; color: var(--neutral-600); transition: color 0.2s; }
 .contact-card a:hover { color: var(--primary); }
 .contact-hero-form { background: var(--neutral-50); border: 1px solid var(--neutral-200); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
 

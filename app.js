@@ -164,7 +164,7 @@ function renderFooter() {
           </div>
         </div>
         <div class="footer-col">
-          <h4>Contact</h4>
+          <h4>Get in touch</h4>
           <ul class="footer-contact">
             ${FOOTER_CONTACT.map(l => {
               const inner = l.href ? `<a href="${l.href}">${ICONS[l.icon]} ${l.html}</a>` : `<span>${ICONS[l.icon]} ${l.html}</span>`;
