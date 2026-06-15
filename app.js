@@ -343,3 +343,15 @@ function initScrollAnimations() {
     }
   });
 }
+
+document.addEventListener('click', (e) => {
+  const link = e.target.closest('a[href^="mailto:"]');
+  if (!link) return;
+  e.preventDefault();
+  const email = link.getAttribute('href').replace('mailto:', '');
+  navigator.clipboard.writeText(email).then(() => {
+    const orig = link.innerHTML;
+    link.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16"><path fill="currentColor" d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06a.733.733 0 0 1 1.047 0l3.052 3.093l5.4-6.425z"/></svg> Copied!';
+    setTimeout(() => { link.innerHTML = orig; }, 2000);
+  }).catch(() => {});
+});

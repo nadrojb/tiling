@@ -51,9 +51,9 @@
         </div>
       </div>
     </div>
-    <div class="contact-form-wrap">
+    <div class="hero-form contact-hero-form">
       <h2>Get in touch</h2>
-      <form class="contact-form" action="https://formsubmit.co/jordanbrewer1994@gmail.com" method="POST">
+      <form action="https://formsubmit.co/jordanbrewer1994@gmail.com" method="POST">
         <input type="hidden" name="_captcha" value="false">
         <div class="form-row">
           <div>
@@ -87,8 +87,14 @@ document.addEventListener('DOMContentLoaded', () => {
   renderHeader('contact');
   renderFooter();
   initScrollAnimations();
-});
 
+  const phoneCard = document.querySelector('.contact-card:nth-child(1)');
+  if (phoneCard) {
+    phoneCard.addEventListener('click', () => {
+      window.location.href = 'tel:4407788577456';
+    });
+  }
+});
 </script>
 </body>
 </html>
