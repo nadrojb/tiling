@@ -94,7 +94,7 @@ const GALLERY_IMAGES = [
 ];
 
 const FOOTER_CONTACT = [
-  { icon: 'phone', html: '<strong>07788 577456</strong>', href: 'tel:4407788577456' },
+  { icon: 'phone', html: '<strong>07788577456</strong>', href: 'tel:4407788577456' },
   { icon: 'send', html: '<strong>jordan@northstartiling.co.uk</strong>', href: 'mailto:jordan@northstartiling.co.uk' },
 ];
 
@@ -117,7 +117,7 @@ function renderHeader(activePage) {
           </ul>
         </nav>
         <div class="header-actions">
-          <a href="tel:4407788577456" class="btn-phone">${ICONS.phone} 07788 577456</a>
+          <a href="tel:4407788577456" class="btn-phone">${ICONS.phone} 07788577456</a>
         </div>
         <button class="menu-toggle" id="menuToggle" aria-label="Menu">
           <div class="menu-icon">
@@ -131,7 +131,7 @@ function renderHeader(activePage) {
         <ul>
           ${NAV_LINKS.map(l => `<li><a href="${l.href}"${l.href.replace('.html','') === activePage ? ' class="active"' : ''}>${l.label}</a></li>`).join('')}
         </ul>
-        <a href="tel:4407788577456" class="btn-phone mobile-phone">${ICONS.phone} 07788 577456</a>
+        <a href="tel:4407788577456" class="btn-phone mobile-phone">${ICONS.phone} 07788577456</a>
         <div class="mobile-social">
           ${SOCIAL_ICONS.map(s => `<a href="${s.href}" aria-label="${s.icon}">${ICONS[s.icon]}</a>`).join('')}
         </div>
@@ -346,12 +346,25 @@ function initScrollAnimations() {
 
 document.addEventListener('click', (e) => {
   const link = e.target.closest('a[href^="mailto:"]');
-  if (!link) return;
-  e.preventDefault();
-  const email = link.getAttribute('href').replace('mailto:', '');
-  navigator.clipboard.writeText(email).then(() => {
-    const orig = link.innerHTML;
-    link.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16"><path fill="currentColor" d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06a.733.733 0 0 1 1.047 0l3.052 3.093l5.4-6.425z"/></svg> Copied!';
-    setTimeout(() => { link.innerHTML = orig; }, 2000);
-  }).catch(() => {});
+  if (link) {
+    e.preventDefault();
+    copyEmail(link.getAttribute('href').replace('mailto:', ''), link);
+    return;
+  }
+  const card = e.target.closest('.contact-card');
+  if (card) {
+    const mailLink = card.querySelector('a[href^="mailto:"]');
+    if (mailLink) {
+      e.preventDefault();
+      copyEmail(mailLink.getAttribute('href').replace('mailto:', ''), mailLink);
+    }
+  }
 });
+
+function copyEmail(email, target) {
+  navigator.clipboard.writeText(email).then(() => {
+    const orig = target.innerHTML;
+    target.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16"><path fill="currentColor" d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06a.733.733 0 0 1 1.047 0l3.052 3.093l5.4-6.425z"/></svg> Copied!';
+    setTimeout(() => { target.innerHTML = orig; }, 2000);
+  }).catch(() => {});
+}
