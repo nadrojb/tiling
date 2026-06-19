@@ -139,10 +139,20 @@ function renderHeader(activePage) {
     </header>
   `;
 
-  document.getElementById('menuToggle').addEventListener('click', () => {
+  document.getElementById('menuToggle').addEventListener('click', (e) => {
+    e.stopPropagation();
     document.getElementById('mobileMenu').classList.toggle('open');
     document.querySelector('.menu-icon').classList.toggle('open');
     document.body.classList.toggle('menu-open');
+  });
+
+  document.addEventListener('click', (e) => {
+    const menu = document.getElementById('mobileMenu');
+    if (!menu.classList.contains('open')) return;
+    if (menu.contains(e.target)) return;
+    menu.classList.remove('open');
+    document.querySelector('.menu-icon').classList.remove('open');
+    document.body.classList.remove('menu-open');
   });
 
   window.addEventListener('scroll', () => {
@@ -203,12 +213,18 @@ function renderMarquee() {
 
 function initMarquee() {
   const track = document.querySelector('.marquee-track');
+  const section = document.querySelector('.marquee-section');
   if (!track) return;
-  const speed = 1;
+  const maxSpeed = 1;
   let pos = 0;
+  let currentSpeed = maxSpeed;
+  let targetSpeed = maxSpeed;
   track.innerHTML += track.innerHTML;
+  section.addEventListener('mouseenter', () => { targetSpeed = 0; });
+  section.addEventListener('mouseleave', () => { targetSpeed = maxSpeed; });
   function animate() {
-    pos -= speed;
+    currentSpeed += (targetSpeed - currentSpeed) * 0.08;
+    pos -= currentSpeed;
     const w = track.scrollWidth / 2;
     if (Math.abs(pos) >= w) pos = 0;
     track.style.transform = 'translateX(' + pos + 'px)';
