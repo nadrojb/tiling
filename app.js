@@ -95,12 +95,12 @@ const GALLERY_IMAGES = [
 
 const FOOTER_CONTACT = [
   { icon: 'phone', html: '<strong>07788577456</strong>', href: 'tel:4407788577456' },
-  { icon: 'send', html: '<strong>jordan@northstartiling.co.uk</strong>', href: 'mailto:jordan@northstartiling.co.uk' },
+  { icon: 'send', html: '<strong>jordan@avonsidetiling.co.uk</strong>', href: 'mailto:jordan@avonsidetiling.co.uk' },
 ];
 
 const SOCIAL_ICONS = [
-  { icon: 'facebook', href: '#' },
-  { icon: 'instagram', href: '#' },
+  { icon: 'facebook', href: 'https://facebook.com/avonsidetiling' },
+  { icon: 'instagram', href: 'https://instagram.com/avonsidetiling' },
 ];
 
 // ===== RENDER FUNCTIONS =====
@@ -110,7 +110,7 @@ function renderHeader(activePage) {
   el.innerHTML = `
     <header class="site-header" id="siteHeader">
       <div class="container header-inner">
-        <a href="index.html" class="logo">Northstar Tiling</a>
+        <a href="index.html" class="logo"><img src="images/avonside-logo-black.png" alt="Avonside Tiling" height="40"></a>
         <nav class="desktop-nav" id="desktopNav">
           <ul>
             ${NAV_LINKS.map(l => `<li><a href="${l.href}"${l.href.replace('.html','') === activePage ? ' class="active"' : ''}>${l.label}</a></li>`).join('')}
@@ -157,11 +157,17 @@ function renderFooter() {
     <footer class="site-footer">
       <div class="container footer-grid">
         <div class="footer-brand">
-          <div class="footer-logo">Northstar Tiling</div>
+          <div class="footer-logo"><img src="images/avonside-logo-white.png" alt="Avonside Tiling" height="40"></div>
           <p>Residential and commercial wall and floor tiling across Wiltshire, Bath and Bristol, delivered with craftsmanship, professionalism and attention to detail.</p>
           <div class="footer-social">
             ${SOCIAL_ICONS.map(s => `<a href="${s.href}" aria-label="${s.icon}">${ICONS[s.icon]}</a>`).join('')}
           </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            ${NAV_LINKS.map(l => `<li><a href="${l.href}">${l.label}</a></li>`).join('')}
+          </ul>
         </div>
         <div class="footer-col">
           <h4>Get in touch</h4>
@@ -175,7 +181,7 @@ function renderFooter() {
       </div>
       <div class="footer-bottom">
         <div class="container">
-          <p>&copy; 2026 Northstar Tiling. All rights reserved.</p>
+          <p>&copy; 2026 Avonside Tiling. All rights reserved.</p>
         </div>
       </div>
     </footer>
