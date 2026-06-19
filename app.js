@@ -310,6 +310,12 @@ function initTestimonialArrows() {
   const card = scrollEl.querySelector('.testimonial-card');
   if (!card) return;
   const scrollStep = card.offsetWidth + 24;
+  scrollEl.addEventListener('wheel', (e) => {
+    if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+      e.preventDefault();
+      scrollEl.scrollBy({ left: e.deltaY * 0.3, behavior: 'smooth' });
+    }
+  }, { passive: false });
   rightBtn.addEventListener('click', () => {
     if (scrollEl.scrollLeft + scrollEl.clientWidth >= scrollEl.scrollWidth - 10) {
       scrollEl.scrollTo({ left: 0, behavior: 'smooth' });
