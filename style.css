@@ -48,7 +48,7 @@ svg { flex-shrink: 0; }
 #header { position: sticky; top: 0; z-index: 100; }
 .site-header { background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--neutral-200); transition: box-shadow 0.3s; }
 .site-header.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
-.header-inner { display: flex; align-items: center; justify-content: space-between; padding: 10px 24px 5px; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; padding: 5px 24px 5px; }
 .logo { display: flex; align-items: center; }
 .logo img { height: 89px; width: auto; }
 .desktop-nav { display: none; }
