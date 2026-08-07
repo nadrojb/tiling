@@ -48,8 +48,8 @@ svg { flex-shrink: 0; }
 .site-header { background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--neutral-200); transition: box-shadow 0.3s; }
 .site-header.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
 .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 5px 24px 5px; }
-.logo { display: flex; align-items: center; }
-.logo img { height: 76px; width: auto; }
+.logo { display: flex; align-items: center; padding: 5px 0; }
+.logo img { height: 68px; width: auto; }
 .desktop-nav { display: none; }
 .desktop-nav ul { display: flex; gap: 32px; }
 .desktop-nav a {
@@ -288,7 +288,7 @@ svg { flex-shrink: 0; }
 @media (min-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr auto; } }
 @media (min-width: 768px) { .footer-col:last-child { justify-self: end; } }
 .footer-logo { margin-bottom: 16px; }
-.footer-logo img { height: 51px; width: auto; }
+.footer-logo img { height: 46px; width: auto; }
 .footer-brand p { font-size: 14px; color: rgba(255,255,255,0.65); max-width: 320px; line-height: 1.7; }
 .footer-social { display: flex; gap: 12px; margin-top: 24px; }
 .footer-social a { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.7); transition: all 0.2s; }
@@ -413,8 +413,8 @@ svg { flex-shrink: 0; }
 
 /* ===== MOBILE FIXES ===== */
 @media (min-width: 768px) and (max-width: 1024px) {
-  .logo img { height: 41px; }
-  .footer-logo img { height: 41px; }
+  .logo img { height: 37px; }
+  .footer-logo img { height: 37px; }
 }
 @media (max-width: 767px) {
   .hero { min-height: auto; }
@@ -442,8 +442,8 @@ svg { flex-shrink: 0; }
   .page-hero--dark .page-hero-text { padding-left: 0; }
   .page-hero h1 { font-size: 28px; }
   .logo { margin-left: 0; }
-  .logo img { height: 37px; }
-  .footer-logo img { height: 37px; }
+  .logo img { height: 33px; }
+  .footer-logo img { height: 33px; }
   .section-warm .section-title { text-align: left; }
   .section-warm [style*="text-align:center"] { text-align: left !important; margin: 0; }
   .hero-form input,
