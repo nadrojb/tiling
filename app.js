@@ -168,7 +168,7 @@ function renderFooter() {
       <div class="container footer-grid">
         <div class="footer-brand">
           <div class="footer-logo"><img src="images/avonside-logo-white.png" alt="Avonside Tiling" height="40"></div>
-          <p>Residential and commercial wall and floor tiling across Wiltshire, Bath and Bristol, delivered with craftsmanship, professionalism and attention to detail.</p>
+          <p>Wall and floor tiling for homes and businesses across Wiltshire, Bath and Bristol.</p>
           <div class="footer-social">
             ${SOCIAL_ICONS.map(s => `<a href="${s.href}" aria-label="${s.icon}">${ICONS[s.icon]}</a>`).join('')}
           </div>
