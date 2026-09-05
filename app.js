@@ -40,10 +40,10 @@ const ICONS = {
 
 // ===== DATA =====
 const NAV_LINKS = [
-  { label: 'Home', href: 'index.html' },
-  { label: 'About', href: 'about.html' },
-  { label: 'Gallery', href: 'gallery.html' },
-  { label: 'Contact', href: 'contact.html' },
+  { label: 'Home', href: '/', page: 'index' },
+  { label: 'About', href: '/about', page: 'about' },
+  { label: 'Gallery', href: '/gallery', page: 'gallery' },
+  { label: 'Contact', href: '/contact', page: 'contact' },
 ];
 
 const MARQUEE_ITEMS = [
@@ -110,10 +110,10 @@ function renderHeader(activePage) {
   el.innerHTML = `
     <header class="site-header" id="siteHeader">
       <div class="container header-inner">
-        <a href="index.html" class="logo"><img src="images/avonside-logo-black.png" alt="Avonside Tiling" height="40"></a>
+        <a href="/" class="logo"><img src="/images/avonside-logo-black.png" alt="Avonside Tiling" height="40"></a>
         <nav class="desktop-nav" id="desktopNav">
           <ul>
-            ${NAV_LINKS.map(l => `<li><a href="${l.href}"${l.href.replace('.html','') === activePage ? ' class="active"' : ''}>${l.label}</a></li>`).join('')}
+            ${NAV_LINKS.map(l => `<li><a href="${l.href}"${l.page === activePage ? ' class="active"' : ''}>${l.label}</a></li>`).join('')}
           </ul>
         </nav>
         <div class="header-actions">
@@ -129,7 +129,7 @@ function renderHeader(activePage) {
       </div>
       <div class="mobile-menu" id="mobileMenu">
         <ul>
-          ${NAV_LINKS.map(l => `<li><a href="${l.href}"${l.href.replace('.html','') === activePage ? ' class="active"' : ''}>${l.label}</a></li>`).join('')}
+          ${NAV_LINKS.map(l => `<li><a href="${l.href}"${l.page === activePage ? ' class="active"' : ''}>${l.label}</a></li>`).join('')}
         </ul>
         <a href="tel:4407788577456" class="btn-phone mobile-phone">${ICONS.phone} 07788577456</a>
         <div class="mobile-social">
@@ -167,7 +167,7 @@ function renderFooter() {
     <footer class="site-footer">
       <div class="container footer-grid">
         <div class="footer-brand">
-          <div class="footer-logo"><img src="images/avonside-logo-white.png" alt="Avonside Tiling" height="40"></div>
+          <div class="footer-logo"><img src="/images/avonside-logo-white.png" alt="Avonside Tiling" height="40"></div>
           <p>Wall and floor tiling for homes and businesses across Wiltshire, Bath and Bristol.</p>
           <div class="footer-social">
             ${SOCIAL_ICONS.map(s => `<a href="${s.href}" aria-label="${s.icon}">${ICONS[s.icon]}</a>`).join('')}
