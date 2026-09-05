@@ -457,6 +457,7 @@ svg { flex-shrink: 0; }
   .how-it-works-grid { grid-template-columns: 1fr; gap: 40px; }
   .footer-grid { padding: 40px 24px; }
   .contact-card:first-child { padding-top: 0; }
+  .contact-grid .hero-form.contact-hero-form { order: -1; }
   .btn-primary:hover,
   .tab-btn:hover,
   .area-btn:hover,
