@@ -453,6 +453,7 @@ svg { flex-shrink: 0; }
   .cta { padding-bottom: 48px; }
   .choose-header h2 { font-size: 28px; }
   .choose-cards { grid-template-columns: 1fr; gap: 16px; }
+  .choose-cards .choose-card:last-child { max-width: 100%; }
   .how-it-works-grid { grid-template-columns: 1fr; gap: 40px; }
   .footer-grid { padding: 40px 24px; }
   .contact-card:first-child { padding-top: 0; }
