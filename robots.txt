@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://avonsidetiling.co.uk/sitemap.xml
