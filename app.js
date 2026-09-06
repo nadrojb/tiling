@@ -69,7 +69,7 @@ const TESTIMONIALS = [
   { text: 'Professional from start to finish. Jordan came to quote, talked me through the options, and the floor tiling looks brilliant. Highly recommend.', name: 'Tom W.', location: 'Devizes', category: 'Flooring', avatar: '' },
 ];
 
-const SERVICE_AREAS = ['Trowbridge', 'Bath', 'Bristol', 'Wiltshire', 'Bradford-on-Avon', 'Warminster', 'Frome', 'Westbury', 'Melksham', 'Chippenham', 'Devizes', 'Salisbury'];
+const SERVICE_AREAS = ['Trowbridge', 'Bath', 'Wiltshire', 'Bradford-on-Avon', 'Warminster', 'Frome', 'Westbury', 'Melksham', 'Chippenham', 'Devizes', 'Salisbury'];
 
 const HOW_IT_WORKS = [
   { step: 1, title: 'Give Me a Call', desc: 'Get in touch and tell me a bit about your project — what room, what size, and any ideas you\'ve got in mind.' },
@@ -82,15 +82,15 @@ const GALLERY_IMAGES = [
   { src: 'https://picsum.photos/seed/tile1/800/600', thumb: 'https://picsum.photos/seed/tile1/400/300', caption: 'Kitchen floor tiling in Trowbridge' },
   { src: 'https://picsum.photos/seed/tile2/800/600', thumb: 'https://picsum.photos/seed/tile2/400/300', caption: 'Bathroom wall and floor tiling, Wiltshire' },
   { src: 'https://picsum.photos/seed/tile3/800/600', thumb: 'https://picsum.photos/seed/tile3/400/300', caption: 'Kitchen splashback in Bath' },
-  { src: 'https://picsum.photos/seed/tile4/800/600', thumb: 'https://picsum.photos/seed/tile4/400/300', caption: 'Shower enclosure tiling, Bristol' },
+  { src: 'https://picsum.photos/seed/tile4/800/600', thumb: 'https://picsum.photos/seed/tile4/400/300', caption: 'Shower enclosure tiling, Wiltshire' },
   { src: 'https://picsum.photos/seed/tile5/800/600', thumb: 'https://picsum.photos/seed/tile5/400/300', caption: 'Bathroom renovation in Trowbridge' },
   { src: 'https://picsum.photos/seed/tile6/800/600', thumb: 'https://picsum.photos/seed/tile6/400/300', caption: 'Wet room floor tiling, Wiltshire' },
   { src: 'https://picsum.photos/seed/tile7/800/600', thumb: 'https://picsum.photos/seed/tile7/400/300', caption: 'Kitchen backsplash in Bath' },
-  { src: 'https://picsum.photos/seed/tile8/800/600', thumb: 'https://picsum.photos/seed/tile8/400/300', caption: 'Porcelain floor tiles, Bristol' },
+  { src: 'https://picsum.photos/seed/tile8/800/600', thumb: 'https://picsum.photos/seed/tile8/400/300', caption: 'Porcelain floor tiles, Wiltshire' },
   { src: 'https://picsum.photos/seed/tile9/800/600', thumb: 'https://picsum.photos/seed/tile9/400/300', caption: 'Bathroom wall tiles in Trowbridge' },
   { src: 'https://picsum.photos/seed/tile10/800/600', thumb: 'https://picsum.photos/seed/tile10/400/300', caption: 'Kitchen floor tiling, Wiltshire' },
   { src: 'https://picsum.photos/seed/tile11/800/600', thumb: 'https://picsum.photos/seed/tile11/400/300', caption: 'Herringbone bathroom floor, Bath' },
-  { src: 'https://picsum.photos/seed/tile12/800/600', thumb: 'https://picsum.photos/seed/tile12/400/300', caption: 'Splashback feature wall, Bristol' },
+  { src: 'https://picsum.photos/seed/tile12/800/600', thumb: 'https://picsum.photos/seed/tile12/400/300', caption: 'Splashback feature wall, Wiltshire' },
 ];
 
 const FOOTER_CONTACT = [
@@ -99,7 +99,7 @@ const FOOTER_CONTACT = [
 ];
 
 const SOCIAL_ICONS = [
-  { icon: 'facebook', href: 'https://facebook.com/avonsidetiling' },
+  { icon: 'facebook', href: 'https://www.facebook.com/share/1GYtKqW63B/?mibextid=wwXIfr' },
   { icon: 'instagram', href: 'https://instagram.com/avonsidetiling' },
 ];
 
@@ -168,7 +168,7 @@ function renderFooter() {
       <div class="container footer-grid">
         <div class="footer-brand">
           <div class="footer-logo"><img src="/images/avonside-logo-white.png" alt="Avonside Tiling" height="40"></div>
-          <p>Wall and floor tiling for homes and businesses across Wiltshire, Bath and Bristol.</p>
+          <p>Wall and floor tiling for homes and businesses across Wiltshire, Bath and surrounding areas.</p>
           <div class="footer-social">
             ${SOCIAL_ICONS.map(s => `<a href="${s.href}" aria-label="${s.icon}">${ICONS[s.icon]}</a>`).join('')}
           </div>
