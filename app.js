@@ -78,19 +78,26 @@ const HOW_IT_WORKS = [
   { step: 4, title: 'You Love the Result', desc: 'I clean up after myself, walk you through the finished job, and make sure you\'re happy before I leave.' },
 ];
 
-const GALLERY_IMAGES = [
-  { src: 'https://picsum.photos/seed/tile1/800/600', thumb: 'https://picsum.photos/seed/tile1/400/300', caption: 'Kitchen floor tiling in Trowbridge' },
-  { src: 'https://picsum.photos/seed/tile2/800/600', thumb: 'https://picsum.photos/seed/tile2/400/300', caption: 'Bathroom wall and floor tiling, Wiltshire' },
-  { src: 'https://picsum.photos/seed/tile3/800/600', thumb: 'https://picsum.photos/seed/tile3/400/300', caption: 'Kitchen splashback in Bath' },
-  { src: 'https://picsum.photos/seed/tile4/800/600', thumb: 'https://picsum.photos/seed/tile4/400/300', caption: 'Shower enclosure tiling, Wiltshire' },
-  { src: 'https://picsum.photos/seed/tile5/800/600', thumb: 'https://picsum.photos/seed/tile5/400/300', caption: 'Bathroom renovation in Trowbridge' },
-  { src: 'https://picsum.photos/seed/tile6/800/600', thumb: 'https://picsum.photos/seed/tile6/400/300', caption: 'Wet room floor tiling, Wiltshire' },
-  { src: 'https://picsum.photos/seed/tile7/800/600', thumb: 'https://picsum.photos/seed/tile7/400/300', caption: 'Kitchen backsplash in Bath' },
-  { src: 'https://picsum.photos/seed/tile8/800/600', thumb: 'https://picsum.photos/seed/tile8/400/300', caption: 'Porcelain floor tiles, Wiltshire' },
-  { src: 'https://picsum.photos/seed/tile9/800/600', thumb: 'https://picsum.photos/seed/tile9/400/300', caption: 'Bathroom wall tiles in Trowbridge' },
-  { src: 'https://picsum.photos/seed/tile10/800/600', thumb: 'https://picsum.photos/seed/tile10/400/300', caption: 'Kitchen floor tiling, Wiltshire' },
-  { src: 'https://picsum.photos/seed/tile11/800/600', thumb: 'https://picsum.photos/seed/tile11/400/300', caption: 'Herringbone bathroom floor, Bath' },
-  { src: 'https://picsum.photos/seed/tile12/800/600', thumb: 'https://picsum.photos/seed/tile12/400/300', caption: 'Splashback feature wall, Wiltshire' },
+const GALLERY_PROJECTS = [
+  {
+    title: 'Kitchen Floor with a 600 x 300 ceramic tile',
+    description: '600 \u00d7 300mm ceramic floor tiles installed across an 8m\u00b2 kitchen floor. Self-levelling compound was applied as preparation prior to tiling, ensuring a flat surface with no tile lippage.',
+    folder: 'kitchen-floor-tiling',
+    images: [
+      { file: 'photo1.jpg', alt: '600 x 300 ceramic floor tiles, photo taken from doorway. Kitchen floor tiling Trowbridge' },
+      { file: 'photo2.jpg', alt: '600 x 300 ceramic floor tiles, photo taken from utility room. Kitchen floor tiling Trowbridge' },
+      { file: 'photo3.jpg', alt: '600 x 300 ceramic floor tiles, aerial photo. Kitchen floor tiling Trowbridge' },
+    ]
+  },
+  {
+    title: 'Dining room floor with a 600 x 600 Porcelain tile',
+    description: '600 \u00d7 600mm porcelain floor tiles installed across a 12m\u00b2 dining room floor. Self-levelling compound was applied as preparation prior to tiling, ensuring a flat surface with no tile lippage.',
+    folder: 'dining-room-floor-tiling',
+    images: [
+      { file: 'photo1.jpg', alt: '600 x 600 porcelain floor tiles, straight ahead photo. Dining room floor tiling Trowbridge' },
+      { file: 'photo2.jpg', alt: '600 x 600 porcelain floor tiles, photo taken from angle. Dining room floor tiling Trowbridge' },
+    ]
+  },
 ];
 
 const FOOTER_CONTACT = [
@@ -251,35 +258,86 @@ function renderServices() {
 function renderGallery() {
   const el = document.getElementById('galleryGrid');
   if (!el) return;
-  el.innerHTML = GALLERY_IMAGES.map((img, i) => `
-    <div class="gallery-item delay-${(i % 5) + 1}" data-animate onclick="showLightbox('${img.src}','${img.caption.replace(/'/g, "\\'")}')">
-      <img src="${img.thumb}" alt="${img.caption}" loading="lazy">
-      <div class="gallery-overlay">${img.caption}</div>
+  el.innerHTML = GALLERY_PROJECTS.map((project, i) => `
+    <div class="gallery-item delay-${(i % 5) + 1}" data-animate onclick="showProjectLightbox(${i})">
+      <img src="/images/gallery/${project.folder}/cover.jpg" alt="${project.images[0].alt}" loading="lazy">
+      <div class="gallery-count">${project.images.length} photo${project.images.length > 1 ? 's' : ''}</div>
+      <div class="gallery-overlay">
+        <div class="gallery-overlay-title">${project.title}</div>
+        <div class="gallery-overlay-desc">${project.description}</div>
+      </div>
     </div>
   `).join('');
 }
 
-function showLightbox(src, caption) {
-  const existing = document.getElementById('lightbox');
-  if (existing) existing.remove();
+let currentProject = 0;
+let currentImage = 0;
 
-  const lb = document.createElement('div');
-  lb.id = 'lightbox';
-  lb.className = 'lightbox';
-  lb.innerHTML = `
+function showProjectLightbox(projectIndex) {
+  currentProject = projectIndex;
+  currentImage = 0;
+  renderLightbox();
+}
+
+function renderLightbox() {
+  const lb = document.getElementById('lightbox');
+  const project = GALLERY_PROJECTS[currentProject];
+  const img = project.images[currentImage];
+  const src = `/images/gallery/${project.folder}/${img.file}`;
+  const total = project.images.length;
+
+  if (lb) {
+    const lbImg = lb.querySelector('.lightbox-content img');
+    const lbCaption = lb.querySelector('.lightbox-caption');
+    const lbCounter = lb.querySelector('.lightbox-counter');
+    if (lbImg) {
+      lbImg.style.opacity = '0';
+      setTimeout(() => {
+        lbImg.src = src;
+        lbImg.alt = img.alt;
+        lbImg.style.opacity = '1';
+      }, 150);
+    }
+    if (lbCaption) lbCaption.textContent = project.title;
+    if (lbCounter) lbCounter.textContent = `${currentImage + 1} / ${total}`;
+    return;
+  }
+
+  const newLb = document.createElement('div');
+  newLb.id = 'lightbox';
+  newLb.className = 'lightbox';
+  newLb.innerHTML = `
     <span class="lightbox-close">&times;</span>
+    <button class="lightbox-prev" aria-label="Previous"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/></svg></button>
+    <button class="lightbox-next" aria-label="Next"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/></svg></button>
     <div class="lightbox-content">
-      <img src="${src}" alt="${caption || ''}">
-      ${caption ? '<p class="lightbox-caption">' + caption + '</p>' : ''}
+      <img src="${src}" alt="${img.alt}" style="transition: opacity 0.15s ease;">
+      <div class="lightbox-info">
+        <p class="lightbox-caption">${project.title}</p>
+        <p class="lightbox-counter">${currentImage + 1} / ${total}</p>
+      </div>
     </div>
   `;
-  lb.addEventListener('click', e => { if (e.target === lb) lb.remove(); });
-  lb.querySelector('.lightbox-close').addEventListener('click', () => lb.remove());
-  document.addEventListener('keydown', function onKey(e) {
-    if (e.key === 'Escape') { lb.remove(); document.removeEventListener('keydown', onKey); }
+
+  newLb.addEventListener('click', e => { if (e.target === newLb) newLb.remove(); });
+  newLb.querySelector('.lightbox-close').addEventListener('click', () => newLb.remove());
+  newLb.querySelector('.lightbox-prev').addEventListener('click', (e) => {
+    e.stopPropagation();
+    currentImage = (currentImage - 1 + total) % total;
+    renderLightbox();
   });
-  document.body.appendChild(lb);
-  setTimeout(() => lb.classList.add('open'), 10);
+  newLb.querySelector('.lightbox-next').addEventListener('click', (e) => {
+    e.stopPropagation();
+    currentImage = (currentImage + 1) % total;
+    renderLightbox();
+  });
+  document.addEventListener('keydown', function onKey(e) {
+    if (e.key === 'Escape') { newLb.remove(); document.removeEventListener('keydown', onKey); }
+    if (e.key === 'ArrowLeft') { currentImage = (currentImage - 1 + total) % total; renderLightbox(); }
+    if (e.key === 'ArrowRight') { currentImage = (currentImage + 1) % total; renderLightbox(); }
+  });
+  document.body.appendChild(newLb);
+  setTimeout(() => newLb.classList.add('open'), 10);
 }
 
 function renderTestimonials() {
