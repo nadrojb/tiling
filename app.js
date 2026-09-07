@@ -81,7 +81,7 @@ const HOW_IT_WORKS = [
 const GALLERY_PROJECTS = [
   {
     title: 'Kitchen Floor with a 600 x 300 ceramic tile',
-    description: '600 \u00d7 300mm ceramic floor tiles installed across an 8m\u00b2 kitchen floor. Screeding was completed as preparation prior to tiling, ensuring a flat surface with no tile lippage.',
+    description: '600 \u00d7 300mm ceramic floor tiles installed across an 8m\u00b2 kitchen floor. Self-levelling compound was applied as preparation prior to tiling, ensuring a flat surface with no tile lippage.',
     folder: 'kitchen-floor-tiling',
     images: [
       { file: 'photo1.jpg', alt: '600 x 300 ceramic floor tiles, photo taken from doorway. Kitchen floor tiling Trowbridge' },
@@ -91,7 +91,7 @@ const GALLERY_PROJECTS = [
   },
   {
     title: 'Dining room floor with a 600 x 600 Porcelain tile',
-    description: '600 \u00d7 600mm porcelain floor tiles installed across a 12m\u00b2 dining room floor. Screeding was completed as preparation prior to tiling, ensuring a flat surface with no tile lippage.',
+    description: '600 \u00d7 600mm porcelain floor tiles installed across a 12m\u00b2 dining room floor. Self-levelling compound was applied as preparation prior to tiling, ensuring a flat surface with no tile lippage.',
     folder: 'dining-room-floor-tiling',
     images: [
       { file: 'photo1.jpg', alt: '600 x 600 porcelain floor tiles, straight ahead photo. Dining room floor tiling Trowbridge' },
