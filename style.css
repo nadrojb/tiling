@@ -235,6 +235,7 @@ svg { flex-shrink: 0; }
 .gallery-item:hover img { transform: scale(1.08); }
 .gallery-overlay { position: absolute; inset: 0; background: linear-gradient(transparent 60%, rgba(0,0,0,0.7)); display: flex; align-items: flex-end; padding: 16px; color: var(--white); font-size: 14px; font-weight: 500; opacity: 0; transition: opacity 0.3s; }
 .gallery-item:hover .gallery-overlay { opacity: 1; }
+.gallery-count { position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.65); color: var(--white); font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 20px; backdrop-filter: blur(4px); }
 
 /* ===== LIGHTBOX ===== */
 .lightbox { position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.92); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; cursor: pointer; }
@@ -244,6 +245,12 @@ svg { flex-shrink: 0; }
 .lightbox-caption { text-align: center; color: rgba(255,255,255,0.8); font-size: 14px; margin-top: 12px; }
 .lightbox-close { position: absolute; top: 20px; right: 24px; color: var(--white); font-size: 36px; cursor: pointer; line-height: 1; opacity: 0.7; transition: opacity 0.2s; z-index: 1; }
 .lightbox-close:hover { opacity: 1; }
+.lightbox-prev, .lightbox-next { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.15); border: none; color: var(--white); font-size: 32px; width: 48px; height: 48px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; z-index: 1; }
+.lightbox-prev:hover, .lightbox-next:hover { background: rgba(255,255,255,0.3); }
+.lightbox-prev { left: 20px; }
+.lightbox-next { right: 20px; }
+.lightbox-info { text-align: center; margin-top: 12px; }
+.lightbox-counter { color: rgba(255,255,255,0.5); font-size: 13px; margin-top: 4px; }
 
 /* ===== SERVICE AREAS ===== */
 .areas-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 32px; }
