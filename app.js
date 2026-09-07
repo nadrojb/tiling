@@ -80,22 +80,22 @@ const HOW_IT_WORKS = [
 
 const GALLERY_PROJECTS = [
   {
-    title: 'Kitchen Floor Tiling, Trowbridge',
+    title: 'Kitchen Floor with a 600 x 300 ceramic tile',
     description: '600 \u00d7 300mm ceramic floor tiles installed across an 8m\u00b2 kitchen floor. Screeding was completed as preparation prior to tiling, ensuring a flat surface with no tile lippage.',
     folder: 'kitchen-floor-tiling',
     images: [
-      { file: 'photo1.jpg', alt: '600x300mm ceramic floor tiles laid in a kitchen in Trowbridge, Wiltshire' },
-      { file: 'photo2.jpg', alt: 'Kitchen floor tiling in progress with adhesive spread evenly across the floor' },
-      { file: 'photo3.jpg', alt: 'Completed kitchen floor tiling with grouted ceramic tiles in Trowbridge' },
+      { file: 'photo1.jpg', alt: '600 x 300 ceramic floor tiles, photo taken from doorway. Kitchen floor tiling Trowbridge' },
+      { file: 'photo2.jpg', alt: '600 x 300 ceramic floor tiles, photo taken from utility room. Kitchen floor tiling Trowbridge' },
+      { file: 'photo3.jpg', alt: '600 x 300 ceramic floor tiles, aerial photo. Kitchen floor tiling Trowbridge' },
     ]
   },
   {
-    title: 'Dining Room Floor Tiling, Trowbridge',
-    description: '600 \u00d7 600mm ceramic floor tiles installed across a 12m\u00b2 dining room floor. Screeding was completed as preparation prior to tiling, ensuring a flat surface with no tile lippage.',
+    title: 'Dining room floor with a 600 x 600 Porcelain tile',
+    description: '600 \u00d7 600mm porcelain floor tiles installed across a 12m\u00b2 dining room floor. Screeding was completed as preparation prior to tiling, ensuring a flat surface with no tile lippage.',
     folder: 'dining-room-floor-tiling',
     images: [
-      { file: 'photo1.jpg', alt: '600x600mm ceramic floor tiles laid in a dining room in Trowbridge, Wiltshire' },
-      { file: 'photo2.jpg', alt: 'Completed dining room floor tiling with large-format ceramic tiles' },
+      { file: 'photo1.jpg', alt: '600 x 600 porcelain floor tiles, straight ahead photo. Dining room floor tiling Trowbridge' },
+      { file: 'photo2.jpg', alt: '600 x 600 porcelain floor tiles, photo taken from angle. Dining room floor tiling Trowbridge' },
     ]
   },
 ];
@@ -262,7 +262,10 @@ function renderGallery() {
     <div class="gallery-item delay-${(i % 5) + 1}" data-animate onclick="showProjectLightbox(${i})">
       <img src="/images/gallery/${project.folder}/cover.jpg" alt="${project.images[0].alt}" loading="lazy">
       <div class="gallery-count">${project.images.length} photo${project.images.length > 1 ? 's' : ''}</div>
-      <div class="gallery-overlay">${project.title}</div>
+      <div class="gallery-overlay">
+        <div class="gallery-overlay-title">${project.title}</div>
+        <div class="gallery-overlay-desc">${project.description}</div>
+      </div>
     </div>
   `).join('');
 }
