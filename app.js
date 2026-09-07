@@ -277,23 +277,38 @@ function showProjectLightbox(projectIndex) {
 }
 
 function renderLightbox() {
-  const existing = document.getElementById('lightbox');
-  if (existing) existing.remove();
-
+  const lb = document.getElementById('lightbox');
   const project = GALLERY_PROJECTS[currentProject];
   const img = project.images[currentImage];
   const src = `/images/gallery/${project.folder}/${img.file}`;
   const total = project.images.length;
 
-  const lb = document.createElement('div');
-  lb.id = 'lightbox';
-  lb.className = 'lightbox';
-  lb.innerHTML = `
+  if (lb) {
+    const lbImg = lb.querySelector('.lightbox-content img');
+    const lbCaption = lb.querySelector('.lightbox-caption');
+    const lbCounter = lb.querySelector('.lightbox-counter');
+    if (lbImg) {
+      lbImg.style.opacity = '0';
+      setTimeout(() => {
+        lbImg.src = src;
+        lbImg.alt = img.alt;
+        lbImg.style.opacity = '1';
+      }, 150);
+    }
+    if (lbCaption) lbCaption.textContent = project.title;
+    if (lbCounter) lbCounter.textContent = `${currentImage + 1} / ${total}`;
+    return;
+  }
+
+  const newLb = document.createElement('div');
+  newLb.id = 'lightbox';
+  newLb.className = 'lightbox';
+  newLb.innerHTML = `
     <span class="lightbox-close">&times;</span>
     <button class="lightbox-prev" aria-label="Previous">&lsaquo;</button>
     <button class="lightbox-next" aria-label="Next">&rsaquo;</button>
     <div class="lightbox-content">
-      <img src="${src}" alt="${img.alt}">
+      <img src="${src}" alt="${img.alt}" style="transition: opacity 0.15s ease;">
       <div class="lightbox-info">
         <p class="lightbox-caption">${project.title}</p>
         <p class="lightbox-counter">${currentImage + 1} / ${total}</p>
@@ -301,25 +316,25 @@ function renderLightbox() {
     </div>
   `;
 
-  lb.addEventListener('click', e => { if (e.target === lb) lb.remove(); });
-  lb.querySelector('.lightbox-close').addEventListener('click', () => lb.remove());
-  lb.querySelector('.lightbox-prev').addEventListener('click', (e) => {
+  newLb.addEventListener('click', e => { if (e.target === newLb) newLb.remove(); });
+  newLb.querySelector('.lightbox-close').addEventListener('click', () => newLb.remove());
+  newLb.querySelector('.lightbox-prev').addEventListener('click', (e) => {
     e.stopPropagation();
     currentImage = (currentImage - 1 + total) % total;
     renderLightbox();
   });
-  lb.querySelector('.lightbox-next').addEventListener('click', (e) => {
+  newLb.querySelector('.lightbox-next').addEventListener('click', (e) => {
     e.stopPropagation();
     currentImage = (currentImage + 1) % total;
     renderLightbox();
   });
   document.addEventListener('keydown', function onKey(e) {
-    if (e.key === 'Escape') { lb.remove(); document.removeEventListener('keydown', onKey); }
+    if (e.key === 'Escape') { newLb.remove(); document.removeEventListener('keydown', onKey); }
     if (e.key === 'ArrowLeft') { currentImage = (currentImage - 1 + total) % total; renderLightbox(); }
     if (e.key === 'ArrowRight') { currentImage = (currentImage + 1) % total; renderLightbox(); }
   });
-  document.body.appendChild(lb);
-  setTimeout(() => lb.classList.add('open'), 10);
+  document.body.appendChild(newLb);
+  setTimeout(() => newLb.classList.add('open'), 10);
 }
 
 function renderTestimonials() {
