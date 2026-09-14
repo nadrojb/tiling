@@ -98,6 +98,16 @@ const GALLERY_PROJECTS = [
       { file: 'photo2.jpg', alt: '600 x 600 porcelain floor tiles, photo taken from angle. Dining room floor tiling Trowbridge' },
     ]
   },
+  {
+    title: 'Kitchen splashback with 200 x 100mm ceramic subway tiles',
+    description: 'A recent splashback project. This job involved removing the old tiles, repairing the wall to provide a flat surface, and fitting new 200 \u00d7 100mm ceramic subway-style tiles in a brick bond pattern.',
+    folder: 'kitchen-splashback',
+    images: [
+      { file: 'photo1.jpg', alt: '200x100mm ceramic subway-style splashback tiles in a brick bond pattern, photo taken from the left. Kitchen splashback Trowbridge' },
+      { file: 'photo2.jpg', alt: '200x100mm ceramic subway-style splashback tiles in a brick bond pattern, straight ahead photo. Kitchen splashback Trowbridge' },
+      { file: 'photo3.jpg', alt: '200x100mm ceramic subway-style splashback tiles in a brick bond pattern, photo taken from the right. Kitchen splashback Trowbridge' },
+    ]
+  },
 ];
 
 const FOOTER_CONTACT = [
