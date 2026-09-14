@@ -282,6 +282,8 @@ function renderGallery() {
 
 let currentProject = 0;
 let currentImage = 0;
+let touchStartX = 0;
+let touchStartY = 0;
 
 function showProjectLightbox(projectIndex) {
   currentProject = projectIndex;
@@ -299,7 +301,6 @@ function renderLightbox() {
   if (lb) {
     const lbImg = lb.querySelector('.lightbox-content img');
     const lbCaption = lb.querySelector('.lightbox-caption');
-    const lbCounter = lb.querySelector('.lightbox-counter');
     if (lbImg) {
       lbImg.style.opacity = '0';
       setTimeout(() => {
@@ -309,9 +310,12 @@ function renderLightbox() {
       }, 150);
     }
     if (lbCaption) lbCaption.textContent = project.title;
-    if (lbCounter) lbCounter.textContent = `${currentImage + 1} / ${total}`;
+    const dots = lb.querySelectorAll('.lightbox-dot');
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === currentImage));
     return;
   }
+
+  const dotsHtml = project.images.map((_, i) => `<button class="lightbox-dot${i === 0 ? ' active' : ''}" aria-label="Go to photo ${i + 1}"></button>`).join('');
 
   const newLb = document.createElement('div');
   newLb.id = 'lightbox';
@@ -324,13 +328,13 @@ function renderLightbox() {
       <img src="${src}" alt="${img.alt}" style="transition: opacity 0.15s ease;">
       <div class="lightbox-info">
         <p class="lightbox-caption">${project.title}</p>
-        <p class="lightbox-counter">${currentImage + 1} / ${total}</p>
+        <div class="lightbox-dots">${dotsHtml}</div>
       </div>
     </div>
   `;
 
-  newLb.addEventListener('click', e => { if (e.target === newLb) newLb.remove(); });
-  newLb.querySelector('.lightbox-close').addEventListener('click', () => newLb.remove());
+  newLb.addEventListener('click', e => { if (e.target === newLb) closeLightbox(); });
+  newLb.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
   newLb.querySelector('.lightbox-prev').addEventListener('click', (e) => {
     e.stopPropagation();
     currentImage = (currentImage - 1 + total) % total;
@@ -341,13 +345,43 @@ function renderLightbox() {
     currentImage = (currentImage + 1) % total;
     renderLightbox();
   });
+  newLb.querySelectorAll('.lightbox-dot').forEach((dot, i) => {
+    dot.addEventListener('click', (e) => {
+      e.stopPropagation();
+      currentImage = i;
+      renderLightbox();
+    });
+  });
+
   document.addEventListener('keydown', function onKey(e) {
-    if (e.key === 'Escape') { newLb.remove(); document.removeEventListener('keydown', onKey); }
+    if (e.key === 'Escape') closeLightbox();
     if (e.key === 'ArrowLeft') { currentImage = (currentImage - 1 + total) % total; renderLightbox(); }
     if (e.key === 'ArrowRight') { currentImage = (currentImage + 1) % total; renderLightbox(); }
   });
+
+  newLb.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
+  }, { passive: true });
+
+  newLb.addEventListener('touchend', (e) => {
+    const dx = e.changedTouches[0].screenX - touchStartX;
+    const dy = e.changedTouches[0].screenY - touchStartY;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
+      if (dx < 0) { currentImage = (currentImage + 1) % total; renderLightbox(); }
+      else { currentImage = (currentImage - 1 + total) % total; renderLightbox(); }
+    }
+  }, { passive: true });
+
   document.body.appendChild(newLb);
+  document.body.classList.add('lightbox-open');
   setTimeout(() => newLb.classList.add('open'), 10);
+}
+
+function closeLightbox() {
+  const lb = document.getElementById('lightbox');
+  if (lb) lb.remove();
+  document.body.classList.remove('lightbox-open');
 }
 
 function renderTestimonials() {
