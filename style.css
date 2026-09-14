@@ -252,6 +252,10 @@ svg { flex-shrink: 0; }
 .lightbox-prev { left: 20px; }
 .lightbox-next { right: 20px; }
 .lightbox-info { text-align: center; margin-top: 12px; }
+.lightbox-dots { display: flex; gap: 8px; justify-content: center; margin-top: 16px; }
+.lightbox-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.35); border: none; cursor: pointer; padding: 0; transition: background 0.2s; }
+.lightbox-dot.active { background: var(--white); }
+body.lightbox-open { overflow: hidden; }
 .lightbox-counter { color: rgba(255,255,255,0.5); font-size: 13px; margin-top: 4px; }
 
 /* ===== SERVICE AREAS ===== */
