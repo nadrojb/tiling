@@ -60,13 +60,11 @@ const SERVICES = [
 ];
 
 const SERVICES_PAGE = [
-  { icon: 'grid', title: 'Kitchen Tiling', desc: 'From splashbacks to full kitchen floor tiling. I work with ceramic, porcelain and natural stone tiles to create a kitchen that looks great and stands up to daily use. Whether it\'s a simple floor or a full wall tiling project, I handle the lot.' },
-  { icon: 'droplet', title: 'Bathroom Tiling', desc: 'Full bathroom tiling including walls, floors, shower enclosures and wet rooms. I ensure everything is properly waterproofed, sealed, and finished to a high standard. En-suites, family bathrooms, cloakrooms \u2014 no job too small.' },
-  { icon: 'grid', title: 'Floor Tiling', desc: 'Durable, professional floor tiling for any room in your home. I prepare the subfloor, lay tiles with precision, and grout to a clean finish. Porcelain, ceramic, natural stone \u2014 I work with all materials.' },
-  { icon: 'droplet', title: 'Splashbacks', desc: 'Kitchen and bathroom splashbacks that protect your walls and add a finishing touch to the room. I can help with tile selection, layout patterns, and finishes to match your space.' },
-  { icon: 'thermometer', title: 'Underfloor Heating', desc: 'Electric underfloor heating systems installed beneath your new tile floor. A great addition to bathrooms and kitchens, giving you warm floors all year round. I handle the full installation alongside your tiling project.' },
+  { icon: 'grid', title: 'Kitchen Tiling', desc: 'From splashbacks to full kitchen floor tiling. I work with ceramic, porcelain and natural stone tiles to create a kitchen that looks great and stands up to daily use.' },
+  { icon: 'droplet', title: 'Bathroom Tiling', desc: 'Full bathroom tiling including walls, floors and shower enclosures. I ensure everything is properly waterproofed, sealed, and finished to a high standard.' },
+  { icon: 'grid', title: 'Floor Tiling', desc: 'Durable, professional floor tiling for any room in your home. I prepare the subfloor to ensure a flat and stable surface, and lay tiles in which ever bond pattern you\u2019d like.' },
+  { icon: 'droplet', title: 'Splashbacks', desc: 'Kitchen and bathroom splashbacks that protect your walls and add a finishing touch to the room.' },
   { icon: 'wrench', title: 'Tile Removal & Surface Prep', desc: 'Removing old tiles, levelling uneven surfaces, and preparing walls and floors for a fresh installation. Proper preparation is key to a long-lasting tile finish.' },
-  { icon: 'arrowRepeat', title: 'Re-Grouting & Repairs', desc: 'Cracked or missing grout? Leaking shower? I can re-grout existing tiles, repair damaged areas, and reseal where needed \u2014 often saving you the cost of a full re-tile.' },
 ];
 
 const TESTIMONIALS = [
