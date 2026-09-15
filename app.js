@@ -59,8 +59,8 @@ const SERVICES = [
 ];
 
 const TESTIMONIALS = [
-  { text: 'Recently had Jordan in to tile our kitchen floor and splash back. Couldn\'t recommend him enough - easy to communicate with and always turned up when he said he would.', name: 'Montana A.', location: 'Trowbridge', category: 'Kitchen', avatar: '' },
-  { text: 'Jordan recently helped us with tiling our kitchen floor. He was incredibly easy to communicate with and provided us with supportive advice with not only picking the type of tiles to use but talked us through how to take care of them too. He was throughout professional and a pleasure to have in our home. Would highly recommend!', name: 'Lauren P.', location: 'Trowbridge', category: 'Kitchen', avatar: '' },
+  { text: 'Recently had Jordan in to tile our kitchen floor and splash back. Couldn\'t recommend him enough - easy to communicate with and always turned up when he said he would.', name: 'Montana A.', location: '', category: 'Kitchen', avatar: '' },
+  { text: 'Jordan recently helped us with tiling our kitchen floor. He was incredibly easy to communicate with and provided us with supportive advice with not only picking the type of tiles to use but talked us through how to take care of them too. He was throughout professional and a pleasure to have in our home. Would highly recommend!', name: 'Lauren P.', location: '', category: 'Kitchen', avatar: '' },
 ];
 
 const SERVICE_AREAS = ['Trowbridge', 'Bath', 'Wiltshire', 'Bradford-on-Avon', 'Warminster', 'Frome', 'Westbury', 'Melksham', 'Chippenham', 'Devizes', 'Salisbury'];
@@ -395,7 +395,7 @@ function renderTestimonials() {
         <div class="testimonial-avatar">${t.name.charAt(0)}</div>
         <div>
           <strong>${t.name}</strong>
-          <span>${t.location} \u2014 ${t.category}</span>
+          <span>${t.location ? t.location + ' \u2014 ' : ''}${t.category}</span>
         </div>
       </div>
     </div>
