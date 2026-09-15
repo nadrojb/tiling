@@ -42,6 +42,7 @@ const ICONS = {
 const NAV_LINKS = [
   { label: 'Home', href: '/', page: 'index' },
   { label: 'About', href: '/about', page: 'about' },
+  { label: 'Services', href: '/services', page: 'services' },
   { label: 'Gallery', href: '/gallery', page: 'gallery' },
   { label: 'Contact', href: '/contact', page: 'contact' },
 ];
@@ -56,6 +57,13 @@ const SERVICES = [
   { icon: 'grid', title: 'Kitchen Floor & Wall Tiling', desc: 'Durable, good-looking tiling for kitchen floors and walls — built to handle daily life and look great doing it.', price: '' },
   { icon: 'droplet', title: 'Bathroom Tiling', desc: 'Full bathroom tiling including walls, floors, showers and wet rooms. Waterproofed, sealed, and finished to a high standard.', price: '' },
   { icon: 'wrench', title: 'Tile Removal & Prep Work', desc: 'Got old tiles that need to go? I can remove them, prep the surface, and get it ready for a fresh new finish.', price: '' },
+];
+
+const SERVICES_PAGE = [
+  { icon: 'grid', title: 'Kitchen Tiling', desc: 'From splashbacks to full kitchen floor tiling. I work with ceramic, porcelain and natural stone tiles to create a kitchen that looks great and stands up to daily use.' },
+  { icon: 'droplet', title: 'Bathroom Tiling', desc: 'Full bathroom tiling including walls, floors and shower enclosures. I ensure everything is properly waterproofed, sealed, and finished to a high standard.' },
+  { icon: 'grid', title: 'Floor Tiling', desc: 'Durable, professional floor tiling for any room in your home. I prepare the subfloor to ensure a flat and stable surface, and lay tiles in whichever bond pattern you\u2019d like.' },
+  { icon: 'wrench', title: 'Tile Removal & Surface Prep', desc: 'Removing old tiles, levelling uneven surfaces, and preparing walls and floors for a fresh installation. Proper preparation is key to a long-lasting tile finish.' },
 ];
 
 const TESTIMONIALS = [
@@ -179,7 +187,7 @@ function renderFooter() {
       <div class="container footer-grid">
         <div class="footer-brand">
           <div class="footer-logo"><img src="/images/avonside-logo-white.png" alt="Avonside Tiling" height="40"></div>
-          <p>Wall and floor tiling for homes and businesses across Wiltshire, Bath and surrounding areas.</p>
+          <p>Wall and floor tiling for homes and businesses across Wiltshire, Bath and surrounding areas. All work carried out to British Standards (BS&nbsp;5385).</p>
           <div class="footer-social">
             ${SOCIAL_ICONS.map(s => `<a href="${s.href}" aria-label="${s.icon}">${ICONS[s.icon]}</a>`).join('')}
           </div>
@@ -257,6 +265,178 @@ function renderServices() {
       <p>${s.desc}</p>
     </div>
   `).join('');
+}
+
+function renderServicesPage() {
+  const grid = document.getElementById('servicesPageGrid');
+  const howItWorks = document.getElementById('servicesHowItWorks');
+  if (grid) {
+    grid.innerHTML = SERVICES_PAGE.map((s, i) => `
+      <div class="svc-card delay-${(i % 4) + 1}" data-animate>
+        <div class="svc-card-top">
+          <div class="svc-icon">${ICONS[s.icon]}</div>
+        </div>
+        <h3>${s.title}</h3>
+        <p>${s.desc}</p>
+      </div>
+    `).join('');
+  }
+  if (howItWorks) {
+    howItWorks.innerHTML = HOW_IT_WORKS.map((h, i) => `
+      <div class="choose-card delay-${i + 1}" data-animate>
+        <span class="choose-card-num">${String(h.step).padStart(2, '0')}</span>
+        <h3>${h.title}</h3>
+        <p>${h.desc}</p>
+      </div>
+    `).join('');
+  }
+}
+
+const PREP_IMAGES = [
+  '/images/services/wall-prep/photo1.jpg',
+  '/images/services/wall-prep/photo2.jpg',
+  '/images/services/wall-prep/photo3.jpg',
+  '/images/services/wall-prep/photo4.jpg',
+  '/images/services/wall-prep/photo5.jpg',
+  '/images/services/wall-prep/photo6.jpg',
+  '/images/services/wall-prep/photo7.jpg',
+];
+
+let prepCurrentImage = 0;
+
+function initPrepCarousel() {
+  const track = document.querySelector('.prep-carousel-track');
+  const dotsEl = document.getElementById('prepCarouselDots');
+  if (!track || !dotsEl) return;
+
+  dotsEl.innerHTML = PREP_IMAGES.map((_, i) =>
+    `<button class="prep-carousel-dot${i === 0 ? ' active' : ''}" onclick="scrollPrepToImage(${i})" aria-label="Go to photo ${i + 1}"></button>`
+  ).join('');
+
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    if (idx !== prepCurrentImage) {
+      prepCurrentImage = idx;
+      updatePrepDots();
+    }
+  });
+
+  let touchStartX = 0;
+  track.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].screenX - touchStartX;
+    if (Math.abs(dx) > 50) {
+      if (dx < 0 && prepCurrentImage < PREP_IMAGES.length - 1) scrollPrepToImage(prepCurrentImage + 1);
+      else if (dx > 0 && prepCurrentImage > 0) scrollPrepToImage(prepCurrentImage - 1);
+    }
+  }, { passive: true });
+}
+
+function scrollPrepCarousel(dir) {
+  const track = document.querySelector('.prep-carousel-track');
+  if (!track) return;
+  const next = Math.max(0, Math.min(prepCurrentImage + dir, PREP_IMAGES.length - 1));
+  scrollPrepToImage(next);
+}
+
+function scrollPrepToImage(idx) {
+  const track = document.querySelector('.prep-carousel-track');
+  if (!track) return;
+  prepCurrentImage = idx;
+  track.scrollTo({ left: idx * track.offsetWidth, behavior: 'smooth' });
+  updatePrepDots();
+}
+
+function updatePrepDots() {
+  document.querySelectorAll('.prep-carousel-dot').forEach((dot, i) => {
+    dot.classList.toggle('active', i === prepCurrentImage);
+  });
+}
+
+function showPrepLightbox(idx) {
+  prepCurrentImage = idx;
+  const total = PREP_IMAGES.length;
+
+  const dotsHtml = PREP_IMAGES.map((_, i) =>
+    `<button class="lightbox-dot${i === idx ? ' active' : ''}" aria-label="Go to photo ${i + 1}"></button>`
+  ).join('');
+
+  const newLb = document.createElement('div');
+  newLb.id = 'lightbox';
+  newLb.className = 'lightbox';
+  newLb.innerHTML = `
+    <span class="lightbox-close">&times;</span>
+    <button class="lightbox-prev" aria-label="Previous"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/></svg></button>
+    <button class="lightbox-next" aria-label="Next"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/></svg></button>
+    <div class="lightbox-content">
+      <img src="${PREP_IMAGES[idx]}" alt="Wall preparation photo ${idx + 1}" style="transition: opacity 0.15s ease;">
+      <div class="lightbox-info">
+        <p class="lightbox-caption">Wall Preparation</p>
+        <div class="lightbox-dots">${dotsHtml}</div>
+      </div>
+    </div>
+  `;
+
+  function renderPrepLb() {
+    const lb = document.getElementById('lightbox');
+    if (!lb) return;
+    const lbImg = lb.querySelector('.lightbox-content img');
+    if (lbImg) {
+      lbImg.style.opacity = '0';
+      setTimeout(() => {
+        lbImg.src = PREP_IMAGES[prepCurrentImage];
+        lbImg.alt = `Wall preparation photo ${prepCurrentImage + 1}`;
+        lbImg.style.opacity = '1';
+      }, 150);
+    }
+    lb.querySelectorAll('.lightbox-dot').forEach((d, i) => d.classList.toggle('active', i === prepCurrentImage));
+  }
+
+  function closePrepLb() {
+    const lb = document.getElementById('lightbox');
+    if (lb) lb.remove();
+    document.body.classList.remove('lightbox-open');
+  }
+
+  newLb.addEventListener('click', e => { if (e.target === newLb) closePrepLb(); });
+  newLb.querySelector('.lightbox-close').addEventListener('click', closePrepLb);
+  newLb.querySelector('.lightbox-prev').addEventListener('click', e => {
+    e.stopPropagation();
+    prepCurrentImage = (prepCurrentImage - 1 + total) % total;
+    renderPrepLb();
+  });
+  newLb.querySelector('.lightbox-next').addEventListener('click', e => {
+    e.stopPropagation();
+    prepCurrentImage = (prepCurrentImage + 1) % total;
+    renderPrepLb();
+  });
+  newLb.querySelectorAll('.lightbox-dot').forEach((dot, i) => {
+    dot.addEventListener('click', e => {
+      e.stopPropagation();
+      prepCurrentImage = i;
+      renderPrepLb();
+    });
+  });
+
+  document.addEventListener('keydown', function onKey(e) {
+    if (e.key === 'Escape') closePrepLb();
+    if (e.key === 'ArrowLeft') { prepCurrentImage = (prepCurrentImage - 1 + total) % total; renderPrepLb(); }
+    if (e.key === 'ArrowRight') { prepCurrentImage = (prepCurrentImage + 1) % total; renderPrepLb(); }
+  });
+
+  let lbTouchStartX = 0;
+  newLb.addEventListener('touchstart', e => { lbTouchStartX = e.changedTouches[0].screenX; }, { passive: true });
+  newLb.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].screenX - lbTouchStartX;
+    if (Math.abs(dx) > 50) {
+      if (dx < 0) { prepCurrentImage = (prepCurrentImage + 1) % total; renderPrepLb(); }
+      else { prepCurrentImage = (prepCurrentImage - 1 + total) % total; renderPrepLb(); }
+    }
+  }, { passive: true });
+
+  document.body.appendChild(newLb);
+  document.body.classList.add('lightbox-open');
+  setTimeout(() => newLb.classList.add('open'), 10);
 }
 
 function renderGallery() {
