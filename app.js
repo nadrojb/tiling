@@ -59,14 +59,8 @@ const SERVICES = [
 ];
 
 const TESTIMONIALS = [
-  { text: 'Jordan did a fantastic job tiling our kitchen floor. Really friendly, turned up when he said he would, and the finish is spot on. Wouldn\'t hesitate to recommend.', name: 'Sarah M.', location: 'Trowbridge', category: 'Kitchen', avatar: '' },
-  { text: 'Had Jordan tile our bathroom after a recommendation from a neighbour. Great attention to detail and left the place spotless. Really chuffed with the result.', name: 'Marcus H.', location: 'Bath', category: 'Bathroom', avatar: '' },
-  { text: 'First time I\'ve used Jordan and won\'t be the last. Fair price, great communication, and the splashback looks brilliant. Proper job.', name: 'Priya N.', location: 'Bradford-on-Avon', category: 'Splashback', avatar: '' },
-  { text: 'Jordan tiled our entire ground floor — hallway, kitchen and living room. The herringbone pattern in the hall came out brilliantly. Great work ethic.', name: 'David R.', location: 'Frome', category: 'Flooring', avatar: '' },
-  { text: 'Really pleased with the bathroom tiling. Jordan was punctual, tidy, and talked me through the options before starting. Would definitely use again.', name: 'Emma T.', location: 'Warminster', category: 'Bathroom', avatar: '' },
-  { text: 'Had a kitchen splashback done and it\'s transformed the room. Jordan\'s attention to detail is excellent — you can tell he cares about the finish.', name: 'Chris P.', location: 'Melksham', category: 'Splashback', avatar: '' },
-  { text: 'Jordan did a great job on our en-suite. The shower niche and tiling are spot on. Fair pricing and no mess left behind. Can\'t ask for more.', name: 'Laura B.', location: 'Chippenham', category: 'Bathroom', avatar: '' },
-  { text: 'Professional from start to finish. Jordan came to quote, talked me through the options, and the floor tiling looks brilliant. Highly recommend.', name: 'Tom W.', location: 'Devizes', category: 'Flooring', avatar: '' },
+  { text: 'Recently had Jordan in to tile our kitchen floor and splash back. Couldn\'t recommend him enough - easy to communicate with and always turned up when he said he would.', name: 'Montana A.', location: 'Trowbridge', category: 'Kitchen', avatar: '' },
+  { text: 'Jordan recently helped us with tiling our kitchen floor. He was incredibly easy to communicate with and provided us with supportive advice with not only picking the type of tiles to use but talked us through how to take care of them too. He was throughout professional and a pleasure to have in our home. Would highly recommend!', name: 'Lauren P.', location: 'Trowbridge', category: 'Kitchen', avatar: '' },
 ];
 
 const SERVICE_AREAS = ['Trowbridge', 'Bath', 'Wiltshire', 'Bradford-on-Avon', 'Warminster', 'Frome', 'Westbury', 'Melksham', 'Chippenham', 'Devizes', 'Salisbury'];
