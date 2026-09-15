@@ -369,6 +369,7 @@ body.lightbox-open { overflow: hidden; }
 
 /* ===== SERVICES PAGE ===== */
 .services-page .service-grid { margin-top: 32px; }
+#servicesPageGrid { grid-template-columns: 1fr 1fr; }
 
 /* ===== CONTACT PAGE ===== */
 .contact-grid { display: grid; gap: 48px; }

@@ -63,7 +63,6 @@ const SERVICES_PAGE = [
   { icon: 'grid', title: 'Kitchen Tiling', desc: 'From splashbacks to full kitchen floor tiling. I work with ceramic, porcelain and natural stone tiles to create a kitchen that looks great and stands up to daily use.' },
   { icon: 'droplet', title: 'Bathroom Tiling', desc: 'Full bathroom tiling including walls, floors and shower enclosures. I ensure everything is properly waterproofed, sealed, and finished to a high standard.' },
   { icon: 'grid', title: 'Floor Tiling', desc: 'Durable, professional floor tiling for any room in your home. I prepare the subfloor to ensure a flat and stable surface, and lay tiles in which ever bond pattern you\u2019d like.' },
-  { icon: 'droplet', title: 'Splashbacks', desc: 'Kitchen and bathroom splashbacks that protect your walls and add a finishing touch to the room.' },
   { icon: 'wrench', title: 'Tile Removal & Surface Prep', desc: 'Removing old tiles, levelling uneven surfaces, and preparing walls and floors for a fresh installation. Proper preparation is key to a long-lasting tile finish.' },
 ];
 
