@@ -195,7 +195,7 @@ svg { flex-shrink: 0; }
 
 /* ===== SERVICE GRID ===== */
 .service-grid { display: grid; gap: 20px; grid-template-columns: 1fr; }
-@media (min-width: 640px) { .service-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 768px) { .service-grid { grid-template-columns: 1fr 1fr; } }
 @media (min-width: 1024px) { .service-grid { grid-template-columns: 1fr 1fr 1fr; } }
 
 .svc-card { background: var(--neutral-50); border: 1px solid var(--neutral-200); border-radius: var(--radius); padding: 24px; display: flex; flex-direction: column; gap: 12px; transition: all 0.2s; cursor: default; }

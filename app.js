@@ -62,7 +62,7 @@ const SERVICES = [
 const SERVICES_PAGE = [
   { icon: 'grid', title: 'Kitchen Tiling', desc: 'From splashbacks to full kitchen floor tiling. I work with ceramic, porcelain and natural stone tiles to create a kitchen that looks great and stands up to daily use.' },
   { icon: 'droplet', title: 'Bathroom Tiling', desc: 'Full bathroom tiling including walls, floors and shower enclosures. I ensure everything is properly waterproofed, sealed, and finished to a high standard.' },
-  { icon: 'grid', title: 'Floor Tiling', desc: 'Durable, professional floor tiling for any room in your home. I prepare the subfloor to ensure a flat and stable surface, and lay tiles in which ever bond pattern you\u2019d like.' },
+  { icon: 'grid', title: 'Floor Tiling', desc: 'Durable, professional floor tiling for any room in your home. I prepare the subfloor to ensure a flat and stable surface, and lay tiles in whichever bond pattern you\u2019d like.' },
   { icon: 'wrench', title: 'Tile Removal & Surface Prep', desc: 'Removing old tiles, levelling uneven surfaces, and preparing walls and floors for a fresh installation. Proper preparation is key to a long-lasting tile finish.' },
 ];
 
@@ -187,7 +187,7 @@ function renderFooter() {
       <div class="container footer-grid">
         <div class="footer-brand">
           <div class="footer-logo"><img src="/images/avonside-logo-white.png" alt="Avonside Tiling" height="40"></div>
-          <p>Wall and floor tiling for homes and businesses across Wiltshire, Bath and surrounding areas.</p>
+          <p>Wall and floor tiling for homes and businesses across Wiltshire, Bath and surrounding areas. All work carried out to British Standards (BS&nbsp;5385).</p>
           <div class="footer-social">
             ${SOCIAL_ICONS.map(s => `<a href="${s.href}" aria-label="${s.icon}">${ICONS[s.icon]}</a>`).join('')}
           </div>
