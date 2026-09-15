@@ -370,7 +370,8 @@ body.lightbox-open { overflow: hidden; }
 
 /* ===== SERVICES PAGE ===== */
 .services-page .service-grid { margin-top: 32px; }
-#servicesPageGrid { grid-template-columns: 1fr 1fr; }
+#servicesPageGrid { grid-template-columns: 1fr; }
+@media (min-width: 768px) { #servicesPageGrid { grid-template-columns: 1fr 1fr; } }
 
 .prep-carousel { position: relative; border-radius: var(--radius); overflow: hidden; }
 .prep-carousel-track { display: flex; gap: 8px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
