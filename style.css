@@ -371,6 +371,34 @@ body.lightbox-open { overflow: hidden; }
 .services-page .service-grid { margin-top: 32px; }
 #servicesPageGrid { grid-template-columns: 1fr 1fr; }
 
+.prep-carousel { position: relative; border-radius: var(--radius); overflow: hidden; }
+.prep-carousel-track { display: flex; gap: 8px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.prep-carousel-track::-webkit-scrollbar { display: none; }
+.prep-carousel-track img { flex: 0 0 100%; scroll-snap-align: start; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--radius); cursor: pointer; transition: opacity 0.2s; }
+.prep-carousel-track img:hover { opacity: 0.9; }
+
+.prep-carousel-prev,
+.prep-carousel-next { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.9); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.15); z-index: 2; transition: background 0.2s; }
+.prep-carousel-prev:hover,
+.prep-carousel-next:hover { background: #fff; }
+.prep-carousel-prev { left: 12px; }
+.prep-carousel-next { right: 12px; }
+.prep-carousel-prev svg,
+.prep-carousel-next svg { width: 18px; height: 18px; color: var(--neutral-800); }
+
+.prep-carousel-dots { display: flex; justify-content: center; gap: 6px; padding: 12px 0 0; }
+.prep-carousel-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--neutral-300); border: none; cursor: pointer; transition: background 0.2s; }
+.prep-carousel-dot.active { background: var(--primary); }
+
+@media (max-width: 767px) {
+  .prep-carousel-prev,
+  .prep-carousel-next { width: 32px; height: 32px; }
+  .prep-carousel-prev { left: 8px; }
+  .prep-carousel-next { right: 8px; }
+  .prep-carousel-prev svg,
+  .prep-carousel-next svg { width: 14px; height: 14px; }
+}
+
 .prep-intro { max-width: 100%; font-size: 16px; color: var(--neutral-600); line-height: 1.7; margin-bottom: 48px; }
 
 .prep-row { display: grid; gap: 40px; align-items: center; margin-bottom: 48px; }

@@ -292,6 +292,153 @@ function renderServicesPage() {
   }
 }
 
+const PREP_IMAGES = [
+  '/images/services/wall-prep/photo1.jpg',
+  '/images/services/wall-prep/photo2.jpg',
+  '/images/services/wall-prep/photo3.jpg',
+  '/images/services/wall-prep/photo4.jpg',
+  '/images/services/wall-prep/photo5.jpg',
+  '/images/services/wall-prep/photo6.jpg',
+  '/images/services/wall-prep/photo7.jpg',
+];
+
+let prepCurrentImage = 0;
+
+function initPrepCarousel() {
+  const track = document.querySelector('.prep-carousel-track');
+  const dotsEl = document.getElementById('prepCarouselDots');
+  if (!track || !dotsEl) return;
+
+  dotsEl.innerHTML = PREP_IMAGES.map((_, i) =>
+    `<button class="prep-carousel-dot${i === 0 ? ' active' : ''}" onclick="scrollPrepToImage(${i})" aria-label="Go to photo ${i + 1}"></button>`
+  ).join('');
+
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    if (idx !== prepCurrentImage) {
+      prepCurrentImage = idx;
+      updatePrepDots();
+    }
+  });
+
+  let touchStartX = 0;
+  track.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].screenX - touchStartX;
+    if (Math.abs(dx) > 50) {
+      if (dx < 0 && prepCurrentImage < PREP_IMAGES.length - 1) scrollPrepToImage(prepCurrentImage + 1);
+      else if (dx > 0 && prepCurrentImage > 0) scrollPrepToImage(prepCurrentImage - 1);
+    }
+  }, { passive: true });
+}
+
+function scrollPrepCarousel(dir) {
+  const track = document.querySelector('.prep-carousel-track');
+  if (!track) return;
+  const next = Math.max(0, Math.min(prepCurrentImage + dir, PREP_IMAGES.length - 1));
+  scrollPrepToImage(next);
+}
+
+function scrollPrepToImage(idx) {
+  const track = document.querySelector('.prep-carousel-track');
+  if (!track) return;
+  prepCurrentImage = idx;
+  track.scrollTo({ left: idx * track.offsetWidth, behavior: 'smooth' });
+  updatePrepDots();
+}
+
+function updatePrepDots() {
+  document.querySelectorAll('.prep-carousel-dot').forEach((dot, i) => {
+    dot.classList.toggle('active', i === prepCurrentImage);
+  });
+}
+
+function showPrepLightbox(idx) {
+  prepCurrentImage = idx;
+  const total = PREP_IMAGES.length;
+
+  const dotsHtml = PREP_IMAGES.map((_, i) =>
+    `<button class="lightbox-dot${i === idx ? ' active' : ''}" aria-label="Go to photo ${i + 1}"></button>`
+  ).join('');
+
+  const newLb = document.createElement('div');
+  newLb.id = 'lightbox';
+  newLb.className = 'lightbox';
+  newLb.innerHTML = `
+    <span class="lightbox-close">&times;</span>
+    <button class="lightbox-prev" aria-label="Previous"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/></svg></button>
+    <button class="lightbox-next" aria-label="Next"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/></svg></button>
+    <div class="lightbox-content">
+      <img src="${PREP_IMAGES[idx]}" alt="Wall preparation photo ${idx + 1}" style="transition: opacity 0.15s ease;">
+      <div class="lightbox-info">
+        <p class="lightbox-caption">Wall Preparation</p>
+        <div class="lightbox-dots">${dotsHtml}</div>
+      </div>
+    </div>
+  `;
+
+  function renderPrepLb() {
+    const lb = document.getElementById('lightbox');
+    if (!lb) return;
+    const lbImg = lb.querySelector('.lightbox-content img');
+    if (lbImg) {
+      lbImg.style.opacity = '0';
+      setTimeout(() => {
+        lbImg.src = PREP_IMAGES[prepCurrentImage];
+        lbImg.alt = `Wall preparation photo ${prepCurrentImage + 1}`;
+        lbImg.style.opacity = '1';
+      }, 150);
+    }
+    lb.querySelectorAll('.lightbox-dot').forEach((d, i) => d.classList.toggle('active', i === prepCurrentImage));
+  }
+
+  function closePrepLb() {
+    const lb = document.getElementById('lightbox');
+    if (lb) lb.remove();
+    document.body.classList.remove('lightbox-open');
+  }
+
+  newLb.addEventListener('click', e => { if (e.target === newLb) closePrepLb(); });
+  newLb.querySelector('.lightbox-close').addEventListener('click', closePrepLb);
+  newLb.querySelector('.lightbox-prev').addEventListener('click', e => {
+    e.stopPropagation();
+    prepCurrentImage = (prepCurrentImage - 1 + total) % total;
+    renderPrepLb();
+  });
+  newLb.querySelector('.lightbox-next').addEventListener('click', e => {
+    e.stopPropagation();
+    prepCurrentImage = (prepCurrentImage + 1) % total;
+    renderPrepLb();
+  });
+  newLb.querySelectorAll('.lightbox-dot').forEach((dot, i) => {
+    dot.addEventListener('click', e => {
+      e.stopPropagation();
+      prepCurrentImage = i;
+      renderPrepLb();
+    });
+  });
+
+  document.addEventListener('keydown', function onKey(e) {
+    if (e.key === 'Escape') closePrepLb();
+    if (e.key === 'ArrowLeft') { prepCurrentImage = (prepCurrentImage - 1 + total) % total; renderPrepLb(); }
+    if (e.key === 'ArrowRight') { prepCurrentImage = (prepCurrentImage + 1) % total; renderPrepLb(); }
+  });
+
+  let lbTouchStartX = 0;
+  newLb.addEventListener('touchstart', e => { lbTouchStartX = e.changedTouches[0].screenX; }, { passive: true });
+  newLb.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].screenX - lbTouchStartX;
+    if (Math.abs(dx) > 50) {
+      if (dx < 0) { prepCurrentImage = (prepCurrentImage + 1) % total; renderPrepLb(); }
+      else { prepCurrentImage = (prepCurrentImage - 1 + total) % total; renderPrepLb(); }
+    }
+  }, { passive: true });
+
+  document.body.appendChild(newLb);
+  document.body.classList.add('lightbox-open');
+  setTimeout(() => newLb.classList.add('open'), 10);
+}
+
 function renderGallery() {
   const el = document.getElementById('galleryGrid');
   if (!el) return;

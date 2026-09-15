@@ -65,8 +65,23 @@
         <h3>Wall Preparation</h3>
         <p>A good tiled finish starts with a suitable background. Walls need to be sound, sufficiently flat and capable of supporting the tile and adhesive system being used. Where walls are uneven, damaged or have localised imperfections, I will repair and flatten the surface using appropriate preparation materials. This is particularly important with large-format tiles, where variations in the wall can become much more noticeable once the tiles are installed.</p>
       </div>
-      <div class="prep-image">
-        <img src="/images/services/prep-wall.jpg" alt="Wall preparation before tiling">
+      <div class="prep-carousel" id="prepCarousel">
+        <div class="prep-carousel-track">
+          <img src="/images/services/wall-prep/photo1.jpg" alt="Wall preparation — surface repair" onclick="showPrepLightbox(0)">
+          <img src="/images/services/wall-prep/photo2.jpg" alt="Wall preparation — levelling" onclick="showPrepLightbox(1)">
+          <img src="/images/services/wall-prep/photo3.jpg" alt="Wall preparation — flattening imperfections" onclick="showPrepLightbox(2)">
+          <img src="/images/services/wall-prep/photo4.jpg" alt="Wall preparation — large format ready surface" onclick="showPrepLightbox(3)">
+          <img src="/images/services/wall-prep/photo5.jpg" alt="Wall preparation — substrate assessment" onclick="showPrepLightbox(4)">
+          <img src="/images/services/wall-prep/photo6.jpg" alt="Wall preparation — repair work" onclick="showPrepLightbox(5)">
+          <img src="/images/services/wall-prep/photo7.jpg" alt="Wall preparation — finished surface" onclick="showPrepLightbox(6)">
+        </div>
+        <button class="prep-carousel-prev" onclick="scrollPrepCarousel(-1)" aria-label="Previous">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/></svg>
+        </button>
+        <button class="prep-carousel-next" onclick="scrollPrepCarousel(1)" aria-label="Next">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/></svg>
+        </button>
+        <div class="prep-carousel-dots" id="prepCarouselDots"></div>
       </div>
     </div>
 
@@ -112,6 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderHeader('services');
   renderFooter();
   renderServicesPage();
+  initPrepCarousel();
   initScrollAnimations();
 });
 </script>
