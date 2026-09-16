@@ -575,7 +575,7 @@ function renderTestimonials() {
         <div class="testimonial-avatar">${t.name.charAt(0)}</div>
         <div>
           <strong>${t.name}</strong>
-          <span>${t.location} \u2014 ${t.category}</span>
+          <span></span>
         </div>
       </div>
     </div>
