@@ -41,10 +41,10 @@ const ICONS = {
 // ===== DATA =====
 const NAV_LINKS = [
   { label: 'Home', href: '/', page: 'index' },
-  { label: 'About', href: '/about/', page: 'about' },
-  { label: 'Services', href: '/services/', page: 'services' },
-  { label: 'Gallery', href: '/gallery/', page: 'gallery' },
-  { label: 'Contact', href: '/contact/', page: 'contact' },
+  { label: 'About', href: '/about', page: 'about' },
+  { label: 'Services', href: '/services', page: 'services' },
+  { label: 'Gallery', href: '/gallery', page: 'gallery' },
+  { label: 'Contact', href: '/contact', page: 'contact' },
 ];
 
 const MARQUEE_ITEMS = [
