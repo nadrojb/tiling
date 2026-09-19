@@ -198,16 +198,6 @@ svg { flex-shrink: 0; }
 @media (min-width: 768px) { .service-grid { grid-template-columns: 1fr 1fr; } }
 @media (min-width: 1024px) { .service-grid { grid-template-columns: 1fr 1fr 1fr; } }
 
-/* ===== SERVICE DETAIL GRID ===== */
-.service-detail-grid { display: grid; gap: 20px; grid-template-columns: 1fr; margin-top: 32px; }
-@media (min-width: 768px) { .service-detail-grid { grid-template-columns: 1fr 1fr; } }
-@media (min-width: 1024px) { .service-detail-grid { grid-template-columns: 1fr 1fr 1fr; } }
-.service-detail-card { background: var(--neutral-50); border: 1px solid var(--neutral-200); border-radius: var(--radius); padding: 24px; }
-.service-detail-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
-.service-detail-card p { font-size: 15px; color: var(--neutral-600); line-height: 1.6; margin-bottom: 12px; }
-.service-detail-card a { font-size: 14px; font-weight: 600; color: var(--primary); display: inline-flex; align-items: center; gap: 4px; }
-.service-detail-card a:hover { text-decoration: underline; }
-
 .svc-card { background: var(--neutral-50); border: 1px solid var(--neutral-200); border-radius: var(--radius); padding: 24px; display: flex; flex-direction: column; gap: 12px; transition: all 0.2s; cursor: default; }
 .svc-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
 .svc-card:hover .svc-icon { background: var(--primary); }
