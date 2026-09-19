@@ -1,5 +1,27 @@
 # AGENTS.md
 
+## Git Workflow — CRITICAL
+
+**NEVER merge directly to `main` without explicit user permission.**
+
+- `main` = production (live site). Merges to `main` require the user's approval.
+- `staging` = testing ground. Protected — requires a PR to merge into it.
+- `feature/*` = individual tasks. Branch off `staging`, PR into `staging`.
+
+### The workflow for every task:
+
+1. Create a branch from `staging`: `git checkout -b feature-name staging`
+2. Make changes, commit, push the branch
+3. Create a PR targeting `staging` (NOT `main`)
+4. After reviewing on `staging`, ask the user for permission before creating a PR to `main`
+
+### Rules:
+
+- **NEVER** push directly to `main` or `staging`
+- **NEVER** create a PR that targets `main` without the user saying "merge to main" or similar
+- Always branch off `staging` for new work
+- If unsure, ask the user
+
 ## Adding a New Gallery Project
 
 ### 1. Create the project folder
