@@ -42,8 +42,12 @@ const ICONS = {
 const NAV_LINKS = [
   { label: 'Home', href: '/', page: 'index' },
   { label: 'About', href: '/about', page: 'about' },
-  { label: 'Services', href: '/services', page: 'services' },
-  { label: 'Gallery', href: '/gallery', page: 'gallery' },
+  { label: 'Services', href: '/services', page: 'services', children: [
+    { label: 'Wall Tiling', href: '/services/wall-tiling', page: 'wall-tiling' },
+    { label: 'Floor Tiling', href: '/services/floor-tiling', page: 'floor-tiling' },
+  ]},
+  { label: 'Tiling Projects', href: '/gallery', page: 'gallery' },
+  { label: 'Blog', href: '/blog', page: 'blog' },
   { label: 'Contact', href: '/contact', page: 'contact' },
 ];
 
@@ -60,10 +64,8 @@ const SERVICES = [
 ];
 
 const SERVICES_PAGE = [
-  { icon: 'grid', title: 'Kitchen Tiling', desc: 'From splashbacks to full kitchen floor tiling. I work with ceramic, porcelain and natural stone tiles to create a kitchen that looks great and stands up to daily use.' },
-  { icon: 'droplet', title: 'Bathroom Tiling', desc: 'Full bathroom tiling including walls, floors and shower enclosures. I ensure everything is properly waterproofed, sealed, and finished to a high standard.' },
-  { icon: 'grid', title: 'Floor Tiling', desc: 'Durable, professional floor tiling for any room in your home. I prepare the subfloor to ensure a flat and stable surface, and lay tiles in whichever bond pattern you\u2019d like.' },
-  { icon: 'wrench', title: 'Tile Removal & Surface Prep', desc: 'Removing old tiles, levelling uneven surfaces, and preparing walls and floors for a fresh installation. Proper preparation is key to a long-lasting tile finish.' },
+  { icon: 'grid', title: 'Wall Tiling', desc: 'Kitchen splashbacks, bathroom walls, showers and feature walls — backgrounds prepared properly and tiles fixed for a finish that lasts.', href: '/services/wall-tiling/' },
+  { icon: 'grid', title: 'Floor Tiling', desc: 'Durable, professional floor tiling for any room in your home. I prepare the subfloor to ensure a flat and stable surface, and lay tiles in whichever bond pattern you’d like.', href: '/services/floor-tiling/' },
 ];
 
 const TESTIMONIALS = [
@@ -82,17 +84,23 @@ const HOW_IT_WORKS = [
 
 const GALLERY_PROJECTS = [
   {
-    title: 'Kitchen splashback with 200 x 100mm ceramic subway tiles',
-    description: 'A recent splashback project. This job involved removing the old tiles, repairing the wall to provide a flat surface, and fitting new 200 \u00d7 100mm ceramic subway-style tiles in a brick bond pattern.',
+    title: 'Kitchen splashback with 200 x 100mm ceramic metro tiles',
+    shortTitle: 'Kitchen Splashback',
+    tag: 'Wall Tiling',
+    area: '16m\u00b2',
+    description: 'A recent splashback project. This job involved removing the old tiles, repairing the wall to provide a flat surface, and fitting new 200 \u00d7 100mm ceramic metro-style tiles in a brick bond pattern.',
     folder: 'kitchen-splashback',
     images: [
-      { file: 'photo1.jpg', alt: '200x100mm ceramic subway-style splashback tiles in a brick bond pattern, photo taken from the left. Kitchen splashback Trowbridge' },
-      { file: 'photo2.jpg', alt: '200x100mm ceramic subway-style splashback tiles in a brick bond pattern, straight ahead photo. Kitchen splashback Trowbridge' },
-      { file: 'photo3.jpg', alt: '200x100mm ceramic subway-style splashback tiles in a brick bond pattern, photo taken from the right. Kitchen splashback Trowbridge' },
+      { file: 'photo1.jpg', alt: '200x100mm ceramic metro-style splashback tiles in a brick bond pattern, photo taken from the left. Kitchen splashback Trowbridge' },
+      { file: 'photo2.jpg', alt: '200x100mm ceramic metro-style splashback tiles in a brick bond pattern, straight ahead photo. Kitchen splashback Trowbridge' },
+      { file: 'photo3.jpg', alt: '200x100mm ceramic metro-style splashback tiles in a brick bond pattern, photo taken from the right. Kitchen splashback Trowbridge' },
     ]
   },
   {
     title: 'Dining room floor with a 600 x 600 Porcelain tile',
+    shortTitle: 'Dining Room Floor',
+    tag: 'Floor Tiling',
+    area: '12m\u00b2',
     description: '600 \u00d7 600mm porcelain floor tiles installed across a 12m\u00b2 dining room floor. Self-levelling compound was applied as preparation prior to tiling, ensuring a flat surface with no tile lippage.',
     folder: 'dining-room-floor-tiling',
     images: [
@@ -102,6 +110,9 @@ const GALLERY_PROJECTS = [
   },
   {
     title: 'Kitchen Floor with a 600 x 300 ceramic tile',
+    shortTitle: 'Kitchen Floor',
+    tag: 'Floor Tiling',
+    area: '8m\u00b2',
     description: '600 \u00d7 300mm ceramic floor tiles installed across an 8m\u00b2 kitchen floor. Self-levelling compound was applied as preparation prior to tiling, ensuring a flat surface with no tile lippage.',
     folder: 'kitchen-floor-tiling',
     images: [
@@ -112,185 +123,16 @@ const GALLERY_PROJECTS = [
   },
 ];
 
-const FOOTER_CONTACT = [
-  { icon: 'phone', html: '<strong>07788577456</strong>', href: 'tel:4407788577456' },
-  { icon: 'send', html: '<strong>jordan@avonsidetiling.co.uk</strong>', href: 'mailto:jordan@avonsidetiling.co.uk' },
+const BLOG_POSTS = [
+  {
+    title: 'How to Prepare Walls and Floors for Tiling',
+    excerpt: 'What happens before the first tile goes on — levelling, waterproofing, decoupling membranes and backer boards, and why getting preparation right matters more than the tiles you choose.',
+    date: 'September 2026',
+    img: '/images/services/wall-prep/photo1.jpg',
+    alt: 'Wall preparation for tiling',
+    href: '/blog/how-to-prepare-walls-and-floors-for-tiling/',
+  },
 ];
-
-const SOCIAL_ICONS = [
-  { icon: 'facebook', href: 'https://www.facebook.com/share/1GYtKqW63B/?mibextid=wwXIfr' },
-  { icon: 'instagram', href: 'https://instagram.com/avonsidetiling' },
-];
-
-// ===== RENDER FUNCTIONS =====
-function renderHeader(activePage) {
-  const el = document.getElementById('header');
-  if (!el) return;
-  el.innerHTML = `
-    <header class="site-header" id="siteHeader">
-      <div class="container header-inner">
-        <a href="/" class="logo"><img src="/images/avonside-logo-black.png" alt="Avonside Tiling" height="40"></a>
-        <nav class="desktop-nav" id="desktopNav">
-          <ul>
-            ${NAV_LINKS.map(l => `<li><a href="${l.href}"${l.page === activePage ? ' class="active"' : ''}>${l.label}</a></li>`).join('')}
-          </ul>
-        </nav>
-        <div class="header-actions">
-          <a href="tel:4407788577456" class="btn-phone">${ICONS.phone} 07788577456</a>
-        </div>
-        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
-          <div class="menu-icon">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </button>
-      </div>
-      <div class="mobile-menu" id="mobileMenu">
-        <ul>
-          ${NAV_LINKS.map(l => `<li><a href="${l.href}"${l.page === activePage ? ' class="active"' : ''}>${l.label}</a></li>`).join('')}
-        </ul>
-        <a href="tel:4407788577456" class="btn-phone mobile-phone">${ICONS.phone} 07788577456</a>
-        <div class="mobile-social">
-          ${SOCIAL_ICONS.map(s => `<a href="${s.href}" aria-label="${s.icon}">${ICONS[s.icon]}</a>`).join('')}
-        </div>
-      </div>
-    </header>
-  `;
-
-  document.getElementById('menuToggle').addEventListener('click', (e) => {
-    e.stopPropagation();
-    document.getElementById('mobileMenu').classList.toggle('open');
-    document.querySelector('.menu-icon').classList.toggle('open');
-    document.body.classList.toggle('menu-open');
-  });
-
-  document.addEventListener('click', (e) => {
-    const menu = document.getElementById('mobileMenu');
-    if (!menu.classList.contains('open')) return;
-    if (menu.contains(e.target)) return;
-    menu.classList.remove('open');
-    document.querySelector('.menu-icon').classList.remove('open');
-    document.body.classList.remove('menu-open');
-  });
-
-  window.addEventListener('scroll', () => {
-    document.getElementById('siteHeader').classList.toggle('scrolled', window.scrollY > 20);
-  }, { passive: true });
-}
-
-function renderFooter() {
-  const el = document.getElementById('footer');
-  if (!el) return;
-  el.innerHTML = `
-    <footer class="site-footer">
-      <div class="container footer-grid">
-        <div class="footer-brand">
-          <div class="footer-logo"><img src="/images/avonside-logo-white.png" alt="Avonside Tiling" height="40"></div>
-          <p>Wall and floor tiling for homes and businesses across Wiltshire, Bath and surrounding areas. All work carried out to British Standards (BS&nbsp;5385).</p>
-          <div class="footer-social">
-            ${SOCIAL_ICONS.map(s => `<a href="${s.href}" aria-label="${s.icon}">${ICONS[s.icon]}</a>`).join('')}
-          </div>
-        </div>
-        <div class="footer-col">
-          <h4>Navigation</h4>
-          <ul>
-            ${NAV_LINKS.map(l => `<li><a href="${l.href}">${l.label}</a></li>`).join('')}
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Get in touch</h4>
-          <ul class="footer-contact">
-            ${FOOTER_CONTACT.map(l => {
-              const inner = l.href ? `<a href="${l.href}">${ICONS[l.icon]} ${l.html}</a>` : `<span>${ICONS[l.icon]} ${l.html}</span>`;
-              return `<li>${inner}</li>`;
-            }).join('')}
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <div class="container">
-          <p>&copy; 2026 Avonside Tiling. All rights reserved.</p>
-        </div>
-      </div>
-    </footer>
-  `;
-}
-
-function renderMarquee() {
-  const el = document.getElementById('marquee');
-  if (!el) return;
-  const itemsHtml = MARQUEE_ITEMS.map(m => `
-    <span class="marquee-item">
-      ${m}
-    </span>
-    <span class="marquee-sep">&bull;</span>
-  `).join('');
-  el.innerHTML = `<div class="marquee-track">${itemsHtml}</div>`;
-  initMarquee();
-}
-
-function initMarquee() {
-  const track = document.querySelector('.marquee-track');
-  const section = document.querySelector('.marquee-section');
-  if (!track) return;
-  const maxSpeed = 1;
-  let pos = 0;
-  let currentSpeed = maxSpeed;
-  let targetSpeed = maxSpeed;
-  track.innerHTML += track.innerHTML;
-  section.addEventListener('mouseenter', () => { targetSpeed = 0; });
-  section.addEventListener('mouseleave', () => { targetSpeed = maxSpeed; });
-  function animate() {
-    currentSpeed += (targetSpeed - currentSpeed) * 0.08;
-    pos -= currentSpeed;
-    const w = track.scrollWidth / 2;
-    if (Math.abs(pos) >= w) pos = 0;
-    track.style.transform = 'translateX(' + pos + 'px)';
-    requestAnimationFrame(animate);
-  }
-  requestAnimationFrame(animate);
-}
-
-function renderServices() {
-  const el = document.getElementById('serviceGrid');
-  if (!el) return;
-  const shuffled = [...SERVICES].sort(() => Math.random() - 0.5);
-  el.innerHTML = shuffled.map((s, i) => `
-    <div class="svc-card delay-${i + 1}" data-animate>
-      <div class="svc-card-top">
-        <div class="svc-icon">${ICONS[s.icon]}</div>
-      </div>
-      <h3>${s.title}</h3>
-      <p>${s.desc}</p>
-    </div>
-  `).join('');
-}
-
-function renderServicesPage() {
-  const grid = document.getElementById('servicesPageGrid');
-  const howItWorks = document.getElementById('servicesHowItWorks');
-  if (grid) {
-    grid.innerHTML = SERVICES_PAGE.map((s, i) => `
-      <div class="svc-card delay-${(i % 4) + 1}" data-animate>
-        <div class="svc-card-top">
-          <div class="svc-icon">${ICONS[s.icon]}</div>
-        </div>
-        <h3>${s.title}</h3>
-        <p>${s.desc}</p>
-      </div>
-    `).join('');
-  }
-  if (howItWorks) {
-    howItWorks.innerHTML = HOW_IT_WORKS.map((h, i) => `
-      <div class="choose-card delay-${i + 1}" data-animate>
-        <span class="choose-card-num">${String(h.step).padStart(2, '0')}</span>
-        <h3>${h.title}</h3>
-        <p>${h.desc}</p>
-      </div>
-    `).join('');
-  }
-}
 
 const PREP_IMAGES = [
   '/images/services/wall-prep/photo1.jpg',
@@ -439,18 +281,252 @@ function showPrepLightbox(idx) {
   setTimeout(() => newLb.classList.add('open'), 10);
 }
 
+const FOOTER_CONTACT = [
+  { icon: 'phone', html: '<strong>07788577456</strong>', href: 'tel:4407788577456' },
+  { icon: 'send', html: '<strong>jordan@avonsidetiling.co.uk</strong>', href: 'mailto:jordan@avonsidetiling.co.uk' },
+];
+
+const SOCIAL_ICONS = [
+  { icon: 'facebook', href: 'https://www.facebook.com/share/1GYtKqW63B/?mibextid=wwXIfr' },
+  { icon: 'instagram', href: 'https://instagram.com/avonsidetiling' },
+];
+
+// ===== RENDER FUNCTIONS =====
+function renderHeader(activePage) {
+  const el = document.getElementById('header');
+  if (!el) return;
+  el.innerHTML = `
+    <header class="site-header" id="siteHeader">
+      <div class="container header-inner">
+        <a href="/" class="logo"><img src="/images/avonside-logo-black.png" alt="Avonside Tiling" height="40"></a>
+        <nav class="desktop-nav" id="desktopNav">
+          <ul>
+            ${NAV_LINKS.map(l => {
+              if (l.children) {
+                return `<li class="nav-dropdown">
+                  <a href="${l.href}"${l.page === activePage ? ' class="active"' : ''}>${l.label} <svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor"><path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg></a>
+                  <ul class="dropdown-menu">
+                    ${l.children.map(c => `<li><a href="${c.href}"${c.page === activePage ? ' class="active"' : ''}>${c.label}</a></li>`).join('')}
+                  </ul>
+                </li>`;
+              }
+              return `<li><a href="${l.href}"${l.page === activePage ? ' class="active"' : ''}>${l.label}</a></li>`;
+            }).join('')}
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <a href="tel:4407788577456" class="btn-phone">${ICONS.phone} 07788577456</a>
+        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+          <div class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </button>
+      </div>
+      <div class="mobile-menu" id="mobileMenu">
+        <ul>
+          ${NAV_LINKS.map(l => {
+            if (l.children) {
+              return `<li class="mobile-dropdown">
+                <a href="${l.href}"${l.page === activePage ? ' class="active"' : ''}>${l.label}</a>
+                <ul class="mobile-submenu">
+                  ${l.children.map(c => `<li><a href="${c.href}"${c.page === activePage ? ' class="active"' : ''}>${c.label}</a></li>`).join('')}
+                </ul>
+              </li>`;
+            }
+            return `<li><a href="${l.href}"${l.page === activePage ? ' class="active"' : ''}>${l.label}</a></li>`;
+          }).join('')}
+        </ul>
+        <a href="tel:4407788577456" class="btn-phone mobile-phone">${ICONS.phone} 07788577456</a>
+        <div class="mobile-social">
+          ${SOCIAL_ICONS.map(s => `<a href="${s.href}" aria-label="${s.icon}">${ICONS[s.icon]}</a>`).join('')}
+        </div>
+      </div>
+    </header>
+  `;
+
+  document.getElementById('menuToggle').addEventListener('click', (e) => {
+    e.stopPropagation();
+    document.getElementById('mobileMenu').classList.toggle('open');
+    document.querySelector('.menu-icon').classList.toggle('open');
+    document.body.classList.toggle('menu-open');
+  });
+
+  document.addEventListener('click', (e) => {
+    const menu = document.getElementById('mobileMenu');
+    if (!menu.classList.contains('open')) return;
+    if (menu.contains(e.target)) return;
+    menu.classList.remove('open');
+    document.querySelector('.menu-icon').classList.remove('open');
+    document.body.classList.remove('menu-open');
+  });
+
+  window.addEventListener('scroll', () => {
+    document.getElementById('siteHeader').classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+}
+
+function renderFooter() {
+  const el = document.getElementById('footer');
+  if (!el) return;
+  el.innerHTML = `
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo"><img src="/images/avonside-logo-white.png" alt="Avonside Tiling" height="40"></div>
+          <p>Wall and floor tiling for homes and businesses across Wiltshire, Bath and surrounding areas. All work carried out to British Standards (BS&nbsp;5385).</p>
+          <div class="footer-social">
+            ${SOCIAL_ICONS.map(s => `<a href="${s.href}" aria-label="${s.icon}">${ICONS[s.icon]}</a>`).join('')}
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            ${NAV_LINKS.map(l => `<li><a href="${l.href}">${l.label}</a></li>`).join('')}
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get in touch</h4>
+          <ul class="footer-contact">
+            ${FOOTER_CONTACT.map(l => {
+              const inner = l.href ? `<a href="${l.href}">${ICONS[l.icon]} ${l.html}</a>` : `<span>${ICONS[l.icon]} ${l.html}</span>`;
+              return `<li>${inner}</li>`;
+            }).join('')}
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <p>&copy; 2026 Avonside Tiling. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  `;
+}
+
+function renderMarquee() {
+  const el = document.getElementById('marquee');
+  if (!el) return;
+  const itemsHtml = MARQUEE_ITEMS.map(m => `
+    <span class="marquee-item">
+      ${m}
+    </span>
+    <span class="marquee-sep">&bull;</span>
+  `).join('');
+  el.innerHTML = `<div class="marquee-track">${itemsHtml}</div>`;
+  initMarquee();
+}
+
+function initMarquee() {
+  const track = document.querySelector('.marquee-track');
+  const section = document.querySelector('.marquee-section');
+  if (!track) return;
+  const maxSpeed = 1;
+  let pos = 0;
+  let currentSpeed = maxSpeed;
+  let targetSpeed = maxSpeed;
+  track.innerHTML += track.innerHTML;
+  section.addEventListener('mouseenter', () => { targetSpeed = 0; });
+  section.addEventListener('mouseleave', () => { targetSpeed = maxSpeed; });
+  function animate() {
+    currentSpeed += (targetSpeed - currentSpeed) * 0.08;
+    pos -= currentSpeed;
+    const w = track.scrollWidth / 2;
+    if (Math.abs(pos) >= w) pos = 0;
+    track.style.transform = 'translateX(' + pos + 'px)';
+    requestAnimationFrame(animate);
+  }
+  requestAnimationFrame(animate);
+}
+
+function renderServices() {
+  const el = document.getElementById('serviceGrid');
+  if (!el) return;
+  const shuffled = [...SERVICES].sort(() => Math.random() - 0.5);
+  el.innerHTML = shuffled.map((s, i) => `
+    <div class="svc-card delay-${i + 1}" data-animate>
+      <div class="svc-card-top">
+        <div class="svc-icon">${ICONS[s.icon]}</div>
+      </div>
+      <h3>${s.title}</h3>
+      <p>${s.desc}</p>
+    </div>
+  `).join('');
+}
+
+function renderServicesPage() {
+  const grid = document.getElementById('servicesPageGrid');
+  const howItWorks = document.getElementById('servicesHowItWorks');
+  if (grid) {
+    grid.innerHTML = SERVICES_PAGE.map((s, i) => `
+      <a class="svc-card delay-${(i % 4) + 1}" data-animate href="${s.href}">
+        <div class="svc-card-top">
+          <div class="svc-icon">${ICONS[s.icon]}</div>
+        </div>
+        <h3>${s.title}</h3>
+        <p>${s.desc}</p>
+        <div class="svc-card-bottom">
+          <span class="svc-link">Find out more ${ICONS.arrowRight}</span>
+        </div>
+      </a>
+    `).join('');
+  }
+  if (howItWorks) {
+    howItWorks.innerHTML = HOW_IT_WORKS.map((h, i) => `
+      <div class="choose-card delay-${i + 1}" data-animate>
+        <span class="choose-card-num">${String(h.step).padStart(2, '0')}</span>
+        <h3>${h.title}</h3>
+        <p>${h.desc}</p>
+      </div>
+    `).join('');
+  }
+}
+
+function projectCardMarkup(project, i) {
+  return `
+    <a class="project-card delay-${(i % 5) + 1}" data-animate href="/projects/${project.folder}/">
+      <div class="project-card-img">
+        <img src="/images/gallery/${project.folder}/cover.jpg" alt="${project.images[0].alt}" loading="lazy">
+        <span class="project-card-tag">${project.tag}</span>
+      </div>
+      <div class="project-card-body">
+        <h3>${project.shortTitle}</h3>
+        <p>${project.description}</p>
+        <span class="project-card-link">View project &rarr;</span>
+      </div>
+    </a>
+  `;
+}
+
 function renderGallery() {
   const el = document.getElementById('galleryGrid');
   if (!el) return;
-  el.innerHTML = GALLERY_PROJECTS.map((project, i) => `
-    <div class="gallery-item delay-${(i % 5) + 1}" data-animate onclick="showProjectLightbox(${i})">
-      <img src="/images/gallery/${project.folder}/cover.jpg" alt="${project.images[0].alt}" loading="lazy">
-      <div class="gallery-count">${project.images.length} photo${project.images.length > 1 ? 's' : ''}</div>
-      <div class="gallery-overlay">
-        <div class="gallery-overlay-title">${project.title}</div>
-        <div class="gallery-overlay-desc">${project.description}</div>
+  el.innerHTML = GALLERY_PROJECTS.map(projectCardMarkup).join('');
+}
+
+function renderLatestProjects() {
+  const el = document.getElementById('latestProjects');
+  if (!el) return;
+  el.innerHTML = GALLERY_PROJECTS.map(projectCardMarkup).join('');
+}
+
+function renderBlog() {
+  const el = document.getElementById('blogGrid');
+  if (!el) return;
+  el.innerHTML = BLOG_POSTS.map((post, i) => `
+    <a class="blog-card delay-${(i % 5) + 1}" data-animate href="${post.href}">
+      <div class="blog-card-img">
+        <img src="${post.img}" alt="${post.alt}" loading="lazy">
       </div>
-    </div>
+      <div class="blog-card-body">
+        <span class="blog-card-date">${post.date}</span>
+        <h3>${post.title}</h3>
+        <p>${post.excerpt}</p>
+        <span class="blog-card-link">Read post &rarr;</span>
+      </div>
+    </a>
   `).join('');
 }
 
@@ -556,6 +632,98 @@ function closeLightbox() {
   const lb = document.getElementById('lightbox');
   if (lb) lb.remove();
   document.body.classList.remove('lightbox-open');
+}
+
+let projectImages = [];
+let projectImageIndex = 0;
+
+function initProjectGallery() {
+  const links = document.querySelectorAll('.project-photo');
+  if (!links.length) return;
+  projectImages = Array.from(links).map(a => ({ src: a.href, alt: a.querySelector('img')?.alt || '' }));
+  links.forEach((a, i) => {
+    a.addEventListener('click', e => { e.preventDefault(); showProjectImageLightbox(i); });
+  });
+}
+
+function showProjectImageLightbox(idx) {
+  projectImageIndex = idx;
+  const total = projectImages.length;
+  const img = projectImages[idx];
+
+  const existing = document.getElementById('lightbox');
+  if (existing) existing.remove();
+
+  const dotsHtml = total <= 12
+    ? projectImages.map((_, i) => `<button class="lightbox-dot${i === idx ? ' active' : ''}" aria-label="Go to photo ${i + 1}"></button>`).join('')
+    : '';
+
+  const lb = document.createElement('div');
+  lb.id = 'lightbox';
+  lb.className = 'lightbox';
+  lb.innerHTML = `
+    <span class="lightbox-close">&times;</span>
+    <button class="lightbox-prev" aria-label="Previous"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/></svg></button>
+    <button class="lightbox-next" aria-label="Next"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/></svg></button>
+    <div class="lightbox-content">
+      <img src="${img.src}" alt="${img.alt}" style="transition: opacity 0.15s ease;">
+      <div class="lightbox-info">
+        <p class="lightbox-counter">${idx + 1} / ${total}</p>
+        ${dotsHtml ? `<div class="lightbox-dots">${dotsHtml}</div>` : ''}
+      </div>
+    </div>
+  `;
+
+  function render() {
+    const lbEl = document.getElementById('lightbox');
+    if (!lbEl) return;
+    const lbImg = lbEl.querySelector('.lightbox-content img');
+    const counter = lbEl.querySelector('.lightbox-counter');
+    if (lbImg) {
+      lbImg.style.opacity = '0';
+      setTimeout(() => {
+        lbImg.src = projectImages[projectImageIndex].src;
+        lbImg.alt = projectImages[projectImageIndex].alt;
+        lbImg.style.opacity = '1';
+      }, 150);
+    }
+    if (counter) counter.textContent = `${projectImageIndex + 1} / ${total}`;
+    lbEl.querySelectorAll('.lightbox-dot').forEach((d, i) => d.classList.toggle('active', i === projectImageIndex));
+  }
+
+  function close() {
+    const lbEl = document.getElementById('lightbox');
+    if (lbEl) lbEl.remove();
+    document.body.classList.remove('lightbox-open');
+  }
+
+  lb.addEventListener('click', e => { if (e.target === lb) close(); });
+  lb.querySelector('.lightbox-close').addEventListener('click', close);
+  lb.querySelector('.lightbox-prev').addEventListener('click', e => { e.stopPropagation(); projectImageIndex = (projectImageIndex - 1 + total) % total; render(); });
+  lb.querySelector('.lightbox-next').addEventListener('click', e => { e.stopPropagation(); projectImageIndex = (projectImageIndex + 1) % total; render(); });
+  lb.querySelectorAll('.lightbox-dot').forEach((dot, i) => {
+    dot.addEventListener('click', e => { e.stopPropagation(); projectImageIndex = i; render(); });
+  });
+
+  document.addEventListener('keydown', function onKey(e) {
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') { projectImageIndex = (projectImageIndex - 1 + total) % total; render(); }
+    if (e.key === 'ArrowRight') { projectImageIndex = (projectImageIndex + 1) % total; render(); }
+  });
+
+  let touchStartX = 0;
+  lb.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+  lb.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].screenX - touchStartX;
+    if (Math.abs(dx) > 50) {
+      if (dx < 0) { projectImageIndex = (projectImageIndex + 1) % total; render(); }
+      else { projectImageIndex = (projectImageIndex - 1 + total) % total; render(); }
+    }
+  }, { passive: true });
+
+  document.body.appendChild(lb);
+  document.body.classList.add('lightbox-open');
+  setTimeout(() => lb.classList.add('open'), 10);
 }
 
 function renderTestimonials() {
