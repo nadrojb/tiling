@@ -125,12 +125,12 @@ const GALLERY_PROJECTS = [
 
 const BLOG_POSTS = [
   {
-    title: 'How to Prepare Walls and Floors for Tiling',
+    title: 'Surface Preparation for Tiling: How I Handle Different Substrates',
     excerpt: 'What happens before the first tile goes on — levelling, waterproofing, decoupling membranes and backer boards, and why getting preparation right matters more than the tiles you choose.',
     date: 'September 2026',
     img: '/images/services/wall-prep/photo1.jpg',
     alt: 'Wall preparation for tiling',
-    href: '/blog/how-to-prepare-walls-and-floors-for-tiling/',
+    href: '/blog/surface-preparation-for-tiling/',
   },
 ];
 
