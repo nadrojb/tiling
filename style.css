@@ -634,7 +634,7 @@ body.lightbox-open { overflow: hidden; }
 .project-body a { color: var(--primary); font-weight: 600; text-decoration: none; }
 .project-body a:hover { text-decoration: underline; }
 .project-photos { display: flex; flex-wrap: wrap; gap: 10px; margin: 32px 0; }
-.project-photo { display: block; flex: 0 0 auto; height: 150px; border-radius: var(--radius-sm); overflow: hidden; cursor: pointer; }
+.project-photo { display: block; flex: 0 0 auto; height: 150px; max-width: 100%; border-radius: var(--radius-sm); overflow: hidden; cursor: pointer; }
 .project-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; display: block; }
 .project-photo:hover img { transform: scale(1.04); }
 @media (min-width: 768px) { .project-photo { height: 180px; } }
