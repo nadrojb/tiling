@@ -41,14 +41,14 @@ const ICONS = {
 // ===== DATA =====
 const NAV_LINKS = [
   { label: 'Home', href: '/', page: 'index' },
-  { label: 'About', href: '/about', page: 'about' },
-  { label: 'Services', href: '/services', page: 'services', children: [
-    { label: 'Wall Tiling', href: '/services/wall-tiling', page: 'wall-tiling' },
-    { label: 'Floor Tiling', href: '/services/floor-tiling', page: 'floor-tiling' },
+  { label: 'About', href: '/about/', page: 'about' },
+  { label: 'Services', href: '/services/', page: 'services', children: [
+    { label: 'Wall Tiling', href: '/services/wall-tiling/', page: 'wall-tiling' },
+    { label: 'Floor Tiling', href: '/services/floor-tiling/', page: 'floor-tiling' },
   ]},
-  { label: 'Tiling Projects', href: '/gallery', page: 'gallery' },
-  { label: 'Blog', href: '/blog', page: 'blog' },
-  { label: 'Contact', href: '/contact', page: 'contact' },
+  { label: 'Tiling Projects', href: '/gallery/', page: 'gallery' },
+  { label: 'Blog', href: '/blog/', page: 'blog' },
+  { label: 'Contact', href: '/contact/', page: 'contact' },
 ];
 
 const MARQUEE_ITEMS = [
@@ -282,13 +282,13 @@ function showPrepLightbox(idx) {
 }
 
 const FOOTER_CONTACT = [
-  { icon: 'phone', html: '<strong>07788577456</strong>', href: 'tel:4407788577456' },
+  { icon: 'phone', html: '<strong>07788 577456</strong>', href: 'tel:+447788577456' },
   { icon: 'send', html: '<strong>jordan@avonsidetiling.co.uk</strong>', href: 'mailto:jordan@avonsidetiling.co.uk' },
 ];
 
 const SOCIAL_ICONS = [
   { icon: 'facebook', href: 'https://www.facebook.com/share/1GYtKqW63B/?mibextid=wwXIfr' },
-  { icon: 'instagram', href: 'https://instagram.com/avonsidetiling' },
+  { icon: 'instagram', href: 'https://www.instagram.com/avonsidetiling/' },
 ];
 
 // ===== RENDER FUNCTIONS =====
@@ -298,7 +298,7 @@ function renderHeader(activePage) {
   el.innerHTML = `
     <header class="site-header" id="siteHeader">
       <div class="container header-inner">
-        <a href="/" class="logo"><img src="/images/avonside-logo-black.png" alt="Avonside Tiling" height="40"></a>
+        <a href="/" class="logo"><img src="/images/avonside-logo-black.png" alt="Avonside Tiling — Wall and floor tiler in Trowbridge" height="40"></a>
         <nav class="desktop-nav" id="desktopNav">
           <ul>
             ${NAV_LINKS.map(l => {
@@ -315,7 +315,7 @@ function renderHeader(activePage) {
           </ul>
         </nav>
         <div class="header-actions">
-          <a href="tel:4407788577456" class="btn-phone">${ICONS.phone} 07788577456</a>
+          <a href="tel:+447788577456" class="btn-phone">${ICONS.phone} 07788 577456</a>
         </div>
         <button class="menu-toggle" id="menuToggle" aria-label="Menu">
           <div class="menu-icon">
@@ -339,7 +339,7 @@ function renderHeader(activePage) {
             return `<li><a href="${l.href}"${l.page === activePage ? ' class="active"' : ''}>${l.label}</a></li>`;
           }).join('')}
         </ul>
-        <a href="tel:4407788577456" class="btn-phone mobile-phone">${ICONS.phone} 07788577456</a>
+        <a href="tel:+447788577456" class="btn-phone mobile-phone">${ICONS.phone} 07788 577456</a>
         <div class="mobile-social">
           ${SOCIAL_ICONS.map(s => `<a href="${s.href}" aria-label="${s.icon}">${ICONS[s.icon]}</a>`).join('')}
         </div>
@@ -375,7 +375,7 @@ function renderFooter() {
     <footer class="site-footer">
       <div class="container footer-grid">
         <div class="footer-brand">
-          <div class="footer-logo"><img src="/images/avonside-logo-white.png" alt="Avonside Tiling" height="40"></div>
+          <div class="footer-logo"><img src="/images/avonside-logo-white.png" alt="Avonside Tiling — Wall and floor tiler in Trowbridge" height="40"></div>
           <p>Wall and floor tiling for homes and businesses across Wiltshire, Bath and surrounding areas. All work carried out to British Standards (BS&nbsp;5385).</p>
           <div class="footer-social">
             ${SOCIAL_ICONS.map(s => `<a href="${s.href}" aria-label="${s.icon}">${ICONS[s.icon]}</a>`).join('')}
