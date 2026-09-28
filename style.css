@@ -145,6 +145,7 @@ svg { flex-shrink: 0; }
 .hero-badge:hover { background: rgba(255,255,255,0.25); border-color: rgba(255,255,255,0.4); transform: translateY(-2px); }
 .hero-badge svg { width: 16px; height: 16px; }
 .hero h1 { font-family: var(--font-heading); font-size: 36px; font-weight: 700; line-height: 1.15; letter-spacing: -0.5px; }
+.hero-tagline { font-family: var(--font-heading); font-size: 24px; font-weight: 600; line-height: 1.25; letter-spacing: -0.25px; color: var(--white); margin: 0; }
 .hero-subtitle { font-size: 18px; color: rgba(255,255,255,0.85); max-width: 480px; line-height: 1.7; }
 .hero-rating { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.15); border-radius: 999px; padding: 6px 24px; backdrop-filter: blur(4px); font-size: 14px; font-weight: 500; width: fit-content; transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease; border: 1px solid transparent; }
 .hero-rating:hover { background: rgba(255,255,255,0.25); border-color: rgba(255,255,255,0.4); transform: translateY(-2px); }
