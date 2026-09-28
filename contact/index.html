@@ -19,6 +19,8 @@
 
 <link rel="stylesheet" href="/style.css?v=6">
 <link rel="icon" type="image/png" href="/images/favicon.png">
+<link rel="apple-touch-icon" href="/images/favicon.png">
+<meta name="theme-color" content="#111111">
 </head>
 <body>
 
@@ -52,7 +54,7 @@
         </div>
         <div>
           <h4>Phone</h4>
-          <a href="tel:4407788577456">07788577456</a>
+          <a href="tel:+447788577456">07788 577456</a>
         </div>
       </div>
       <div class="contact-card" data-animate delay-3>
@@ -150,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const phoneCard = document.querySelector('.contact-card:nth-child(1)');
   if (phoneCard) {
     phoneCard.addEventListener('click', () => {
-      window.location.href = 'tel:4407788577456';
+      window.location.href = 'tel:+447788577456';
     });
   }
 });

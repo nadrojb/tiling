@@ -1,8 +1,28 @@
 {
+  "cleanUrls": true,
+  "trailingSlash": true,
   "rewrites": [
-    { "source": "/gallery", "destination": "/gallery/index.html" },
     { "source": "/about", "destination": "/about/index.html" },
+    { "source": "/about/", "destination": "/about/index.html" },
     { "source": "/services", "destination": "/services/index.html" },
-    { "source": "/contact", "destination": "/contact/index.html" }
+    { "source": "/services/", "destination": "/services/index.html" },
+    { "source": "/services/wall-tiling", "destination": "/services/wall-tiling/index.html" },
+    { "source": "/services/wall-tiling/", "destination": "/services/wall-tiling/index.html" },
+    { "source": "/services/floor-tiling", "destination": "/services/floor-tiling/index.html" },
+    { "source": "/services/floor-tiling/", "destination": "/services/floor-tiling/index.html" },
+    { "source": "/gallery", "destination": "/gallery/index.html" },
+    { "source": "/gallery/", "destination": "/gallery/index.html" },
+    { "source": "/contact", "destination": "/contact/index.html" },
+    { "source": "/contact/", "destination": "/contact/index.html" },
+    { "source": "/blog", "destination": "/blog/index.html" },
+    { "source": "/blog/", "destination": "/blog/index.html" },
+    { "source": "/blog/surface-preparation-for-tiling", "destination": "/blog/surface-preparation-for-tiling/index.html" },
+    { "source": "/blog/surface-preparation-for-tiling/", "destination": "/blog/surface-preparation-for-tiling/index.html" },
+    { "source": "/projects/kitchen-splashback", "destination": "/projects/kitchen-splashback/index.html" },
+    { "source": "/projects/kitchen-splashback/", "destination": "/projects/kitchen-splashback/index.html" },
+    { "source": "/projects/dining-room-floor-tiling", "destination": "/projects/dining-room-floor-tiling/index.html" },
+    { "source": "/projects/dining-room-floor-tiling/", "destination": "/projects/dining-room-floor-tiling/index.html" },
+    { "source": "/projects/kitchen-floor-tiling", "destination": "/projects/kitchen-floor-tiling/index.html" },
+    { "source": "/projects/kitchen-floor-tiling/", "destination": "/projects/kitchen-floor-tiling/index.html" }
   ]
 }
