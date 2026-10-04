@@ -84,6 +84,18 @@ const HOW_IT_WORKS = [
 
 const GALLERY_PROJECTS = [
   {
+    title: 'Half height WC wall with 300 x 70mm ceramic tiles',
+    shortTitle: 'WC Wall',
+    tag: 'Wall Tiling',
+    description: '300 × 70mm ceramic wall tiles laid in a brick-bond pattern to half-height. Walls plumbed prior to installation, wooden trim to the top edge, Mapei Ultracolor 132 grout and matching silicone.',
+    folder: 'half-height-wc-wall-tiling',
+    images: [
+      { file: 'photo1.jpg', alt: '300 x 70mm ceramic WC wall tiles in a brick-bond pattern to half-height, straight-on view of both walls with wall-hung toilet. WC wall tiling Trowbridge' },
+      { file: 'photo2.jpg', alt: '300 x 70mm ceramic WC wall tiles in a brick-bond pattern to half-height with wooden trim, viewed from the doorway. WC wall tiling Trowbridge' },
+      { file: 'photo3.jpg', alt: 'Close-up of 300 x 70mm ceramic WC wall tiles, brick-bond pattern, wooden trim and wall-hung toilet. WC wall tiling Trowbridge' },
+    ]
+  },
+  {
     title: 'Kitchen splashback with 200 x 100mm ceramic metro tiles',
     shortTitle: 'Kitchen Splashback',
     tag: 'Wall Tiling',
@@ -112,8 +124,8 @@ const GALLERY_PROJECTS = [
     title: 'Kitchen Floor with a 600 x 300 ceramic tile',
     shortTitle: 'Kitchen Floor',
     tag: 'Floor Tiling',
-    area: '8m\u00b2',
-    description: '600 \u00d7 300mm ceramic floor tiles installed across an 8m\u00b2 kitchen floor. Self-levelling compound was applied as preparation prior to tiling, ensuring a flat surface with no tile lippage.',
+    area: '8m²',
+    description: '600 × 300mm ceramic floor tiles installed across an 8m² kitchen floor. Self-levelling compound was applied as preparation prior to tiling, ensuring a flat surface with no tile lippage.',
     folder: 'kitchen-floor-tiling',
     images: [
       { file: 'photo1.jpg', alt: '600 x 300 ceramic floor tiles, photo taken from doorway. Kitchen floor tiling Trowbridge' },
@@ -509,7 +521,7 @@ function renderGallery() {
 function renderLatestProjects() {
   const el = document.getElementById('latestProjects');
   if (!el) return;
-  el.innerHTML = GALLERY_PROJECTS.map(projectCardMarkup).join('');
+  el.innerHTML = GALLERY_PROJECTS.slice(0, 3).map(projectCardMarkup).join('');
 }
 
 function renderBlog() {
@@ -798,6 +810,90 @@ function renderHowItWorks() {
       <p>${h.desc}</p>
     </div>
   `).join('');
+}
+
+// ===== PROJECT VIDEO =====
+// YouTube-style inline video: autoplay when scrolled into view, tap to
+// play/pause with a centre button, pause when scrolled out of view.
+function initProjectVideo() {
+  const wrap = document.querySelector('.project-video');
+  if (!wrap) return;
+  const video = wrap.querySelector('video');
+  const btn = wrap.querySelector('.project-video-btn');
+  const unmute = wrap.querySelector('.project-video-unmute');
+  if (!video || !btn) return;
+
+  let userPaused = false;
+  let flashTimer = null;
+
+  const syncState = () => {
+    wrap.classList.toggle('is-paused', video.paused);
+    btn.setAttribute('aria-label', video.paused ? 'Play video' : 'Pause video');
+    if (unmute) unmute.hidden = !(video.muted && !video.paused);
+  };
+
+  const flashPauseIcon = () => {
+    wrap.classList.add('show-pause');
+    clearTimeout(flashTimer);
+    flashTimer = setTimeout(() => wrap.classList.remove('show-pause'), 600);
+  };
+
+  const toggle = () => {
+    if (video.paused) {
+      userPaused = false;
+      video.muted = false;
+      video.play().catch(() => {});
+    } else {
+      userPaused = true;
+      video.pause();
+      flashPauseIcon();
+    }
+  };
+
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggle();
+  });
+
+  // Tap the video itself to play/pause. Ignore taps on the native
+  // control bar (bottom ~48px) so the two don't double-toggle.
+  video.addEventListener('click', (e) => {
+    const rect = video.getBoundingClientRect();
+    if (e.clientY > rect.bottom - 48) return;
+    toggle();
+  });
+
+  if (unmute) {
+    unmute.addEventListener('click', (e) => {
+      e.stopPropagation();
+      video.muted = false;
+      syncState();
+    });
+  }
+
+  video.addEventListener('play', syncState);
+  video.addEventListener('pause', syncState);
+  video.addEventListener('volumechange', syncState);
+
+  const autoObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+        if (!userPaused && video.paused) {
+          video.muted = false;
+          video.play().catch(() => {
+            // Browsers block autoplay with sound — fall back to muted.
+            video.muted = true;
+            video.play().catch(() => {});
+          });
+        }
+      } else if (!entry.isIntersecting) {
+        if (!video.paused) video.pause();
+      }
+    });
+  }, { threshold: [0, 0.5, 1] });
+  autoObserver.observe(video);
+
+  syncState();
 }
 
 // ===== SCROLL ANIMATIONS =====

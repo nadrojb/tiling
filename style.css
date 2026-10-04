@@ -638,6 +638,16 @@ body.lightbox-open { overflow: hidden; }
 .project-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; display: block; }
 .project-photo:hover img { transform: scale(1.04); }
 @media (min-width: 768px) { .project-photo { height: 180px; } }
+.project-video { position: relative; margin: 32px 0; max-width: 420px; }
+.project-video video { width: 100%; height: auto; display: block; border-radius: var(--radius-sm); background: #000; cursor: pointer; }
+.project-video-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 76px; height: 76px; border-radius: 50%; border: none; background: rgba(0, 0, 0, 0.65); color: var(--white); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: opacity 0.25s, transform 0.25s, background 0.2s; padding: 0; }
+.project-video-btn:hover { background: rgba(0, 0, 0, 0.8); }
+.project-video-btn .icon-pause { display: none; }
+.project-video.show-pause .project-video-btn .icon-play { display: none; }
+.project-video.show-pause .project-video-btn .icon-pause { display: block; }
+.project-video:not(.is-paused):not(.show-pause) .project-video-btn { opacity: 0; pointer-events: none; transform: translate(-50%, -50%) scale(1.4); }
+.project-video-unmute { position: absolute; left: 12px; bottom: 56px; background: rgba(0, 0, 0, 0.7); color: var(--white); border: none; border-radius: 999px; font-size: 13px; font-weight: 600; padding: 8px 14px; cursor: pointer; }
+.project-video-unmute[hidden] { display: none; }
 .project-meta { background: var(--neutral-50); border: 1px solid var(--neutral-200); border-radius: var(--radius); padding: 32px; margin: 48px 0; }
 .project-meta h3 { font-family: var(--font-heading); font-size: 20px; font-weight: 700; color: var(--secondary); margin: 0 0 20px; }
 .project-meta-row { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--neutral-200); }
