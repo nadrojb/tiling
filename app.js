@@ -824,6 +824,7 @@ function initProjectVideo() {
   if (!video || !btn) return;
 
   let userPaused = false;
+  let autoPausing = false;
   let flashTimer = null;
 
   const syncState = () => {
@@ -840,11 +841,9 @@ function initProjectVideo() {
 
   const toggle = () => {
     if (video.paused) {
-      userPaused = false;
       video.muted = false;
       video.play().catch(() => {});
     } else {
-      userPaused = true;
       video.pause();
       flashPauseIcon();
     }
@@ -871,8 +870,18 @@ function initProjectVideo() {
     });
   }
 
-  video.addEventListener('play', syncState);
-  video.addEventListener('pause', syncState);
+  // play/pause events are the source of truth for user intent: any pause
+  // the user makes (centre button, video tap, or native controls) sets
+  // userPaused, except our own scroll-out auto-pause. Any play clears it.
+  video.addEventListener('play', () => {
+    userPaused = false;
+    syncState();
+  });
+  video.addEventListener('pause', () => {
+    if (!autoPausing) userPaused = true;
+    autoPausing = false;
+    syncState();
+  });
   video.addEventListener('volumechange', syncState);
 
   const autoObserver = new IntersectionObserver((entries) => {
@@ -887,7 +896,10 @@ function initProjectVideo() {
           });
         }
       } else if (!entry.isIntersecting) {
-        if (!video.paused) video.pause();
+        if (!video.paused) {
+          autoPausing = true;
+          video.pause();
+        }
       }
     });
   }, { threshold: [0, 0.5, 1] });
