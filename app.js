@@ -820,7 +820,6 @@ function initProjectVideo() {
   if (!wrap) return;
   const video = wrap.querySelector('video');
   const btn = wrap.querySelector('.project-video-btn');
-  const unmute = wrap.querySelector('.project-video-unmute');
   if (!video || !btn) return;
 
   let userPaused = false;
@@ -830,7 +829,6 @@ function initProjectVideo() {
   const syncState = () => {
     wrap.classList.toggle('is-paused', video.paused);
     btn.setAttribute('aria-label', video.paused ? 'Play video' : 'Pause video');
-    if (unmute) unmute.hidden = !(video.muted && !video.paused);
   };
 
   const flashPauseIcon = () => {
@@ -861,14 +859,6 @@ function initProjectVideo() {
     if (e.clientY > rect.bottom - 48) return;
     toggle();
   });
-
-  if (unmute) {
-    unmute.addEventListener('click', (e) => {
-      e.stopPropagation();
-      video.muted = false;
-      syncState();
-    });
-  }
 
   // play/pause events are the source of truth for user intent: any pause
   // the user makes (centre button, video tap, or native controls) sets
