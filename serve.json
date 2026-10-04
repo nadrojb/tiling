@@ -23,6 +23,8 @@
     { "source": "/projects/dining-room-floor-tiling", "destination": "/projects/dining-room-floor-tiling/index.html" },
     { "source": "/projects/dining-room-floor-tiling/", "destination": "/projects/dining-room-floor-tiling/index.html" },
     { "source": "/projects/kitchen-floor-tiling", "destination": "/projects/kitchen-floor-tiling/index.html" },
-    { "source": "/projects/kitchen-floor-tiling/", "destination": "/projects/kitchen-floor-tiling/index.html" }
+    { "source": "/projects/kitchen-floor-tiling/", "destination": "/projects/kitchen-floor-tiling/index.html" },
+    { "source": "/projects/half-height-wc-wall-tiling", "destination": "/projects/half-height-wc-wall-tiling/index.html" },
+    { "source": "/projects/half-height-wc-wall-tiling/", "destination": "/projects/half-height-wc-wall-tiling/index.html" }
   ]
 }
