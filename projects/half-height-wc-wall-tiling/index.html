@@ -46,10 +46,15 @@
           <a class="project-photo" href="/images/gallery/half-height-wc-wall-tiling/photo3.jpg"><img src="/images/gallery/half-height-wc-wall-tiling/photo3.jpg" alt="Close-up of 300 x 70mm ceramic WC wall tiles, brick-bond pattern, wooden trim and wall-hung toilet. WC wall tiling Trowbridge" loading="lazy"></a>
         </div>
 
-        <div class="project-video" data-animate>
+        <div class="project-video is-paused" data-animate>
           <video controls playsinline preload="metadata" poster="/images/gallery/half-height-wc-wall-tiling/video-poster.jpg">
             <source src="/images/gallery/half-height-wc-wall-tiling/wc-tour.mp4" type="video/mp4">
           </video>
+          <button class="project-video-btn" aria-label="Play video">
+            <svg class="icon-play" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 16 16"><path fill="currentColor" d="M4 2.5v11l9-5.5z"/></svg>
+            <svg class="icon-pause" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 16 16"><path fill="currentColor" d="M3.5 2.5h3.2v11H3.5zm6.3 0v11h3.2v-11z"/></svg>
+          </button>
+          <button class="project-video-unmute" hidden>Tap to unmute</button>
         </div>
       </div>
 
@@ -92,6 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderHeader('gallery');
   renderFooter();
   initProjectGallery();
+  initProjectVideo();
   initScrollAnimations();
 });
 </script>

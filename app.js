@@ -812,6 +812,90 @@ function renderHowItWorks() {
   `).join('');
 }
 
+// ===== PROJECT VIDEO =====
+// YouTube-style inline video: autoplay when scrolled into view, tap to
+// play/pause with a centre button, pause when scrolled out of view.
+function initProjectVideo() {
+  const wrap = document.querySelector('.project-video');
+  if (!wrap) return;
+  const video = wrap.querySelector('video');
+  const btn = wrap.querySelector('.project-video-btn');
+  const unmute = wrap.querySelector('.project-video-unmute');
+  if (!video || !btn) return;
+
+  let userPaused = false;
+  let flashTimer = null;
+
+  const syncState = () => {
+    wrap.classList.toggle('is-paused', video.paused);
+    btn.setAttribute('aria-label', video.paused ? 'Play video' : 'Pause video');
+    if (unmute) unmute.hidden = !(video.muted && !video.paused);
+  };
+
+  const flashPauseIcon = () => {
+    wrap.classList.add('show-pause');
+    clearTimeout(flashTimer);
+    flashTimer = setTimeout(() => wrap.classList.remove('show-pause'), 600);
+  };
+
+  const toggle = () => {
+    if (video.paused) {
+      userPaused = false;
+      video.muted = false;
+      video.play().catch(() => {});
+    } else {
+      userPaused = true;
+      video.pause();
+      flashPauseIcon();
+    }
+  };
+
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggle();
+  });
+
+  // Tap the video itself to play/pause. Ignore taps on the native
+  // control bar (bottom ~48px) so the two don't double-toggle.
+  video.addEventListener('click', (e) => {
+    const rect = video.getBoundingClientRect();
+    if (e.clientY > rect.bottom - 48) return;
+    toggle();
+  });
+
+  if (unmute) {
+    unmute.addEventListener('click', (e) => {
+      e.stopPropagation();
+      video.muted = false;
+      syncState();
+    });
+  }
+
+  video.addEventListener('play', syncState);
+  video.addEventListener('pause', syncState);
+  video.addEventListener('volumechange', syncState);
+
+  const autoObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+        if (!userPaused && video.paused) {
+          video.muted = false;
+          video.play().catch(() => {
+            // Browsers block autoplay with sound — fall back to muted.
+            video.muted = true;
+            video.play().catch(() => {});
+          });
+        }
+      } else if (!entry.isIntersecting) {
+        if (!video.paused) video.pause();
+      }
+    });
+  }, { threshold: [0, 0.5, 1] });
+  autoObserver.observe(video);
+
+  syncState();
+}
+
 // ===== SCROLL ANIMATIONS =====
 function initScrollAnimations() {
   const els = document.querySelectorAll('[data-animate]');
