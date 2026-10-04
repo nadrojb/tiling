@@ -121,18 +121,18 @@ const GALLERY_PROJECTS = [
       { file: 'photo3.jpg', alt: '600 x 300 ceramic floor tiles, aerial photo. Kitchen floor tiling Trowbridge' },
     ]
   },
-  // TODO (photo day): uncomment to publish Half height WC wall tiling in gallery + homepage.
-  // {
-  //   title: 'Half height WC wall with 300 x 70mm ceramic tiles',
-  //   shortTitle: 'WC Wall',
-  //   tag: 'Wall Tiling',
-  //   description: '300 × 70mm ceramic wall tiles laid in a brick-bond pattern to half-height. Walls plumbed prior to installation, wooden trim to the top edge, Mapei Ultracolor 132 grout and matching silicone.',
-  //   folder: 'half-height-wc-wall-tiling',
-  //   images: [
-  //     { file: 'photo1.jpg', alt: '300 x 70mm ceramic WC wall tiles in a brick-bond pattern to half-height with wooden trim. WC wall tiling Trowbridge' },
-  //     { file: 'photo2.jpg', alt: 'Close-up of 300 x 70mm ceramic WC wall tiles, brick-bond pattern, wooden trim and Mapei 132 grout. WC wall tiling Trowbridge' },
-  //   ]
-  // },
+  {
+    title: 'Half height WC wall with 300 x 70mm ceramic tiles',
+    shortTitle: 'WC Wall',
+    tag: 'Wall Tiling',
+    description: '300 × 70mm ceramic wall tiles laid in a brick-bond pattern to half-height. Walls plumbed prior to installation, wooden trim to the top edge, Mapei Ultracolor 132 grout and matching silicone.',
+    folder: 'half-height-wc-wall-tiling',
+    images: [
+      { file: 'photo1.jpg', alt: '300 x 70mm ceramic WC wall tiles in a brick-bond pattern to half-height, straight-on view of both walls with wall-hung toilet. WC wall tiling Trowbridge' },
+      { file: 'photo2.jpg', alt: '300 x 70mm ceramic WC wall tiles in a brick-bond pattern to half-height with wooden trim, viewed from the doorway. WC wall tiling Trowbridge' },
+      { file: 'photo3.jpg', alt: 'Close-up of 300 x 70mm ceramic WC wall tiles, brick-bond pattern, wooden trim and wall-hung toilet. WC wall tiling Trowbridge' },
+    ]
+  },
 ];
 
 const BLOG_POSTS = [
