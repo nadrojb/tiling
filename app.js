@@ -71,6 +71,7 @@ const SERVICES_PAGE = [
 const TESTIMONIALS = [
   { text: 'Recently had Jordan in to tile our kitchen floor and splash back. Couldn\'t recommend him enough - easy to communicate with and always turned up when he said he would.', name: 'Montana A.', location: 'Trowbridge', category: 'Kitchen', avatar: '' },
   { text: 'Jordan recently helped us with tiling our kitchen floor. He was incredibly easy to communicate with and provided us with supportive advice with not only picking the type of tiles to use but talked us through how to take care of them too. He was throughout professional and a pleasure to have in our home. Would highly recommend!', name: 'Lauren P.', location: 'Trowbridge', category: 'Kitchen', avatar: '' },
+  { text: 'Great price. We couldn\'t be happier with the tiling Jordan did for us in our kitchen. The workmanship was top quality. It was clear he takes real pride in his work, and the finished result looks spot on. We\'d highly recommend Jordan. Thank you!', name: 'Rhys Mort', location: '', category: 'Kitchen', avatar: '' },
 ];
 
 const SERVICE_AREAS = ['Trowbridge', 'Bath', 'Wiltshire', 'Bradford-on-Avon', 'Warminster', 'Frome', 'Westbury', 'Melksham', 'Chippenham', 'Devizes', 'Salisbury'];
