@@ -85,7 +85,7 @@ const HOW_IT_WORKS = [
 const GALLERY_PROJECTS = [
   {
     title: 'Kitchen splashback with 200 x 100mm white metro tiles',
-    shortTitle: 'Bath Splashback',
+    shortTitle: 'White metro splashback',
     tag: 'Wall Tiling',
     area: '2.8m²',
     description: 'A kitchen splashback in Bath finished with 200 × 100mm white metro tiles laid in a brick bond pattern across 2.8m. Completed with Mapei grey grout throughout and a white metal trim.',
