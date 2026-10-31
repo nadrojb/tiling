@@ -568,8 +568,8 @@ body.lightbox-open { overflow: hidden; }
 .blog-content h2 { font-family: var(--font-heading); font-size: 24px; font-weight: 700; color: var(--secondary); margin: 40px 0 16px; }
 .blog-content h3 { font-family: var(--font-heading); font-size: 20px; font-weight: 700; color: var(--secondary); margin: 32px 0 12px; }
 .blog-content p { font-size: 16px; line-height: 1.75; color: var(--neutral-600); margin-bottom: 20px; }
-.blog-content ul { margin-bottom: 20px; padding-left: 24px; }
-.blog-content li { font-size: 16px; line-height: 1.75; color: var(--neutral-600); margin-bottom: 10px; }
+.blog-content ul { margin-bottom: 20px; padding-left: 24px; list-style-type: disc; }
+.blog-content li { font-size: 16px; line-height: 1.75; color: var(--neutral-600); margin-bottom: 6px; }
 .blog-content li strong { color: var(--neutral-800); }
 .blog-link { color: var(--primary); font-weight: 600; text-decoration: none; }
 .blog-link:hover { text-decoration: underline; }
