@@ -158,6 +158,14 @@ const BLOG_POSTS = [
     alt: 'Wall preparation for tiling',
     href: '/blog/surface-preparation-for-tiling/',
   },
+  {
+    title: 'Tiling Over Plywood: What British Standards Say',
+    excerpt: 'A practical guide to BS 5385 and preparing plywood surfaces for tiling. Walls vs floors, intermediate layers, tile backer boards, uncoupling membranes and FAQs.',
+    date: 'October 2026',
+    img: '/images/blog/tiling-over-plywood.jpg',
+    alt: 'Stacked plywood sheets showing layered timber construction',
+    href: '/blog/tiling-over-plywood/',
+  },
 ];
 
 const PREP_IMAGES = [

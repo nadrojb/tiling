@@ -18,6 +18,8 @@
     { "source": "/blog/", "destination": "/blog/index.html" },
     { "source": "/blog/surface-preparation-for-tiling", "destination": "/blog/surface-preparation-for-tiling/index.html" },
     { "source": "/blog/surface-preparation-for-tiling/", "destination": "/blog/surface-preparation-for-tiling/index.html" },
+    { "source": "/blog/tiling-over-plywood", "destination": "/blog/tiling-over-plywood/index.html" },
+    { "source": "/blog/tiling-over-plywood/", "destination": "/blog/tiling-over-plywood/index.html" },
     { "source": "/projects/kitchen-splashback", "destination": "/projects/kitchen-splashback/index.html" },
     { "source": "/projects/kitchen-splashback/", "destination": "/projects/kitchen-splashback/index.html" },
     { "source": "/projects/dining-room-floor-tiling", "destination": "/projects/dining-room-floor-tiling/index.html" },

@@ -570,6 +570,66 @@ body.lightbox-open { overflow: hidden; }
 .blog-link { color: var(--primary); font-weight: 600; text-decoration: none; }
 .blog-link:hover { text-decoration: underline; }
 
+/* ===== BLOG POST IMAGE LAYOUT ===== */
+.blog-intro-wrap {
+  display: grid;
+  gap: 40px;
+  align-items: start;
+  margin-bottom: 48px;
+}
+@media (min-width: 768px) {
+  .blog-intro-wrap { grid-template-columns: 1fr 1fr; }
+}
+.blog-intro-text .blog-intro {
+  font-size: 18px;
+  line-height: 1.75;
+  color: var(--neutral-700);
+  margin-bottom: 20px;
+}
+.blog-hero-image {
+  margin-bottom: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: var(--neutral-200);
+}
+.blog-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== ACCORDION FAQ ===== */
+.blog-faq {
+  margin-top: 48px;
+}
+.faq-item {
+  border-bottom: 1px solid var(--neutral-200);
+}
+.faq-item:last-child { border-bottom: none; }
+.faq-question {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  padding: 16px 24px 16px 0;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--secondary);
+  cursor: pointer;
+  text-align: left;
+  position: relative;
+}
+.faq-question:hover { color: var(--primary); }
+.faq-question[aria-expanded="true"] { color: var(--primary); margin-bottom: 8px; }
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  padding: 0 24px 16px 0;
+}
+.faq-answer p { font-size: 15px; color: var(--neutral-600); line-height: 1.7; margin: 0; }
+
 /* ===== BLOG POST PREP ROWS ===== */
 .blog-intro { font-size: 18px; line-height: 1.75; color: var(--neutral-700); margin-bottom: 48px; }
 
