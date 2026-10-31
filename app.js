@@ -151,6 +151,14 @@ const GALLERY_PROJECTS = [
 
 const BLOG_POSTS = [
   {
+    title: 'Tiling Over Plywood: What British Standards Say',
+    excerpt: 'A practical guide to BS 5385 and preparing plywood surfaces for tiling. Walls vs floors, intermediate layers, tile backer boards, uncoupling membranes and FAQs.',
+    date: 'October 2026',
+    img: '/images/blog/tiling-over-plywood.jpg',
+    alt: 'Stacked plywood sheets showing layered timber construction',
+    href: '/blog/tiling-over-plywood/',
+  },
+  {
     title: 'Surface Preparation for Tiling: How I Handle Different Substrates',
     excerpt: 'What happens before the first tile goes on — levelling, waterproofing, decoupling membranes and backer boards, and why getting preparation right matters more than the tiles you choose.',
     date: 'September 2026',
