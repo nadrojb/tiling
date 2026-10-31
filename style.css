@@ -621,11 +621,21 @@ body.lightbox-open { overflow: hidden; }
   font-weight: 700;
   color: var(--secondary);
   cursor: pointer;
-  text-align: left;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .faq-question:hover { color: var(--primary); }
 .faq-question[aria-expanded="true"] { color: var(--primary); margin-bottom: 8px; }
+.faq-question .faq-toggle {
+  font-size: 20px;
+  line-height: 1;
+  margin-left: 12px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+.faq-question[aria-expanded="true"] .faq-toggle { transform: rotate(45deg); }
 .faq-answer {
   max-height: 0;
   overflow: hidden;

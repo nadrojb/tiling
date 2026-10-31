@@ -17,7 +17,7 @@
 <meta name="twitter:description" content="A practical guide to BS 5385 and preparing plywood surfaces for tiling. Walls vs floors, intermediate layers, tile backer boards, uncoupling membranes and FAQs.">
 <meta name="twitter:image" content="https://avonsidetiling.co.uk/images/blog/tiling-over-plywood.jpg">
 
-<link rel="stylesheet" href="/style.css?v=7">
+<link rel="stylesheet" href="/style.css?v=8">
 <link rel="icon" type="image/png" href="/images/favicon.png">
 <link rel="apple-touch-icon" href="/images/favicon.png">
 <meta name="theme-color" content="#111111">
@@ -102,31 +102,41 @@
     <div class="blog-faq" data-animate>
       <h2>Frequently Asked Questions</h2>
       <div class="faq-item">
-        <button class="faq-question">Can you tile directly onto plywood?</button>
+        <button class="faq-question">
+          <span class="faq-toggle">+</span>
+          Can you tile directly onto plywood?
+        </button>
         <div class="faq-answer">
           <p>For walls, BS 5385-1:2018 does not recommend direct tiling onto plywood. For floors, BS 5385-3:2024 recommends an intermediate layer, such as a tile backer board, uncoupling membrane or reinforced tanking system.</p>
         </div>
       </div>
       <div class="faq-item">
-        <button class="faq-question">Do you need to use cement board over plywood before tiling?</button>
+        <button class="faq-question">
+          <span class="faq-toggle">+</span>
+          Do you need to use cement board over plywood before tiling?
+        </button>
         <div class="faq-answer">
           <p>No. A cement-based tile backer board is one option, but it isn't the only one. An appropriate uncoupling membrane or reinforced tanking system can also be used, depending on the installation.</p>
         </div>
       </div>
       <div class="faq-item">
-        <button class="faq-question">Can you use an uncoupling membrane over plywood?</button>
+        <button class="faq-question">
+          <span class="faq-toggle">+</span>
+          Can you use an uncoupling membrane over plywood?
+        </button>
         <div class="faq-answer">
           <p>Yes. Uncoupling membranes such as Schlüter-DITRA are one of the intermediate layer options identified in the guidance for plywood floors. The plywood and supporting floor structure must still be suitable, and the membrane must be installed according to the manufacturer's instructions.</p>
         </div>
       </div>
       <div class="faq-item">
-        <button class="faq-question">Why do tiles crack when laid over plywood?</button>
+        <button class="faq-question">
+          <span class="faq-toggle">+</span>
+          Why do tiles crack when laid over plywood?
+        </button>
         <div class="faq-answer">
           <p>The most common cause is movement in the floor beneath the tiles. If the plywood or supporting timber structure flexes, that movement can transfer to the tiled surface, causing tiles or grout to crack or become detached. Correct preparation and a suitable intermediate layer help reduce this risk.</p>
         </div>
       </div>
-    </div>
-
     </div>
 
     <section class="cta section-warm" data-animate>
@@ -156,6 +166,8 @@ document.addEventListener('DOMContentLoaded', () => {
 function initFaqAccordion() {
   const questions = document.querySelectorAll('.faq-question');
   questions.forEach(btn => {
+    btn.setAttribute('aria-expanded', 'false');
+    btn.nextElementSibling.style.maxHeight = '0';
     btn.addEventListener('click', () => {
       const expanded = btn.getAttribute('aria-expanded') === 'true';
       document.querySelectorAll('.faq-question').forEach(b => {
