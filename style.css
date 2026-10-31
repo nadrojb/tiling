@@ -616,15 +616,14 @@ body.lightbox-open { overflow: hidden; }
   text-align: left;
   background: transparent;
   border: none;
-  padding: 16px 24px 16px 0;
+  padding: 16px 0;
   font-size: 17px;
   font-weight: 700;
   color: var(--secondary);
   cursor: pointer;
-  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 8px;
 }
 .faq-question:hover { color: var(--primary); }
 .faq-question[aria-expanded="true"] { color: var(--primary); margin-bottom: 8px; }
@@ -635,11 +634,13 @@ body.lightbox-open { overflow: hidden; }
   font-weight: 400;
 }
 .faq-answer {
-  display: none;
-  padding: 0 24px 16px 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+  padding: 0 0 16px 0;
 }
 .faq-answer.open {
-  display: block;
+  max-height: 1200px;
 }
 .faq-answer p { font-size: 15px; color: var(--neutral-600); line-height: 1.7; margin: 0; }
 
