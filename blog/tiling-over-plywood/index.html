@@ -17,7 +17,7 @@
 <meta name="twitter:description" content="A practical guide to BS 5385 and preparing plywood surfaces for tiling. Walls vs floors, intermediate layers, tile backer boards, uncoupling membranes and FAQs.">
 <meta name="twitter:image" content="https://avonsidetiling.co.uk/images/blog/tiling-over-plywood.jpg">
 
-<link rel="stylesheet" href="/style.css?v=8">
+<link rel="stylesheet" href="/style.css?v=9">
 <link rel="icon" type="image/png" href="/images/favicon.png">
 <link rel="apple-touch-icon" href="/images/favicon.png">
 <meta name="theme-color" content="#111111">
@@ -167,16 +167,23 @@ function initFaqAccordion() {
   const questions = document.querySelectorAll('.faq-question');
   questions.forEach(btn => {
     btn.setAttribute('aria-expanded', 'false');
-    btn.nextElementSibling.style.maxHeight = '0';
+    const answer = btn.nextElementSibling;
+    answer.classList.remove('open');
+    const toggle = btn.querySelector('.faq-toggle');
+    if (toggle) toggle.textContent = '+';
     btn.addEventListener('click', () => {
       const expanded = btn.getAttribute('aria-expanded') === 'true';
       document.querySelectorAll('.faq-question').forEach(b => {
         b.setAttribute('aria-expanded', 'false');
-        b.nextElementSibling.style.maxHeight = '0';
+        b.nextElementSibling.classList.remove('open');
+        const t = b.querySelector('.faq-toggle');
+        if (t) t.textContent = '+';
       });
       if (!expanded) {
         btn.setAttribute('aria-expanded', 'true');
-        btn.nextElementSibling.style.maxHeight = btn.nextElementSibling.scrollHeight + 'px';
+        btn.nextElementSibling.classList.add('open');
+        const toggle = btn.querySelector('.faq-toggle');
+        if (toggle) toggle.textContent = '×';
       }
     });
   });
