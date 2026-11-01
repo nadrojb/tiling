@@ -94,9 +94,9 @@ const GALLERY_PROJECTS = [
     images: [
       { file: 'photo1.jpg', alt: 'Mixed size natural sandstone floor tiles laid in a riven stone finish, with windows and a fireplace recess in a Bath room. Natural sandstone floor tiling Bath' },
       { file: 'photo2.jpg', alt: 'Wide view of a 58m² natural sandstone floor with white grout joints and riven stone texture, in a period property. Natural sandstone floor tiling Bath' },
-      { file: 'photo3.jpg', alt: 'Natural sandstone floor tiles running through glazed double doors towards a living room. Natural sandstone floor tiling Bath' },
-      { file: 'photo4.jpg', alt: 'Natural sandstone floor viewed through a doorway, showing the stone pattern continuing between rooms. Natural sandstone floor tiling Bath' },
-      { file: 'photo5.jpg', alt: 'Natural sandstone floor with a glazed door leading through to a living room, with pipework along the wall during renovation. Natural sandstone floor tiling Bath' },
+      { file: 'photo3.jpg', alt: 'Natural sandstone floor viewed through a doorway, showing the stone pattern continuing between rooms. Natural sandstone floor tiling Bath' },
+      { file: 'photo4.jpg', alt: 'Natural sandstone floor with a glazed door leading through to a living room, with pipework along the wall during renovation. Natural sandstone floor tiling Bath' },
+      { file: 'photo5.jpg', alt: 'Natural sandstone floor tiles running through glazed double doors towards a living room. Natural sandstone floor tiling Bath' },
     ]
   },
   {
