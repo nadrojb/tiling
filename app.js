@@ -85,6 +85,21 @@ const HOW_IT_WORKS = [
 
 const GALLERY_PROJECTS = [
   {
+    title: 'Natural Sandstone tiles – Bath Townhouse',
+    shortTitle: 'Natural sandstone floor',
+    tag: 'Floor Tiling',
+    area: '58m²',
+    description: '58m² of natural sandstone tiles installed across a kitchen, pantry and hallway in a Bath townhouse. The existing floor was very uneven, so a self-levelling compound was applied to create a flat, stable base before tiling. DITRA uncoupling membrane was then installed to help accommodate movement between the substrate and the tiled surface. The floor was finished with LTP Mattstone sealer and Mapei Ultracolor Plus grout in shade 110 Manhattan.',
+    folder: 'natural-sandstone-floor-bath',
+    images: [
+      { file: 'photo1.jpg', alt: 'Mixed size natural sandstone floor tiles laid in a riven stone finish, with windows and a fireplace recess in a Bath room. Natural sandstone floor tiling Bath' },
+      { file: 'photo2.jpg', alt: 'Wide view of a 58m² natural sandstone floor with white grout joints and riven stone texture, in a period property. Natural sandstone floor tiling Bath' },
+      { file: 'photo3.jpg', alt: 'Natural sandstone floor viewed through a doorway, showing the stone pattern continuing between rooms. Natural sandstone floor tiling Bath' },
+      { file: 'photo4.jpg', alt: 'Natural sandstone floor with a glazed door leading through to a living room, with pipework along the wall during renovation. Natural sandstone floor tiling Bath' },
+      { file: 'photo5.jpg', alt: 'Natural sandstone floor tiles running through glazed double doors towards a living room. Natural sandstone floor tiling Bath' },
+    ]
+  },
+  {
     title: 'Kitchen splashback with 200 x 100mm white metro tiles',
     shortTitle: 'White metro splashback',
     tag: 'Wall Tiling',
@@ -99,7 +114,7 @@ const GALLERY_PROJECTS = [
   },
   {
     title: 'Half height WC wall with 300 x 70mm ceramic tiles',
-    shortTitle: 'WC Wall',
+    shortTitle: 'WC half height wall',
     tag: 'Wall Tiling',
     description: '300 × 70mm ceramic wall tiles laid in a brick-bond pattern to half-height. Walls plumbed prior to installation, wooden trim to the top edge, Mapei Ultracolor 132 grout and matching silicone.',
     folder: 'half-height-wc-wall-tiling',

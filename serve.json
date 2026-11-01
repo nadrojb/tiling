@@ -25,6 +25,8 @@
     { "source": "/projects/kitchen-floor-tiling", "destination": "/projects/kitchen-floor-tiling/index.html" },
     { "source": "/projects/kitchen-floor-tiling/", "destination": "/projects/kitchen-floor-tiling/index.html" },
     { "source": "/projects/half-height-wc-wall-tiling", "destination": "/projects/half-height-wc-wall-tiling/index.html" },
-    { "source": "/projects/half-height-wc-wall-tiling/", "destination": "/projects/half-height-wc-wall-tiling/index.html" }
+    { "source": "/projects/half-height-wc-wall-tiling/", "destination": "/projects/half-height-wc-wall-tiling/index.html" },
+    { "source": "/projects/natural-sandstone-floor-bath", "destination": "/projects/natural-sandstone-floor-bath/index.html" },
+    { "source": "/projects/natural-sandstone-floor-bath/", "destination": "/projects/natural-sandstone-floor-bath/index.html" }
   ]
 }
