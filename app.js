@@ -85,11 +85,11 @@ const HOW_IT_WORKS = [
 
 const GALLERY_PROJECTS = [
   {
-    title: 'Natural sandstone floor with mixed size stone tiles',
+    title: 'Natural Sandstone tiles – Bath Townhouse',
     shortTitle: 'Sandstone Floor',
     tag: 'Floor Tiling',
     area: '58m²',
-    description: 'A 58m² natural sandstone floor in Bath. The existing floor was very uneven, so it was self-levelled to provide a flat surface before tiling. A DITRA uncoupling membrane was installed over the levelled floor, with the sandstone laid throughout and finished with mattstone sealer and Mapei 110 grout.',
+    description: '58m² of natural sandstone tiles installed across a kitchen, pantry and hallway in a Bath townhouse. The existing floor was very uneven, so a self-levelling compound was applied to create a flat, stable base before tiling. DITRA uncoupling membrane was then installed to help accommodate movement between the substrate and the tiled surface. The floor was finished with LTP Mattstone sealer and Mapei Ultracolor Plus grout in shade 110 Manhattan.',
     folder: 'natural-sandstone-floor-bath',
     images: [
       { file: 'photo1.jpg', alt: 'Mixed size natural sandstone floor tiles laid in a riven stone finish, with windows and a fireplace recess in a Bath room. Natural sandstone floor tiling Bath' },
@@ -114,7 +114,7 @@ const GALLERY_PROJECTS = [
   },
   {
     title: 'Half height WC wall with 300 x 70mm ceramic tiles',
-    shortTitle: 'WC Wall',
+    shortTitle: 'WC half height wall',
     tag: 'Wall Tiling',
     description: '300 × 70mm ceramic wall tiles laid in a brick-bond pattern to half-height. Walls plumbed prior to installation, wooden trim to the top edge, Mapei Ultracolor 132 grout and matching silicone.',
     folder: 'half-height-wc-wall-tiling',
