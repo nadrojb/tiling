@@ -85,6 +85,21 @@ const HOW_IT_WORKS = [
 
 const GALLERY_PROJECTS = [
   {
+    title: 'Natural sandstone floor with mixed size stone tiles',
+    shortTitle: 'Sandstone Floor',
+    tag: 'Floor Tiling',
+    area: '58m²',
+    description: 'A 58m² natural sandstone floor in Bath. The existing floor was very uneven, so it was self-levelled to provide a flat surface before tiling. A DITRA uncoupling membrane was installed over the levelled floor, with the sandstone laid throughout and finished with mattstone sealer and Mapei 110 grout.',
+    folder: 'natural-sandstone-floor-bath',
+    images: [
+      { file: 'photo1.jpg', alt: 'Mixed size natural sandstone floor tiles laid in a riven stone finish, with windows and a fireplace recess in a Bath room. Natural sandstone floor tiling Bath' },
+      { file: 'photo2.jpg', alt: 'Wide view of a 58m² natural sandstone floor with white grout joints and riven stone texture, in a period property. Natural sandstone floor tiling Bath' },
+      { file: 'photo3.jpg', alt: 'Natural sandstone floor tiles running through glazed double doors towards a living room. Natural sandstone floor tiling Bath' },
+      { file: 'photo4.jpg', alt: 'Natural sandstone floor viewed through a doorway, showing the stone pattern continuing between rooms. Natural sandstone floor tiling Bath' },
+      { file: 'photo5.jpg', alt: 'Natural sandstone floor with a glazed door leading through to a living room, with pipework along the wall during renovation. Natural sandstone floor tiling Bath' },
+    ]
+  },
+  {
     title: 'Kitchen splashback with 200 x 100mm white metro tiles',
     shortTitle: 'White metro splashback',
     tag: 'Wall Tiling',
