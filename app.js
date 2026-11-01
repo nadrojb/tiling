@@ -86,7 +86,7 @@ const HOW_IT_WORKS = [
 const GALLERY_PROJECTS = [
   {
     title: 'Natural Sandstone tiles – Bath Townhouse',
-    shortTitle: 'Sandstone Floor',
+    shortTitle: 'Natural sandstone floor',
     tag: 'Floor Tiling',
     area: '58m²',
     description: '58m² of natural sandstone tiles installed across a kitchen, pantry and hallway in a Bath townhouse. The existing floor was very uneven, so a self-levelling compound was applied to create a flat, stable base before tiling. DITRA uncoupling membrane was then installed to help accommodate movement between the substrate and the tiled surface. The floor was finished with LTP Mattstone sealer and Mapei Ultracolor Plus grout in shade 110 Manhattan.',
