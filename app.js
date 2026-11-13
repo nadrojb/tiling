@@ -99,6 +99,8 @@ const GALLERY_PROJECTS = [
       { file: 'photo3.jpg', alt: 'Natural sandstone floor viewed through a doorway, showing the stone pattern continuing between rooms. Natural sandstone floor tiling Bath' },
       { file: 'photo4.jpg', alt: 'Natural sandstone floor with a glazed door leading through to a living room, with pipework along the wall during renovation. Natural sandstone floor tiling Bath' },
       { file: 'photo5.jpg', alt: 'Natural sandstone floor tiles running through glazed double doors towards a living room. Natural sandstone floor tiling Bath' },
+      { file: 'photo6.jpg', alt: 'Angled view of two natural sandstone tiled steps with tiled risers, leading through a doorway to a carpeted hallway. Natural sandstone step tiling Bath' },
+      { file: 'photo7.jpg', alt: 'Front view of natural sandstone tiled steps, with the same stone continuing across the floor and up the risers. Natural sandstone step tiling Bath' },
     ]
   },
   {
