@@ -69,6 +69,7 @@ const SERVICES_PAGE = [
 ];
 
 const TESTIMONIALS = [
+  { text: 'Really pleased with the job Jordan has done tiling our kitchen, pantry and hallway floors. The sandstone tiles weren\'t the easiest to work with as they varied quite a bit in size and thickness, but he\'s done a brilliant job. The original floor was also really uneven and we weren\'t sure it would even be possible to get it flat, but he did a great job preparing it all beforehand. We\'re really happy with how it\'s turned out and would definitely recommend him! Thanks.', name: 'Beth Bennett', location: '', category: 'Floor', avatar: '' },
   { text: 'Recently had Jordan in to tile our kitchen floor and splash back. Couldn\'t recommend him enough - easy to communicate with and always turned up when he said he would.', name: 'Montana A.', location: 'Trowbridge', category: 'Kitchen', avatar: '' },
   { text: 'Jordan recently helped us with tiling our kitchen floor. He was incredibly easy to communicate with and provided us with supportive advice with not only picking the type of tiles to use but talked us through how to take care of them too. He was throughout professional and a pleasure to have in our home. Would highly recommend!', name: 'Lauren P.', location: 'Trowbridge', category: 'Kitchen', avatar: '' },
   { text: 'We couldn\'t be happier with the tiling Jordan did for us in our kitchen. The workmanship was top quality. It was clear he takes real pride in his work, and the finished result looks spot on. We\'d highly recommend Jordan. Thank you!', name: 'Rhys Mort', location: '', category: 'Kitchen', avatar: '' },
@@ -85,6 +86,7 @@ const HOW_IT_WORKS = [
 
 const GALLERY_PROJECTS = [
   {
+    id: 'natural-sandstone-floor-bath',
     title: 'Natural Sandstone tiles – Bath Townhouse',
     shortTitle: 'Natural sandstone floor',
     tag: 'Floor Tiling',
@@ -100,6 +102,7 @@ const GALLERY_PROJECTS = [
     ]
   },
   {
+    id: 'white-metro-splashback-bath',
     title: 'Kitchen splashback with 200 x 100mm white metro tiles',
     shortTitle: 'White metro splashback',
     tag: 'Wall Tiling',
@@ -113,9 +116,11 @@ const GALLERY_PROJECTS = [
     ]
   },
   {
+    id: 'half-height-wc-wall-tiling',
     title: 'Half height WC wall with 300 x 70mm ceramic tiles',
     shortTitle: 'WC half height wall',
     tag: 'Wall Tiling',
+    area: '3m²',
     description: '300 × 70mm ceramic wall tiles laid in a brick-bond pattern to half-height. Walls plumbed prior to installation, wooden trim to the top edge, Mapei Ultracolor 132 grout and matching silicone.',
     folder: 'half-height-wc-wall-tiling',
     images: [
@@ -125,10 +130,11 @@ const GALLERY_PROJECTS = [
     ]
   },
   {
+    id: 'kitchen-splashback',
     title: 'Kitchen splashback with 200 x 100mm ceramic metro tiles',
     shortTitle: 'Kitchen Splashback',
     tag: 'Wall Tiling',
-    area: '16m\u00b2',
+    area: '3.2m²',
     description: 'A recent splashback project. This job involved removing the old tiles, repairing the wall to provide a flat surface, and fitting new 200 \u00d7 100mm ceramic metro-style tiles in a brick bond pattern.',
     folder: 'kitchen-splashback',
     images: [
@@ -138,6 +144,7 @@ const GALLERY_PROJECTS = [
     ]
   },
   {
+    id: 'dining-room-floor-tiling',
     title: 'Dining room floor with a 600 x 600 Porcelain tile',
     shortTitle: 'Dining Room Floor',
     tag: 'Floor Tiling',
@@ -150,6 +157,7 @@ const GALLERY_PROJECTS = [
     ]
   },
   {
+    id: 'kitchen-floor-tiling',
     title: 'Kitchen Floor with a 600 x 300 ceramic tile',
     shortTitle: 'Kitchen Floor',
     tag: 'Floor Tiling',
@@ -551,6 +559,34 @@ function renderLatestProjects() {
   const el = document.getElementById('latestProjects');
   if (!el) return;
   el.innerHTML = GALLERY_PROJECTS.slice(0, 3).map(projectCardMarkup).join('');
+}
+
+function renderRelatedProjects(currentId) {
+  const el = document.getElementById('relatedProjects');
+  if (!el) return;
+  const current = GALLERY_PROJECTS.find((project) => project.id === currentId);
+  if (!current) return;
+  const related = GALLERY_PROJECTS.filter(
+    (project) => project.id !== currentId && project.tag === current.tag
+  );
+  if (!related.length) {
+    const section = el.closest('section');
+    if (section) section.hidden = true;
+    return;
+  }
+  el.innerHTML = related.map(projectCardMarkup).join('');
+}
+
+function renderProjectsByTag(tag) {
+  const el = document.getElementById('serviceProjects');
+  if (!el) return;
+  const projects = GALLERY_PROJECTS.filter((project) => project.tag === tag);
+  if (!projects.length) {
+    const section = el.closest('section');
+    if (section) section.hidden = true;
+    return;
+  }
+  el.innerHTML = projects.map(projectCardMarkup).join('');
 }
 
 function renderBlog() {
