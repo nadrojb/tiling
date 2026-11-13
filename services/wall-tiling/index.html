@@ -17,14 +17,37 @@
 <meta name="twitter:description" content="Wall tiling in Trowbridge, Wiltshire — bathrooms, showers and kitchen splashbacks. Fitted to British Standards.">
 <meta name="twitter:image" content="https://avonsidetiling.co.uk/images/gallery/kitchen-splashback/cover.jpg">
 
-<link rel="stylesheet" href="/style.css?v=13">
+<link rel="stylesheet" href="/style.css?v=14">
 <link rel="icon" type="image/png" href="/images/favicon.png">
 <link rel="apple-touch-icon" href="/images/favicon.png">
 <meta name="theme-color" content="#111111">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://avonsidetiling.co.uk/"},
+    {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://avonsidetiling.co.uk/services/"},
+    {"@type": "ListItem", "position": 3, "name": "Wall Tiling", "item": "https://avonsidetiling.co.uk/services/wall-tiling/"}
+  ]
+}
+</script>
 </head>
 <body>
 
 <div id="header"></div>
+
+<div class="breadcrumb-wrap">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span class="breadcrumb-sep">/</span>
+      <a href="/services/">Services</a>
+      <span class="breadcrumb-sep">/</span>
+      <span aria-current="page">Wall Tiling</span>
+    </nav>
+  </div>
+</div>
 
 <section class="page-hero page-hero--dark">
   <div class="container">
@@ -58,6 +81,18 @@
   </div>
 </section>
 
+<section class="section section-white related-projects-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Recent wall tiling projects</h2>
+    </div>
+    <div class="project-grid" id="serviceProjects"></div>
+    <div class="project-grid-link">
+      <a class="project-card-link" href="/gallery/">View all projects &rarr;</a>
+    </div>
+  </div>
+</section>
+
 <section class="cta section-warm" data-animate>
   <div class="container">
     <h2>Have a wall tiling project in mind?</h2>
@@ -75,6 +110,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   renderHeader('wall-tiling');
   renderFooter();
+  renderProjectsByTag('Wall Tiling');
   initScrollAnimations();
 });
 </script>

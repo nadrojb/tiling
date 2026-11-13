@@ -17,24 +17,34 @@
 <meta name="twitter:description" content="Browse recent tiling projects by Avonside Tiling. Kitchen splashbacks, floor tiling and bathroom projects across Trowbridge and Wiltshire.">
 <meta name="twitter:image" content="https://avonsidetiling.co.uk/images/gallery/kitchen-splashback/cover.jpg">
 
-<link rel="stylesheet" href="/style.css?v=13">
+<link rel="stylesheet" href="/style.css?v=14">
 <link rel="icon" type="image/png" href="/images/favicon.png">
 <link rel="apple-touch-icon" href="/images/favicon.png">
 <meta name="theme-color" content="#111111">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://avonsidetiling.co.uk/"},
+    {"@type": "ListItem", "position": 2, "name": "Tiling Projects", "item": "https://avonsidetiling.co.uk/gallery/"}
+  ]
+}
+</script>
 </head>
 <body>
 
 <div id="header"></div>
 
-<!--
-<div class="container breadcrumb-wrap">
-  <nav class="breadcrumb">
-    <a href="/">Home</a>
-    <span class="breadcrumb-sep">/</span>
-    <span aria-current="page">Gallery</span>
-  </nav>
+<div class="breadcrumb-wrap">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span class="breadcrumb-sep">/</span>
+      <span aria-current="page">Tiling Projects</span>
+    </nav>
+  </div>
 </div>
--->
 
 <section class="page-hero page-hero--dark">
   <div class="container">
@@ -48,6 +58,19 @@
 <section class="section section-white">
   <div class="container">
     <div class="project-grid" id="galleryGrid"></div>
+    <noscript>
+      <div class="noscript-projects">
+        <p>Recent tiling projects:</p>
+        <ul>
+          <li><a href="/projects/natural-sandstone-floor-bath/">Natural sandstone floor tiling, Bath</a></li>
+          <li><a href="/projects/white-metro-splashback-bath/">White metro splashback tiling, Bath</a></li>
+          <li><a href="/projects/half-height-wc-wall-tiling/">Half-height WC wall tiling, Trowbridge</a></li>
+          <li><a href="/projects/kitchen-splashback/">Kitchen splashback tiling, Trowbridge</a></li>
+          <li><a href="/projects/dining-room-floor-tiling/">Dining room floor tiling, Trowbridge</a></li>
+          <li><a href="/projects/kitchen-floor-tiling/">Kitchen floor tiling, Trowbridge</a></li>
+        </ul>
+      </div>
+    </noscript>
   </div>
 </section>
 

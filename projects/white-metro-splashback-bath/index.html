@@ -17,7 +17,7 @@
 <meta name="twitter:description" content="200 × 100mm white metro tiles in a brick bond pattern for a kitchen splashback in Bath, finished with Mapei grey grout and a white trim.">
 <meta name="twitter:image" content="https://avonsidetiling.co.uk/images/gallery/white-metro-splashback-bath/cover.jpg">
 
-<link rel="stylesheet" href="/style.css?v=13">
+<link rel="stylesheet" href="/style.css?v=14">
 <link rel="icon" type="image/png" href="/images/favicon.png">
 <link rel="apple-touch-icon" href="/images/favicon.png">
 <meta name="theme-color" content="#111111">
@@ -33,15 +33,38 @@
   "duration": "PT25S"
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://avonsidetiling.co.uk/"},
+    {"@type": "ListItem", "position": 2, "name": "Tiling Projects", "item": "https://avonsidetiling.co.uk/gallery/"},
+    {"@type": "ListItem", "position": 3, "name": "White Metro Splashback", "item": "https://avonsidetiling.co.uk/projects/white-metro-splashback-bath/"}
+  ]
+}
+</script>
 </head>
 <body>
 
 <div id="header"></div>
 
+<div class="breadcrumb-wrap">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span class="breadcrumb-sep">/</span>
+      <a href="/gallery/">Tiling Projects</a>
+      <span class="breadcrumb-sep">/</span>
+      <span aria-current="page">White Metro Splashback</span>
+    </nav>
+  </div>
+</div>
+
 <section class="page-hero page-hero--dark">
   <div class="container">
     <div class="page-hero-text">
-      <h1 data-animate>White Metro Splashback</h1>
+      <h1 data-animate>White Metro Splashback Tiling in Bath</h1>
     </div>
   </div>
 </section>
@@ -50,7 +73,7 @@
   <div class="container">
     <div class="project-layout">
       <div class="project-body">
-        <p data-animate>A kitchen splashback in Bath finished with 200 &times; 100mm white metro tiles laid in a brick bond pattern across 2.8m. Completed with Mapei grey grout throughout and a white metal trim.</p>
+        <p data-animate>A kitchen splashback in Bath, forming part of my <a href="/services/wall-tiling/">wall tiling</a> work, finished with 200 &times; 100mm white metro tiles laid in a brick bond pattern across 2.8m. Completed with Mapei grey grout throughout and a white metal trim.</p>
 
         <div class="project-photos" data-animate>
           <a class="project-photo" href="/images/gallery/white-metro-splashback-bath/photo1.jpg"><img src="/images/gallery/white-metro-splashback-bath/photo1.jpg" alt="200 x 100mm white metro tiles in a brick bond pattern behind a black induction hob, grey kitchen cabinets and marble-effect worktop. Kitchen splashback tiling Bath" loading="lazy"></a>
@@ -77,11 +100,27 @@
             <span class="project-meta-value">200 x 100mm white metro</span>
           </div>
           <div class="project-meta-row">
+            <span class="project-meta-label">Area</span>
+            <span class="project-meta-value">2.8m&sup2;</span>
+          </div>
+          <div class="project-meta-row">
             <span class="project-meta-label">Pattern</span>
             <span class="project-meta-value">Brick bond</span>
           </div>
         </div>
       </aside>
+    </div>
+  </div>
+</section>
+
+<section class="section section-white related-projects-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Similar projects</h2>
+    </div>
+    <div class="project-grid" id="relatedProjects"></div>
+    <div class="project-grid-link">
+      <a class="project-card-link" href="/gallery/">View all projects &rarr;</a>
     </div>
   </div>
 </section>
@@ -105,6 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderFooter();
   initProjectGallery();
   initProjectVideo();
+  renderRelatedProjects('white-metro-splashback-bath');
   initScrollAnimations();
 });
 </script>
