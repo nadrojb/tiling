@@ -49,7 +49,11 @@ Copy this template and fill in the details:
 
 ```js
 {
+  id: '<project-name>', // stable slug, same as folder
   title: 'Short title describing the project',
+  shortTitle: 'Short label for the gallery card',
+  tag: 'Wall Tiling', // or 'Floor Tiling'
+  area: 'Xm²',
   description: 'Description of the work, tile size, material, area.',
   folder: '<project-name>',
   images: [
@@ -62,10 +66,12 @@ Copy this template and fill in the details:
 ### Tips
 
 - **Folder names:** lowercase, hyphens only (e.g. `bathroom-wall-tiling`)
+- **ID:** use the same slug as the folder, so related projects and page scripts can reference it
 - **Cover image:** first photo in the array is used as the thumbnail
 - **Alt texts:** describe each photo, include tile size, room type, and location (Trowbridge/Wiltshire)
 - **Descriptions:** include tile size, material, room type, and area (m²)
 - **All gallery photos should be portrait** from iPhone
+- **Noscript links:** add the new project to the `<noscript>` list in `gallery/index.html` so search engines always see a static link to the project page
 
 ## Sitemap
 
