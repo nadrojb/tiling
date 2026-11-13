@@ -17,19 +17,42 @@
 <meta name="twitter:description" content="58m² of natural sandstone tiles across a kitchen, pantry and hallway in a Bath townhouse, finished with LTP Mattstone sealer and Mapei Ultracolor Plus grout.">
 <meta name="twitter:image" content="https://avonsidetiling.co.uk/images/gallery/natural-sandstone-floor-bath/cover.jpg">
 
-<link rel="stylesheet" href="/style.css?v=13">
+<link rel="stylesheet" href="/style.css?v=14">
 <link rel="icon" type="image/png" href="/images/favicon.png">
 <link rel="apple-touch-icon" href="/images/favicon.png">
 <meta name="theme-color" content="#111111">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://avonsidetiling.co.uk/"},
+    {"@type": "ListItem", "position": 2, "name": "Tiling Projects", "item": "https://avonsidetiling.co.uk/gallery/"},
+    {"@type": "ListItem", "position": 3, "name": "Natural Sandstone Floor", "item": "https://avonsidetiling.co.uk/projects/natural-sandstone-floor-bath/"}
+  ]
+}
+</script>
 </head>
 <body>
 
 <div id="header"></div>
 
+<div class="breadcrumb-wrap">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span class="breadcrumb-sep">/</span>
+      <a href="/gallery/">Tiling Projects</a>
+      <span class="breadcrumb-sep">/</span>
+      <span aria-current="page">Natural Sandstone Floor</span>
+    </nav>
+  </div>
+</div>
+
 <section class="page-hero page-hero--dark">
   <div class="container">
     <div class="page-hero-text">
-      <h1 data-animate>Natural Sandstone tiles – Bath Townhouse</h1>
+      <h1 data-animate>Natural Sandstone Floor Tiling in Bath</h1>
     </div>
   </div>
 </section>
@@ -38,11 +61,13 @@
   <div class="container">
     <div class="project-layout">
       <div class="project-body">
-        <p data-animate>58m&sup2; of natural sandstone tiles installed across a kitchen, pantry and hallway in a Bath townhouse.</p>
+        <p data-animate>58m&sup2; of natural sandstone tiles installed across a kitchen, pantry and hallway in a Bath townhouse, as part of a <a href="/services/floor-tiling/">floor tiling</a> project.</p>
 
         <p data-animate>The existing floor was very uneven, so a self-levelling compound was applied to create a flat, stable base before tiling. DITRA uncoupling membrane was then installed to help accommodate movement between the substrate and the tiled surface.</p>
 
         <p data-animate>The floor was finished with LTP Mattstone sealer and Mapei Ultracolor Plus grout in shade 110 Manhattan.</p>
+
+        <p data-animate>The same sandstone was carried up the two steps between the rooms, with the tiles continued over both the treads and risers.</p>
 
         <div class="project-photos" data-animate>
           <a class="project-photo" href="/images/gallery/natural-sandstone-floor-bath/photo1.jpg"><img src="/images/gallery/natural-sandstone-floor-bath/photo1.jpg" alt="Mixed size natural sandstone floor tiles laid in a riven stone finish, with windows and a fireplace recess in a Bath room. Natural sandstone floor tiling Bath" loading="lazy"></a>
@@ -50,6 +75,8 @@
           <a class="project-photo" href="/images/gallery/natural-sandstone-floor-bath/photo3.jpg"><img src="/images/gallery/natural-sandstone-floor-bath/photo3.jpg" alt="Natural sandstone floor viewed through a doorway, showing the stone pattern continuing between rooms. Natural sandstone floor tiling Bath" loading="lazy"></a>
           <a class="project-photo" href="/images/gallery/natural-sandstone-floor-bath/photo4.jpg"><img src="/images/gallery/natural-sandstone-floor-bath/photo4.jpg" alt="Natural sandstone floor with a glazed door leading through to a living room, with pipework along the wall during renovation. Natural sandstone floor tiling Bath" loading="lazy"></a>
           <a class="project-photo" href="/images/gallery/natural-sandstone-floor-bath/photo5.jpg"><img src="/images/gallery/natural-sandstone-floor-bath/photo5.jpg" alt="Natural sandstone floor tiles running through glazed double doors towards a living room. Natural sandstone floor tiling Bath" loading="lazy"></a>
+          <a class="project-photo" href="/images/gallery/natural-sandstone-floor-bath/photo6.jpg"><img src="/images/gallery/natural-sandstone-floor-bath/photo6.jpg" alt="Angled view of two natural sandstone tiled steps with tiled risers, leading through a doorway to a carpeted hallway. Natural sandstone step tiling Bath" loading="lazy"></a>
+          <a class="project-photo" href="/images/gallery/natural-sandstone-floor-bath/photo7.jpg"><img src="/images/gallery/natural-sandstone-floor-bath/photo7.jpg" alt="Front view of natural sandstone tiled steps, with the same stone continuing across the floor and up the risers. Natural sandstone step tiling Bath" loading="lazy"></a>
         </div>
       </div>
 
@@ -74,6 +101,18 @@
   </div>
 </section>
 
+<section class="section section-white related-projects-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Similar projects</h2>
+    </div>
+    <div class="project-grid" id="relatedProjects"></div>
+    <div class="project-grid-link">
+      <a class="project-card-link" href="/gallery/">View all projects &rarr;</a>
+    </div>
+  </div>
+</section>
+
 <section class="cta section-warm" data-animate>
   <div class="container">
     <h2>Looking for a floor tiler?</h2>
@@ -92,6 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderHeader('gallery');
   renderFooter();
   initProjectGallery();
+  renderRelatedProjects('natural-sandstone-floor-bath');
   initScrollAnimations();
 });
 </script>
