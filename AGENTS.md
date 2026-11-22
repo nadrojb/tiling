@@ -73,6 +73,40 @@ Copy this template and fill in the details:
 - **All gallery photos should be portrait** from iPhone
 - **Noscript links:** add the new project to the `<noscript>` list in `gallery/index.html` so search engines always see a static link to the project page
 
+## Video structured data (VideoObject)
+
+Pages that embed a video should include a `VideoObject` JSON-LD block. `uploadDate` **must be a full ISO 8601 datetime with a time zone** — a bare date like `2026-10-26` is rejected by Google (invalid datetime / missing time zone).
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Short descriptive title",
+  "description": "What the video shows, including tile size, material and location.",
+  "thumbnailUrl": "https://avonsidetiling.co.uk/images/gallery/<project-name>/video-poster.jpg",
+  "contentUrl": "https://avonsidetiling.co.uk/images/gallery/<project-name>/video.mp4",
+  "uploadDate": "2026-10-26T12:00:00+00:00",
+  "duration": "PT30S"
+}
+</script>
+```
+
+### Rules
+
+- **`uploadDate`:** always include time and a timezone offset, e.g. `2026-10-26T12:00:00+00:00` (use `+01:00` during British Summer Time, `+00:00` otherwise)
+- **Required fields:** `name`, `description`, `thumbnailUrl`, `contentUrl`, `uploadDate`
+- **`duration`:** ISO 8601 duration, e.g. `PT31S` for 31 seconds
+- **`thumbnailUrl` / `contentUrl`:** absolute URLs on `https://avonsidetiling.co.uk`
+
+### Validate before merging
+
+```bash
+node scripts/validate-structured-data.mjs
+```
+
+This checks every JSON-LD block on the site and fails on malformed JSON or invalid/missing-timezone dates. A GitHub Actions workflow runs the same check automatically on every pull request, so a failing check blocks the merge. For video pages, also paste the page URL into Google's [Rich Results Test](https://search.google.com/test/rich-results) before merging.
+
 ## Sitemap
 
 - **New gallery projects** do NOT require sitemap updates (they all live on `/gallery`)
